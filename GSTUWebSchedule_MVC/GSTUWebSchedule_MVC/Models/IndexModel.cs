@@ -16,14 +16,14 @@ namespace GSTUWebSchedule_MVC.Models
         [Key]
         public int id { get; set; }
 
-        public bool Case = false;
+        public bool Case { get; set; }
 
         public IEnumerable<GSTUWebSchedule_MVC.Models.DbTableModel> DbTable;
 
-        /*public string dataLabs;
-        public string dataReports;
-        public string dataDefences;
-        public int dataSubject;
-        public string dataGroup;*/
+        public string dataLabs { get; set; }
+        public string dataReports { get; set; }
+        public string dataDefences { get; set; }
+        public int dataSubject { get; set; }
+        public string dataGroup { get; set; }
     }
 }

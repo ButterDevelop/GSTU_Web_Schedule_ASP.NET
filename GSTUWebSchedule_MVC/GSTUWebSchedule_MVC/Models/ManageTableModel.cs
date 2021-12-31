@@ -32,5 +32,7 @@ namespace GSTUWebSchedule_MVC.Models
 
         [MinLength(1)]
         public string Students { get; set; }
+
+        public IEnumerable<GSTUWebSchedule_MVC.Models.DbTableModel> DbTable;
     }
 }

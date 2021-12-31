@@ -83,11 +83,6 @@ namespace GSTUWebSchedule_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                /*if (model.Password != model.ConfirmPassword)
-                {
-                    return View(model);
-                }*/
-
                 DbUsersModel user = await dbUsers.DbUsers.FirstOrDefaultAsync(u => u.Username == model.Username || u.Email == model.Email);
                 if (user == null)
                 {
@@ -115,7 +110,8 @@ namespace GSTUWebSchedule_MVC.Controllers
                         Name = model.Name,
                         Surname = model.Surname,
                         Middlename = model.Middlename,
-                        Approved = "false"
+                        Approved = "false",
+                        Role = "Creep"
                     });
                     await dbUsers.SaveChangesAsync();
 

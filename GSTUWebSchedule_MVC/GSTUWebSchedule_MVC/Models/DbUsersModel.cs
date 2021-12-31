@@ -44,5 +44,7 @@ namespace GSTUWebSchedule_MVC.Models
         public string Middlename { get; set; }
 
         public string Approved { get; set; }
+
+        public string Role { get; set; }
     }
 }

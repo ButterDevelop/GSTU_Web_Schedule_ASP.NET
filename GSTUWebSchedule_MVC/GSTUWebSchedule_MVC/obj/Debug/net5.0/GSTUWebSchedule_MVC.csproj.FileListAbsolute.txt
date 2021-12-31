@@ -97,12 +97,7 @@ D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj
 D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.TagHelpers.output.cache
 D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorCoreGenerate.cache
 D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
-D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
-D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
-D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorTargetAssemblyInfo.cache
 D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorTargetAssemblyInfo.cs
 D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.Views.pdb
@@ -459,3 +454,4 @@ D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj
 C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Home\Manage.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\web.config

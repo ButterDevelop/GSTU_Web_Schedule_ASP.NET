@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace GSTUWebSchedule_MVC.Controllers
@@ -42,7 +43,7 @@ namespace GSTUWebSchedule_MVC.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SaveChanges(IndexModel model)
+        public async Task<IActionResult> Index(SaveTableModel model)
         {
             DbTableModel outDbModel = null;
             if (CheckIfValid(model, out outDbModel))
@@ -57,9 +58,11 @@ namespace GSTUWebSchedule_MVC.Controllers
             }
             return RedirectPermanent("/Home/Index");
         }
-        public bool CheckIfValid(IndexModel model, out DbTableModel outDbModel)
+        public bool CheckIfValid(SaveTableModel model, out DbTableModel outDbModel)
         {
             outDbModel = null;
+
+            if (model == null) return false;
             if (model.dataSubject < 0 || model.dataSubject >= Subjects.size || string.IsNullOrEmpty(model.dataGroup)) return false;
             outDbModel = dbTable.DbTable.Where(m => m.Username == User.Identity.Name && m.Subject == model.dataSubject && m.Group == model.dataGroup).ToArray()[0];
             if (outDbModel == null) return false;
@@ -93,20 +96,47 @@ namespace GSTUWebSchedule_MVC.Controllers
         }
 
         [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteTable(DeleteTableModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.Confirm1 == 1 && model.Confirm2 == 1)
+                {
+                    var outDbModel = dbTable.DbTable.Where(m => m.Username == User.Identity.Name && m.Subject == model.Subject && m.Group == model.Group).ToArray()[0];
+                    dbTable.DbTable.Remove(outDbModel);
+                    await dbTable.SaveChangesAsync();
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+        [Authorize]
         [HttpGet]
         public IActionResult Manage()
         {
-            return View();
+            var thisUserTable = dbTable.DbTable.Where(m => m.Username == User.Identity.Name);
+            ManageTableModel model = new ManageTableModel() { DbTable = thisUserTable };
+            return View(model);
         }
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Manage(ManageTableModel model)
         {
+            model.DbTable = dbTable.DbTable.Where(m => m.Username == User.Identity.Name);
             if (ModelState.IsValid)
             {
                 string zeroString = "";
                 var splited = model.Students.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                var decodedSplited = splited;
+                for (int i = 0; i < decodedSplited.Length; i++) decodedSplited[i] = Encoding.UTF8.GetString(Convert.FromBase64String(splited[i]));
+                Array.Sort(decodedSplited);
+                for (int i = 0; i < decodedSplited.Length; i++) decodedSplited[i] = Convert.ToBase64String(Encoding.UTF8.GetBytes(decodedSplited[i]));
+                string sortedStudents = "";
+                for (int i = 0; i < decodedSplited.Length - 1; i++) sortedStudents += decodedSplited[i] + " "; sortedStudents += decodedSplited[decodedSplited.Length - 1];
+                model.Students = sortedStudents;
 
                 for (int i = 0; i < splited.Length; i++)
                 {
@@ -143,12 +173,8 @@ namespace GSTUWebSchedule_MVC.Controllers
                     ModelState.AddModelError("", "Такая таблица уже есть!");
                 }
             }
+            else model.Error = "error";
             return View(model);
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

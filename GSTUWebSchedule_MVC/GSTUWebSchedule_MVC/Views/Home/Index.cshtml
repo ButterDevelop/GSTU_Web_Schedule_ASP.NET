@@ -26,6 +26,8 @@
     <link href="~/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="~/css/custom.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="~/js/jquery.min.js"></script>
 
     <script>
         window.addEventListener("pageshow", function (event) {
@@ -44,6 +46,49 @@
             var Reports = Model.DbTable.ToArray()[0].Reports.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             var Defences = Model.DbTable.ToArray()[0].Defences.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             <text>
+            $(document).ready(function () {
+                var modalConfirm2 = function (callback) {
+                    $("#modal-btn-yes2").on("click", function () {
+                        $("#mi-modal2").modal('hide');
+                        callback(true);
+                    });
+                    $("#modal-btn-no2").on("click", function () {
+                        $("#mi-modal2").modal('hide');
+                        callback(false);
+                    });
+                };
+                modalConfirm2(function (confirm) {
+                    if (confirm) {
+                        document.getElementById('Confirm2').value = "1";
+                        document.getElementById('DeleteTableForm').submit();
+                    } else {
+                        document.getElementById('Confirm1').value = "0";
+                        document.getElementById('Confirm2').value = "0";
+                    }
+                });
+
+                var modalConfirm = function (callback) {
+                    $("#btn-confirm").on("click", function () {
+                        $("#mi-modal").modal('show');
+                    });
+                    $("#modal-btn-yes").on("click", function () {
+                        $("#mi-modal").modal('hide');
+                        callback(true);
+                    });
+                    $("#modal-btn-no").on("click", function () {
+                        $("#mi-modal").modal('hide');
+                        callback(false);
+                    });
+                };
+                modalConfirm(function (confirm) {
+                    if (confirm) {
+                        document.getElementById('Confirm1').value = "1";
+                        $("#mi-modal2").modal('show');
+                    } else {
+                        document.getElementById('Confirm1').value = "0";
+                    }
+                });
+            });
             let dataLabs = [@for (int i = 0; i < Labs.Length - 1; i++) { <text>@Html.Raw("\"")@Labs[i]@Html.Raw("\", ")</text> } @{<text>@Html.Raw("\"")@Labs[Labs.Length - 1]@Html.Raw("\"")</text>}];
             let dataReports = [@for (int i = 0; i < Reports.Length - 1; i++) { <text>@Html.Raw("\"")@Reports[i]@Html.Raw("\", ")</text> } @{<text>@Html.Raw("\"")@Reports[Reports.Length - 1]@Html.Raw("\"")</text>}];
             let dataDefences = [@for (int i = 0; i < Defences.Length - 1; i++) { <text>@Html.Raw("\"")@Defences[i]@Html.Raw("\", ")</text> } @{<text>@Html.Raw("\"")@Defences[Defences.Length - 1]@Html.Raw("\"")</text>}];
@@ -58,9 +103,17 @@
                 var index1 = parseInt(words[1].split('_')[0]);
                 var index2 = parseInt(words[1].split('_')[1]);
 
-                dataLabs[index1][index2] = document.getElementById("Lab-" + words[1]).checked ? "1" : "0";
-                dataReports[index1][index2] = document.getElementById("Report-" + words[1]).checked ? "1" : "0";
-                dataDefences[index1][index2] = document.getElementById("Defence-" + words[1]).checked ? "1" : "0";
+                dataLabs[index1] = dataLabs[index1].split('');
+                dataLabs[index1][index2] = document.getElementById("Lab-" + words[1]).checked ? '1' : '0';
+                dataLabs[index1] = dataLabs[index1].join('');
+
+                dataReports[index1] = dataReports[index1].split('');
+                dataReports[index1][index2] = document.getElementById("Report-" + words[1]).checked ? '1' : '0';
+                dataReports[index1] = dataReports[index1].join('');
+
+                dataDefences[index1] = dataDefences[index1].split('');
+                dataDefences[index1][index2] = document.getElementById("Defence-" + words[1]).checked ? '1' : '0';
+                dataDefences[index1] = dataDefences[index1].join('');
 
                 document.getElementById("Sum-" + words[1]).innerHTML = kol;
             }
@@ -68,14 +121,9 @@
             function OnSubmitFunction() {
                 var stringLabs = "", stringReports = "", stringDefences = "";
                 for (let i = 0; i @Html.Raw("<") @Model.DbTable.ToArray()[0].Students.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray().Length; i++) {
-                    //for (let j = 0; j @Html.Raw("<") @Model.DbTable.ToArray()[0].NumberOfLabs; j++) {
-                        /*dataLabs += document.getElementById("Lab-" + i + "_" + j).checked ? "1" : "0";
-                        dataReports += document.getElementById("Report-" + i + "_" + j).checked ? "1" : "0";
-                        dataDefences += document.getElementById("Defence-" + i + "_" + j).checked ? "1" : "0";*/
-                        stringLabs += dataLabs[i];
-                        stringReports += dataReports[i];
-                        stringDefences += dataDefences[i];
-                    //}
+                    stringLabs += dataLabs[i];
+                    stringReports += dataReports[i];
+                    stringDefences += dataDefences[i];
                     stringLabs += " "; stringReports += " "; stringDefences += " ";
                 }
                 document.getElementById("dataLabs").value = stringLabs.substring(0, stringLabs.length - 1);
@@ -86,6 +134,17 @@
             </text>
         }
     </script>
+
+    <style>
+        td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        /* Bootstrap Modal manual bug fix */
+        body {
+            padding-right: 0 !important;
+        }
+    </style>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/css/faall.css">
@@ -137,13 +196,58 @@
                                         <font color="808080">@DateTime.Now</font>.
                                     </h3> <hr>
                                     @if (Model.Case)
-                                    { 
-                                        <form class="form-horizontal form-label-left input_mask" onsubmit="return OnSubmitFunction();" asp-action="SaveChanges" asp-controller="Home" asp-anti-forgery="true" method="post">
-                                            <input type="hidden" id="dataLabs" asp-for="dataLabs" value="">
-                                            <input type="hidden" id="dataReports" asp-for="dataReports" value="">
-                                            <input type="hidden" id="dataDefences" asp-for="dataDefences" value="">
-                                            <input type="hidden" asp-for="dataSubject" value="@Model.DbTable.ToArray()[0].Subject">
-                                            <input type="hidden" asp-for="dataGroup" value="@Model.DbTable.ToArray()[0].Group">
+                                    {
+                                        <!-- First confirmation -->
+                                        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="mi-modal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        <h3 class="modal-title text-center" id="myModalLabel">Confirm</h3>
+                                                    </div>
+                                                    <div class="modal-body text-center">
+                                                        <h4>Are you sure you want to delete this table?</h4>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" id="modal-btn-yes">Yes</button>
+                                                        <button type="button" class="btn btn-primary" id="modal-btn-no">No</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Second confirmation -->
+                                        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="mi-modal2">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        <h3 class="modal-title text-center" id="myModalLabel2">Confirm. Again.</h3>
+                                                    </div>
+                                                    <div class="modal-body text-center">
+                                                        <h4>Are you SURE you want to delete this table?</h4>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" id="modal-btn-yes2">YEEES</button>
+                                                        <button type="button" class="btn btn-primary" id="modal-btn-no2">No</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-danger" id="btn-confirm" type="submit">Delete this table</button>
+                                        <!-- "Delete Table" form -->
+                                        <form class="form-horizontal form-label-left input_mask" id="DeleteTableForm" asp-action="DeleteTable" asp-controller="Home" asp-anti-forgery="true">
+                                            <input type="hidden" name="Subject" value="@Model.DbTable.ToArray()[0].Subject" required="" />
+                                            <input type="hidden" name="Group" value="@Model.DbTable.ToArray()[0].Group" required="" />
+                                            <input type="hidden" name="Confirm1" id="Confirm1" value="0" required="" />
+                                            <input type="hidden" name="Confirm2" id="Confirm2" value="0" required="" />
+                                        </form>
+                                        <!-- "Save Changes" form -->
+                                        <form class="form-horizontal form-label-left input_mask" onsubmit="return OnSubmitFunction();" asp-action="Index" asp-controller="Home" asp-anti-forgery="true" method="post">
+                                            <input type="hidden" id="dataLabs" name="dataLabs" value="">
+                                            <input type="hidden" id="dataReports" name="dataReports" value="">
+                                            <input type="hidden" id="dataDefences" name="dataDefences" value="">
+                                            <input type="hidden" name="dataSubject" value="@Model.DbTable.ToArray()[0].Subject">
+                                            <input type="hidden" name="dataGroup" value="@Model.DbTable.ToArray()[0].Group">
                                             <button class="btn btn-success" type="submit">Save changes</button>
                                         </form>
                                     }
@@ -155,7 +259,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-@Size col-sm-@Size col-xs-@Size">
+                    <div class="col-md-@Size col-sm-12 col-xs-@Size">
                         @if (Model.Case) { <div class="x_panel"><h3><i class="far fa-folder-open ic-w mx-1"></i> @Subjects.constArray[Model.DbTable.ToArray()[0].Subject] &nbsp;<i class="fas fa-angle-right"></i>&nbsp; @Model.DbTable.ToArray()[0].Group </h3></div> }
                         <div class="x_panel">
                             <div class="x_content">
@@ -171,10 +275,12 @@
                                                 <li class="treeview-animated-items">
                                                     <a class="closed">
                                                         <i class="fas fa-angle-right"></i>
-                                                        <span><i class="far fa-folder-open ic-w mx-1"></i> @if (count > 0)
-                                                        { <b>@Subjects.constArray[i]</b> }
+                                                        <span>
+                                                            <i class="far fa-folder-open ic-w mx-1"></i> @if (count > 0)
+                                                            {<b>@Subjects.constArray[i]</b> }
                                                         else
-                                                        {  @Subjects.constArray[i] } </span>
+                                                        { @Subjects.constArray[i]}
+                                                        </span>
                                                     </a>
                                                     @if (count > 0)
                                                     {
@@ -233,7 +339,7 @@
 
                                                                         if (checked1 == "checked") kol++; if (checked2 == "checked") kol++; if (checked3 == "checked") kol++;
                                                                     }
-                                                                    <span style="color: transparent; display: none;" id="Sum-@(i)_@(j)">kol</span>
+                                                                    <span style="color: transparent; display: none;" id="Sum-@(i)_@(j)">@kol</span>
                                                                     <div class="form-check form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" id="@id1" onchange="CheckBoxClicked(this.id)" @checked1 />
                                                                         <label class="form-check-label" for="@id1">Lab</label>
@@ -262,7 +368,7 @@
         </div>
     </div>
     <!-- jQuery -->
-    <script src="~/js/jquery.min.js"></script>
+    <!--<script src="~/js/jquery.min.js"></script>-->
     <!-- Bootstrap -->
     <script src="~/js/bootstrap.min.js"></script>
     <!-- NProgress -->

@@ -1,0 +1,461 @@
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\appsettings.Development.json
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\appsettings.json
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.exe
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.deps.json
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.runtimeconfig.json
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.runtimeconfig.dev.json
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ref\GSTUWebSchedule_MVC.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.Views.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.Views.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\NuGet.Frameworks.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.AttributedModel.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.Convention.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.Hosting.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.Runtime.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.TypedParts.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.csprojAssemblyReference.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.GeneratedMSBuildEditorConfig.editorconfig
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.AssemblyInfoInputs.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.AssemblyInfo.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.csproj.CoreCompileInputs.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.MvcApplicationPartsAssemblyInfo.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorAssemblyInfo.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorAssemblyInfo.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\staticwebassets\GSTUWebSchedule_MVC.StaticWebAssets.Manifest.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\staticwebassets\GSTUWebSchedule_MVC.StaticWebAssets.xml
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\scopedcss\bundle\GSTUWebSchedule_MVC.styles.css
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.TagHelpers.input.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.TagHelpers.output.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorCoreGenerate.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorTargetAssemblyInfo.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorTargetAssemblyInfo.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.Views.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.csproj.CopyComplete
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\ref\GSTUWebSchedule_MVC.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.genruntimeconfig.cache
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\ref\GSTUWebSchedule_MVC.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.pdb
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\appsettings.json
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.exe
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.deps.json
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.runtimeconfig.json
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.runtimeconfig.dev.json
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ref\GSTUWebSchedule_MVC.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.pdb
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.Views.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.Views.pdb
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\EntityFramework.SqlServer.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\EntityFramework.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\NuGet.Frameworks.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.CodeDom.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.AttributedModel.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.Convention.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.Hosting.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.Runtime.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.TypedParts.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.csproj.AssemblyReference.cache
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.AssemblyInfoInputs.cache
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.AssemblyInfo.cs
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.csproj.CoreCompileInputs.cache
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorAssemblyInfo.cache
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorAssemblyInfo.cs
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\staticwebassets\GSTUWebSchedule_MVC.StaticWebAssets.Manifest.cache
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\staticwebassets\GSTUWebSchedule_MVC.StaticWebAssets.xml
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\scopedcss\bundle\GSTUWebSchedule_MVC.styles.css
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.TagHelpers.input.cache
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.TagHelpers.output.cache
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorCoreGenerate.cache
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorTargetAssemblyInfo.cache
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorTargetAssemblyInfo.cs
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.Views.pdb
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.csproj.CopyComplete
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.genruntimeconfig.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\appsettings.Development.json
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\appsettings.json
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.exe
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.deps.json
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.runtimeconfig.json
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.runtimeconfig.dev.json
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\ref\GSTUWebSchedule_MVC.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.Views.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\GSTUWebSchedule_MVC.Views.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\EntityFramework.SqlServer.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\EntityFramework.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\NuGet.Frameworks.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.CodeDom.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.AttributedModel.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.Convention.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.Hosting.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.Runtime.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Composition.TypedParts.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Data.SqlClient.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Runtime.Caching.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.csprojAssemblyReference.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.GeneratedMSBuildEditorConfig.editorconfig
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.AssemblyInfoInputs.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.AssemblyInfo.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.csproj.CoreCompileInputs.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.MvcApplicationPartsAssemblyInfo.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorAssemblyInfo.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorAssemblyInfo.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\staticwebassets\GSTUWebSchedule_MVC.StaticWebAssets.Manifest.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\staticwebassets\GSTUWebSchedule_MVC.StaticWebAssets.xml
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\scopedcss\bundle\GSTUWebSchedule_MVC.styles.css
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.TagHelpers.input.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.TagHelpers.output.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorCoreGenerate.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorTargetAssemblyInfo.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.RazorTargetAssemblyInfo.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.Views.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.csproj.CopyComplete
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\ref\GSTUWebSchedule_MVC.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\GSTUWebSchedule_MVC.genruntimeconfig.cache
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC NEW\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\EntityFramework.SqlServer.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\EntityFramework.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.CodeDom.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Data.SqlClient.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Runtime.Caching.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Home\Manage.cshtml.g.cs
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Home\Manage.cshtml.g.cs

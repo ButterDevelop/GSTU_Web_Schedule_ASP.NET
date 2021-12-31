@@ -13,7 +13,7 @@ namespace GSTUWebSchedule_MVC.Models
 
         public string Username { get; set; }
 
-        [Range(1, Subjects.size - 1)]
+        [Range(0, Subjects.size - 1)]
         public int Subject { get; set; }
 
         [MinLength(4)]

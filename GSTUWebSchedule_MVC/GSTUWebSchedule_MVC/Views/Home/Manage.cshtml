@@ -18,6 +18,95 @@
         var kol = 1;
         var arr = [];
 
+        @if (Model.DbTable.Count() != 0)
+        {
+            <text>
+            var sel1, sel2, options2;
+            function ChooseSelection(selValue) {
+                sel2.innerHTML = '';
+                for (var i = 0; i @Html.Raw("<") options2.length; i++) {
+                    if (options2[i].dataset.option === selValue) {
+                        sel2.appendChild(options2[i]);
+                    }
+                }
+            }
+            function MyInit() {
+                sel1 = document.querySelector('#importSubject');
+                sel2 = document.querySelector('#importGroup');
+                options2 = sel2.querySelectorAll('option');
+                ChooseSelection(sel1.value);
+            }
+            window.addEventListener('load', function () {
+                MyInit();
+            });
+
+            const map = new Map([
+            @for (int i = 0; i < Subjects.size; i++)
+                foreach (var a in Model.DbTable.Where(m => m.Subject == i))
+                {
+                    <text>
+                        ["@(i.ToString() + " " + Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(Html.Raw(a.Group).ToString())))", "@Html.Raw(a.Students)"],
+                    </text>
+                }
+            ]);
+            function b64decode(str) {
+                return decodeURIComponent(atob(str).split('').map(function (c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''))
+            }
+            function ImportButton() {
+                var key = document.getElementById('importSubject').value + " " + window.btoa(unescape(encodeURIComponent(document.getElementById('importGroup').value)));
+                var importedStudents = map.get(key);
+                if (importedStudents != null) {
+                    var splited = importedStudents.split(' ');
+                    for (let i = 0; i @Html.Raw("<") splited.length; i++) {
+                        splited[i] = b64decode(splited[i]);
+                    }
+                    for (let i = 1; i @Html.Raw("<")= kol; i++) {
+                        document.getElementById("div_student_" + i).remove();
+                    }
+                    var objTo = document.getElementById('fullname');
+                    for (let i = 0; i @Html.Raw("<") splited.length; i++) {
+                        var divtest = document.createElement("div");
+                        divtest.id = "div_student_" + (i + 1);
+                        divtest.className = "form-group input-group";
+                        divtest.innerHTML = '<div class="input-group-addon">#' + (i + 1) + '</div><input id="student_' + (i + 1) + '" type="text" onblur="InputOnBlur()" class="form-control" placeholder="Student\'s full name #' + (i + 1) + '" value="' + splited[i] + '" >';
+                        objTo.appendChild(divtest);
+                    }
+                    kol = splited.length;
+                    document.getElementById("CountOfStudents").innerHTML = '<span id="CountOfStudents">You have entered ' + kol + ' students:</span>';
+                }
+            }
+            </text>
+        }
+
+        function InputOnBlur() {
+            arr = [];
+            var regexp = /[а-яё]/i;
+            var myflag = 0;
+            for (let i = 1; i <= kol; i++) {
+                var a = document.getElementById("student_" + i);
+                arr.push(a.value);
+                if (regexp.test(a.value)) {
+                    myflag = 1;
+                }
+                document.getElementById("div_student_" + i).remove();
+            }
+            if (myflag == 1) {
+                let collator = new Intl.Collator("ru", { caseFirst: "upper" });
+                arr.sort(collator.compare);
+            } else arr.sort();
+
+            var objTo = document.getElementById('fullname');
+            for (let i = 0; i < arr.length; i++) {
+                var divtest = document.createElement("div");
+                divtest.id = "div_student_" + (i + 1);
+                divtest.className = "form-group input-group";
+                divtest.innerHTML = '<div class="input-group-addon">#' + (i + 1) + '</div><input id="student_' + (i + 1) + '" type="text" onblur="InputOnBlur()" class="form-control" placeholder="Student\'s full name #' + (i + 1) + '" value="' + arr[i] + '" >';
+                objTo.appendChild(divtest);
+            }
+        }
+
         function DeleteEmptyInputFields() {
             arr = [];
             for (let i = 1; i <= kol; i++) {
@@ -35,7 +124,7 @@
                 var divtest = document.createElement("div");
                 divtest.id = "div_student_" + (i+1);
                 divtest.className = "form-group input-group";
-                divtest.innerHTML = '<div class="input-group-addon">#' + (i+1) + '</div><input id="student_' + (i+1) + '" type="text" class="form-control" placeholder="Student\'s full name #' + (i+1) + '" value="' + arr[i] + '" required="">';
+                divtest.innerHTML = '<div class="input-group-addon">#' + (i+1) + '</div><input id="student_' + (i+1) + '" type="text" onblur="InputOnBlur()" class="form-control" placeholder="Student\'s full name #' + (i+1) + '" value="' + arr[i] + '" >';
                 objTo.appendChild(divtest);
             }
             kol = arr.length;
@@ -44,6 +133,7 @@
 
         function OnSubmitFunction() {
             DeleteEmptyInputFields();
+            InputOnBlur();
 
             var request = "";
             for (let i = 1; i <= kol; i++) {
@@ -53,19 +143,18 @@
             if (request.length == 0) return false;
             document.getElementById("students").value = request;
 
-            console.log(request);
-            console.log(document.getElementById("students").value);
-
             return true;
         }
 
         function AddInputField() {
+            InputOnBlur();
+
             kol++;
             var objTo = document.getElementById('fullname');
             var divtest = document.createElement("div");
             divtest.id = "div_student_" + kol;
             divtest.className = "form-group input-group";
-            divtest.innerHTML = '<div class="input-group-addon">#' + kol + '</div><input id="student_' + kol + '" type="text" class="form-control" placeholder="Student\'s full name #' + kol + '" required="">';
+            divtest.innerHTML = '<div class="input-group-addon">#' + kol + '</div><input id="student_' + kol + '" type="text" onblur="InputOnBlur()" class="form-control" placeholder="Student\'s full name #' + kol + '" >';
 
             document.getElementById("CountOfStudents").innerHTML = '<span id="CountOfStudents">You have entered ' + kol + ' students:</span>';
 
@@ -77,11 +166,9 @@
         #CountOfStudents {
             margin: 10px 0 10px 0;
         }
-
         input {
             margin: 0 !important;
         }
-
         .myborderradius {
             border-radius: 3px !important;
         }
@@ -94,7 +181,7 @@
     <!-- NProgress -->
     <link href="~/css/nprogress.css" rel="stylesheet">
     <!-- Datatables -->
-    <link href="~/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <!--<link href="~/css/dataTables.bootstrap.min.css" rel="stylesheet">-->
     <!-- Custom Theme Style -->
     <link href="~/css/custom.min.css" rel="stylesheet">
 </head>
@@ -150,13 +237,13 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 col-xs-12">
+                    <div class="col-sm-12 col-md-6 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
                                 <h2>Add table</h2>
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="x_content"><!--style="display: block;">-->
+                            <div class="x_content">
                                 <section class="login_content" style="margin: -40px 0 0 0;">
                                     <form class="form-horizontal form-label-left input_mask" onsubmit="return OnSubmitFunction();" asp-action="Manage" asp-controller="Home" asp-anti-forgery="true">
                                         <div class="col-md-12 col-sm-12 col-xs-12 form-group">
@@ -172,47 +259,96 @@
                                                     <div class="alert alert-dark" style="color: #1b1e21; background-color: #d6d8d9; border-color: #c6c8ca; text-align: center;" role="alert">Your data had been added!</div>
                                                 }
                                             }
-                                            <div class="form-group col-md-12">
-                                                <select asp-for="Subject" class="form-control myborderradius">
-                                                    @for (int i = 0; i < Subjects.size; i++) { <option value="@i">@Subjects.constArray[i]</option> }
-                                                </select>
+                                            <div class="row">
+                                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                    <select asp-for="Subject" class="form-control myborderradius">
+                                                        @for (int i = 0; i < Subjects.size; i++)
+                                                        {
+                                                            <option value="@i">@Subjects.constArray[i]</option>
+                                                        }
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="form-group col-md-3">
-                                                <input asp-for="Group" type="text" class="form-control" placeholder="Group" maxlength="15" required="" />
+                                            <div class="row">
+                                                <div class="form-group col-md-3 col-sm-3 col-xs-3">
+                                                    <input asp-for="Group" type="text" class="form-control" placeholder="Group" maxlength="15" required="" />
+                                                </div>
+                                                <div class="form-group col-md-5 col-sm-5 col-xs-5">
+                                                    <input asp-for="Year" type="text" pattern="\d{4}\/\d{4}" class="form-control" placeholder="Year (format: 20XX/20YY)" maxlength="15" required="" />
+                                                </div>
+                                                <div class="form-group col-md-4 col-sm-4 col-xs-4">
+                                                    <select asp-for="Semester" class="form-control myborderradius">
+                                                        <option value="1">1 semester</option>
+                                                        <option value="2">2 semester</option>
+                                                        <option value="3">1-2 semester</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="form-group col-md-5">
-                                                <input asp-for="Year" type="text" pattern="\d{4}\/\d{4}" class="form-control" placeholder="Year (format: 20XX/20YY)" maxlength="15" required="" />
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <select asp-for="Semester" class="form-control myborderradius">
-                                                    <option value="1">1 semester</option>
-                                                    <option value="2">2 semester</option>
-                                                    <option value="3">1-2 semester</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <input asp-for="NumberOfLabs" type="number" min="1" max="540" class="form-control myborderradius" placeholder="Number of labs" required="" />
+                                            <div class="row">
+                                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                    <input asp-for="NumberOfLabs" type="number" min="1" max="540" class="form-control myborderradius" placeholder="Number of labs" required="" />
+                                                </div>
                                             </div>
 
-                                            <br />
-                                            <span id="CountOfStudents" style="font-weight: bold; margin: 10px 0px 10px 0px;">You have entered 1 student:</span>
+                                            @if (Model.DbTable.Count() != 0)
+                                            {
+                                                <div class="row">
+                                                    <span style="font-weight: bold; text-align: center;">Import students from other group</span>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-3 col-sm-3 col-xs-3">
+                                                            <select id="importSubject" onchange="ChooseSelection(this.value)" class="form-control myborderradius">
+                                                                @for (int i = 0; i < Subjects.size; i++) if (Model.DbTable.Count(m => m.Subject == i) != 0)
+                                                                    {
+                                                                        <option value="@i">@Subjects.constArray[i]</option>
+                                                                    }
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-7 col-sm-7 col-xs-7">
+                                                            <select id="importGroup" class="form-control myborderradius">
+                                                                @for (int i = 0; i < Subjects.size; i++)
+                                                                    foreach (var a in Model.DbTable.Where(m => m.Subject == i))
+                                                                    {
+                                                                        <option data-option="@i">@a.Group</option>
+                                                                    }
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-2 col-sm-2 col-xs-2">
+                                                            <button class="btn btn-warning" type="button" onclick="ImportButton()">Import</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
 
-                                            <div id="fullname" class="col-md-12">
-                                                <div id="div_student_1" class="form-group input-group"><div class="input-group-addon">#1</div><input id="student_1" type="text" class="form-control" placeholder="Student's full name #1" required=""></div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12"><span id="CountOfStudents" style="font-weight: bold; text-align: center;/*margin: 10px 0px 10px 0px;*/">You have entered 1 student:</span></div>
+                                            </div>
 
+                                            <div class="row">
+                                                <div id="fullname" class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div id="div_student_1" class="form-group input-group"><div class="input-group-addon">#1</div><input id="student_1" type="text" onblur="InputOnBlur()" class="form-control" placeholder="Student's full name #1"></div>
+
+                                                </div>
                                             </div>
 
                                             <input asp-for="Students" type="hidden" class="form-control" id="students" required="" value="" />
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <button class="btn btn-success" type="submit">Send</button>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <button class="btn btn-default" onclick="AddInputField()" type="button">Add input field</button>
+                                                    <button class="btn btn-default" onclick="DeleteEmptyInputFields()" type="button">Delete empty input fields</button>
+                                                </div>
+                                            </div>
+
+                                            <br />
+                                            <div class="row">
+                                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                    <button class="btn btn-success" type="submit">Send</button>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="clearfix"></div>
                                     </form>
-                                    <div class="col-md-12">
-                                        <button class="btn btn-default" onclick="AddInputField()">Add input field</button>
-                                        <button class="btn btn-default" onclick="DeleteEmptyInputFields()">Delete empty input fields</button>
-                                    </div>
                                 </section>
                             </div>
                         </div>
@@ -229,8 +365,8 @@
     <!-- NProgress -->
     <script src="~/js/nprogress.js"></script>
     <!-- Datatables -->
-    <script src="~/js/jquery.dataTables.min.js"></script>
-    <script src="~/js/dataTables.bootstrap.min.js"></script>
+    <!--<script src="~/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/dataTables.bootstrap.min.js"></script>-->
     <script src="~/js/custom.js"></script>
 </body>
 </html>
