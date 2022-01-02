@@ -14,9 +14,31 @@
     <link href="favicon.ico" rel="icon" type="image/ico">
     <title>@ViewData["Title"]</title>
 
+    <!-- jQuery -->
+    <script src="~/js/jquery.min.js"></script>
     <script>
         var kol = 1;
         var arr = [];
+
+        $(document).ready(function () {
+            $(document).on("click", "i[id*='searchclear']", function (e) {
+                e.preventDefault();
+                var a = $(this).attr('id');
+                $("#student_" + a.split('_')[1]).val('');
+                //InputOnBlur(-1);
+                e.stopPropagation();
+            });
+            $(document).on("focus", "input[id*='student_']", function (e) {
+                var a = $(this).attr('id');
+                document.getElementById("searchclear_" + a.split('_')[1]).style.color = "#ccc";
+                e.stopPropagation();
+            });
+        });
+
+        function ClearButton(id) {
+            var splited = id.split('_');
+            document.getElementById("student_" + splited[1]).value = "";
+        }
 
         @if (Model.DbTable.Count() != 0)
         {
@@ -70,7 +92,7 @@
                         var divtest = document.createElement("div");
                         divtest.id = "div_student_" + (i + 1);
                         divtest.className = "form-group input-group";
-                        divtest.innerHTML = '<div class="input-group-addon">#' + (i + 1) + '</div><input id="student_' + (i + 1) + '" type="text" onblur="InputOnBlur()" class="form-control" placeholder="Student\'s full name #' + (i + 1) + '" value="' + splited[i] + '" >';
+                        divtest.innerHTML = '<div class="input-group-addon">#' + (i + 1) + '</div><input id="student_' + (i + 1) + '" type="text" onblur="InputOnBlur(this.id)" class="form-control" placeholder="Student\'s full name #' + (i + 1) + '" value="' + splited[i] + '" ><div class="input-group-addon"><i id="searchclear_' + (i + 1) + '" class="clearsearch fas fa-times"></i></div>';
                         objTo.appendChild(divtest);
                     }
                     kol = splited.length;
@@ -80,7 +102,9 @@
             </text>
         }
 
-        function InputOnBlur() {
+        function InputOnBlur(inputID) {
+            if (inputID != -1) document.getElementById("searchclear_" + inputID.split('_')[1]).style.color = "#1e947b";
+
             arr = [];
             var regexp = /[а-яё]/i;
             var myflag = 0;
@@ -102,7 +126,7 @@
                 var divtest = document.createElement("div");
                 divtest.id = "div_student_" + (i + 1);
                 divtest.className = "form-group input-group";
-                divtest.innerHTML = '<div class="input-group-addon">#' + (i + 1) + '</div><input id="student_' + (i + 1) + '" type="text" onblur="InputOnBlur()" class="form-control" placeholder="Student\'s full name #' + (i + 1) + '" value="' + arr[i] + '" >';
+                divtest.innerHTML = '<div class="input-group-addon">#' + (i + 1) + '</div><input id="student_' + (i + 1) + '" type="text" onblur="InputOnBlur(this.id)" class="form-control" placeholder="Student\'s full name #' + (i + 1) + '" value="' + arr[i] + '" ><div class="input-group-addon"><i id="searchclear_' + (i + 1) + '" class="clearsearch fas fa-times"></i></div>';
                 objTo.appendChild(divtest);
             }
         }
@@ -123,8 +147,8 @@
             for (let i = 0; i < arr.length; i++) {
                 var divtest = document.createElement("div");
                 divtest.id = "div_student_" + (i+1);
-                divtest.className = "form-group input-group";
-                divtest.innerHTML = '<div class="input-group-addon">#' + (i+1) + '</div><input id="student_' + (i+1) + '" type="text" onblur="InputOnBlur()" class="form-control" placeholder="Student\'s full name #' + (i+1) + '" value="' + arr[i] + '" >';
+                divtest.className = "form-group input-group";3
+                divtest.innerHTML = '<div class="input-group-addon">#' + (i + 1) + '</div><input id="student_' + (i + 1) + '" type="text" onblur="InputOnBlur(this.id)" class="form-control" placeholder="Student\'s full name #' + (i + 1) + '" value="' + arr[i] + '" ><div class="input-group-addon"><i id="searchclear_' + (i + 1) + '" class="clearsearch fas fa-times"></i></div>';
                 objTo.appendChild(divtest);
             }
             kol = arr.length;
@@ -133,7 +157,7 @@
 
         function OnSubmitFunction() {
             DeleteEmptyInputFields();
-            InputOnBlur();
+            InputOnBlur(-1);
 
             var request = "";
             for (let i = 1; i <= kol; i++) {
@@ -147,14 +171,14 @@
         }
 
         function AddInputField() {
-            InputOnBlur();
+            InputOnBlur(-1);
 
             kol++;
             var objTo = document.getElementById('fullname');
             var divtest = document.createElement("div");
             divtest.id = "div_student_" + kol;
             divtest.className = "form-group input-group";
-            divtest.innerHTML = '<div class="input-group-addon">#' + kol + '</div><input id="student_' + kol + '" type="text" onblur="InputOnBlur()" class="form-control" placeholder="Student\'s full name #' + kol + '" >';
+            divtest.innerHTML = '<div class="input-group-addon">#' + kol + '</div><input id="student_' + kol + '" type="text" onblur="InputOnBlur(this.id)" class="form-control" placeholder="Student\'s full name #' + kol + '" ><div class="input-group-addon"><i id="searchclear_' + kol + '" class="clearsearch fas fa-times"></i></div>';
 
             document.getElementById("CountOfStudents").innerHTML = '<span id="CountOfStudents">You have entered ' + kol + ' students:</span>';
 
@@ -172,12 +196,20 @@
         .myborderradius {
             border-radius: 3px !important;
         }
+        .clearsearch {
+            margin: auto;
+            font-size: 14px;
+            cursor: pointer;
+            color: #1e947b;
+        }
     </style>
 
     <!-- Bootstrap -->
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="~/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Font Awesome 2 -->
+    <link rel="stylesheet" href="~/css/faall.css">
     <!-- NProgress -->
     <link href="~/css/nprogress.css" rel="stylesheet">
     <!-- Datatables -->
@@ -327,7 +359,7 @@
 
                                             <div class="row">
                                                 <div id="fullname" class="col-md-12 col-sm-12 col-xs-12">
-                                                    <div id="div_student_1" class="form-group input-group"><div class="input-group-addon">#1</div><input id="student_1" type="text" onblur="InputOnBlur()" class="form-control" placeholder="Student's full name #1"></div>
+                                                    <div id="div_student_1" class="form-group input-group"><div class="input-group-addon">#1</div><input id="student_1" type="text" onblur="InputOnBlur(this.id)" class="form-control" placeholder="Student's full name #1"><div class="input-group-addon"><i id="searchclear_1" class="clearsearch fas fa-times"></i></div></div>
 
                                                 </div>
                                             </div>
@@ -359,7 +391,7 @@
         </div>
     </div>
     <!-- jQuery -->
-    <script src="~/js/jquery.min.js"></script>
+    <!--<script src="~/js/jquery.min.js"></script>-->
     <!-- Bootstrap -->
     <script src="~/js/bootstrap.min.js"></script>
     <!-- NProgress -->

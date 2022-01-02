@@ -26,119 +26,17 @@
     <link href="~/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="~/css/custom.min.css" rel="stylesheet">
-    <!-- jQuery -->
-    <script src="~/js/jquery.min.js"></script>
-
-    <script>
-        window.addEventListener("pageshow", function (event) {
-            var historyTraversal = event.persisted ||
-                (typeof window.performance != "undefined" &&
-                    window.performance.navigation.type === 2);
-            if (historyTraversal) {
-                //Handle page restore.
-                window.location.reload();
-            }
-        });
-
-        @if (Model.Case)
-        {
-            var Labs = Model.DbTable.ToArray()[0].Labs.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            var Reports = Model.DbTable.ToArray()[0].Reports.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            var Defences = Model.DbTable.ToArray()[0].Defences.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            <text>
-            $(document).ready(function () {
-                var modalConfirm2 = function (callback) {
-                    $("#modal-btn-yes2").on("click", function () {
-                        $("#mi-modal2").modal('hide');
-                        callback(true);
-                    });
-                    $("#modal-btn-no2").on("click", function () {
-                        $("#mi-modal2").modal('hide');
-                        callback(false);
-                    });
-                };
-                modalConfirm2(function (confirm) {
-                    if (confirm) {
-                        document.getElementById('Confirm2').value = "1";
-                        document.getElementById('DeleteTableForm').submit();
-                    } else {
-                        document.getElementById('Confirm1').value = "0";
-                        document.getElementById('Confirm2').value = "0";
-                    }
-                });
-
-                var modalConfirm = function (callback) {
-                    $("#btn-confirm").on("click", function () {
-                        $("#mi-modal").modal('show');
-                    });
-                    $("#modal-btn-yes").on("click", function () {
-                        $("#mi-modal").modal('hide');
-                        callback(true);
-                    });
-                    $("#modal-btn-no").on("click", function () {
-                        $("#mi-modal").modal('hide');
-                        callback(false);
-                    });
-                };
-                modalConfirm(function (confirm) {
-                    if (confirm) {
-                        document.getElementById('Confirm1').value = "1";
-                        $("#mi-modal2").modal('show');
-                    } else {
-                        document.getElementById('Confirm1').value = "0";
-                    }
-                });
-            });
-            let dataLabs = [@for (int i = 0; i < Labs.Length - 1; i++) { <text>@Html.Raw("\"")@Labs[i]@Html.Raw("\", ")</text> } @{<text>@Html.Raw("\"")@Labs[Labs.Length - 1]@Html.Raw("\"")</text>}];
-            let dataReports = [@for (int i = 0; i < Reports.Length - 1; i++) { <text>@Html.Raw("\"")@Reports[i]@Html.Raw("\", ")</text> } @{<text>@Html.Raw("\"")@Reports[Reports.Length - 1]@Html.Raw("\"")</text>}];
-            let dataDefences = [@for (int i = 0; i < Defences.Length - 1; i++) { <text>@Html.Raw("\"")@Defences[i]@Html.Raw("\", ")</text> } @{<text>@Html.Raw("\"")@Defences[Defences.Length - 1]@Html.Raw("\"")</text>}];
-            function CheckBoxClicked(id) {
-                const words = id.split('-');
-                var kol = 0;
-
-                if (document.getElementById("Lab-" + words[1]).checked) kol++;
-                if (document.getElementById("Report-" + words[1]).checked) kol++;
-                if (document.getElementById("Defence-" + words[1]).checked) kol++;
-
-                var index1 = parseInt(words[1].split('_')[0]);
-                var index2 = parseInt(words[1].split('_')[1]);
-
-                dataLabs[index1] = dataLabs[index1].split('');
-                dataLabs[index1][index2] = document.getElementById("Lab-" + words[1]).checked ? '1' : '0';
-                dataLabs[index1] = dataLabs[index1].join('');
-
-                dataReports[index1] = dataReports[index1].split('');
-                dataReports[index1][index2] = document.getElementById("Report-" + words[1]).checked ? '1' : '0';
-                dataReports[index1] = dataReports[index1].join('');
-
-                dataDefences[index1] = dataDefences[index1].split('');
-                dataDefences[index1][index2] = document.getElementById("Defence-" + words[1]).checked ? '1' : '0';
-                dataDefences[index1] = dataDefences[index1].join('');
-
-                document.getElementById("Sum-" + words[1]).innerHTML = kol;
-            }
-
-            function OnSubmitFunction() {
-                var stringLabs = "", stringReports = "", stringDefences = "";
-                for (let i = 0; i @Html.Raw("<") @Model.DbTable.ToArray()[0].Students.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray().Length; i++) {
-                    stringLabs += dataLabs[i];
-                    stringReports += dataReports[i];
-                    stringDefences += dataDefences[i];
-                    stringLabs += " "; stringReports += " "; stringDefences += " ";
-                }
-                document.getElementById("dataLabs").value = stringLabs.substring(0, stringLabs.length - 1);
-                document.getElementById("dataReports").value = stringReports.substring(0, stringReports.length - 1);
-                document.getElementById("dataDefences").value = stringDefences.substring(0, stringDefences.length - 1);
-                return true;
-            }
-            </text>
-        }
-    </script>
 
     <style>
-        td {
-            text-align: center;
-            vertical-align: middle;
+        td, th {
+            text-align: center !important;
+            vertical-align: middle !important;
+        }
+        [id^='Sum-'] {
+            display: none;
+        }
+        [id^='attestation_'] {
+            font-weight: bold;
         }
         /* Bootstrap Modal manual bug fix */
         body {
@@ -146,7 +44,7 @@
         }
     </style>
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome 2 -->
     <link rel="stylesheet" href="~/css/faall.css">
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="~/css/mdb.css">
@@ -259,8 +157,9 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-@Size col-sm-12 col-xs-@Size">
-                        @if (Model.Case) { <div class="x_panel"><h3><i class="far fa-folder-open ic-w mx-1"></i> @Subjects.constArray[Model.DbTable.ToArray()[0].Subject] &nbsp;<i class="fas fa-angle-right"></i>&nbsp; @Model.DbTable.ToArray()[0].Group </h3></div> }
+                    <div class="col-sm-12 col-md-@Size col-xs-@Size">
+                        @if (Model.Case)
+                        {<div class="x_panel"><h3><i class="far fa-folder-open ic-w mx-1"></i> @Subjects.constArray[Model.DbTable.ToArray()[0].Subject] &nbsp;<i class="fas fa-angle-right"></i>&nbsp; @Model.DbTable.ToArray()[0].Group </h3></div>}
                         <div class="x_panel">
                             <div class="x_content">
                                 @if (!Model.Case)
@@ -312,11 +211,12 @@
                                     <table class="table table-striped table-bordered" id="datatable">
                                         <thead>
                                             <tr>
-                                                <th style="text-align: center; vertical-align: middle;">№</th>
-                                                <th style="text-align: center; vertical-align: middle;">Full name</th>
+                                                <th>№</th>
+                                                <th>Full name</th>
+                                                <th>Attestation</th>
                                                 @for (int i = 1; i <= MyModel.NumberOfLabs; i++)
                                                 {
-                                                    <th style="text-align: center; vertical-align: middle;">Lab. №@i</th>
+                                                    <th>Lab. №@i</th>
                                                 }
                                             </tr>
                                         </thead>
@@ -326,20 +226,19 @@
                                                     for (int i = 0; i < Students.Length; i++)
                                                     {
                                                         <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><b>@(i+1).</b></td>
-                                                            <td style="text-align: center; vertical-align: middle;"><b>@Students[i]</b></td>
+                                                            <td><b>@(i+1).</b></td>
+                                                            <td><b>@Students[i]</b></td>
+                                                            <td><span id="attestation_@i">@i</span></td>
                                                             @for (int j = 0; j < MyModel.NumberOfLabs; j++)
                                                             {
-                                                                <td>
-                                                                    @{
-                                                                        int kol = 0;
-                                                                        string id1 = "Lab-" + i.ToString() + "_" + j.ToString(), id2 = "Report-" + i.ToString() + "_" + j.ToString(), id3 = "Defence-" + i.ToString() + "_" + j.ToString(),
-                                                                            checked1 = Labs[i][j] == '1' ? "checked" : "", checked2 = Reports[i][j] == '1' ? "checked" : "", checked3 = Defences[i][j] == '1' ? "checked" : "",
-                                                                            Sum = "Sum-" + i.ToString() + "_" + j.ToString();
+                                                                int kol = 0;
+                                                                string id1 = "Lab-" + i.ToString() + "_" + j.ToString(), id2 = "Report-" + i.ToString() + "_" + j.ToString(), id3 = "Defence-" + i.ToString() + "_" + j.ToString(),
+                                                                    checked1 = Labs[i][j] == '1' ? "checked" : "", checked2 = Reports[i][j] == '1' ? "checked" : "", checked3 = Defences[i][j] == '1' ? "checked" : "",
+                                                                    Sum = "Sum-" + i.ToString() + "_" + j.ToString();
 
-                                                                        if (checked1 == "checked") kol++; if (checked2 == "checked") kol++; if (checked3 == "checked") kol++;
-                                                                    }
-                                                                    <span style="color: transparent; display: none;" id="Sum-@(i)_@(j)">@kol</span>
+                                                                if (checked1 == "checked") kol++; if (checked2 == "checked") kol++; if (checked3 == "checked") kol++;
+                                                                <td>
+                                                                    <span id="Sum-@(i)_@(j)">@kol</span>
                                                                     <div class="form-check form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" id="@id1" onchange="CheckBoxClicked(this.id)" @checked1 />
                                                                         <label class="form-check-label" for="@id1">Lab</label>
@@ -368,7 +267,7 @@
         </div>
     </div>
     <!-- jQuery -->
-    <!--<script src="~/js/jquery.min.js"></script>-->
+    <script src="~/js/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="~/js/bootstrap.min.js"></script>
     <!-- NProgress -->
@@ -386,6 +285,143 @@
         $(function () {
             $('.treeview-animated').mdbTreeview();
         });
+    </script>
+
+    <script>
+        window.addEventListener("pageshow", function (event) {
+            var historyTraversal = event.persisted ||
+                (typeof window.performance != "undefined" &&
+                    window.performance.navigation.type === 2);
+            if (historyTraversal) {
+                //Handle page restore.
+                window.location.reload();
+            }
+        });
+
+        @if (Model.Case)
+        {
+            var Labs = Model.DbTable.ToArray()[0].Labs.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            var Reports = Model.DbTable.ToArray()[0].Reports.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            var Defences = Model.DbTable.ToArray()[0].Defences.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            <text>
+                $(document).ready(function () {
+                    //Init Attestation
+                    for (let j = 0; j @Html.Raw("<") @Model.DbTable.ToArray()[0].Students.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray().Length; j++) {
+                        var att = 0;
+                        for (let i = 0; i @Html.Raw("<") @Model.DbTable.ToArray()[0].NumberOfLabs; i++)
+                            if (document.getElementById("Lab-" + j + "_" + i).checked && document.getElementById("Report-" + j + "_" + i).checked && document.getElementById("Defence-" + j + "_" + i).checked) att++;
+
+                        var myfloat = (att * 10 / @Model.DbTable.ToArray()[0].NumberOfLabs).toFixed(3);
+                        var element = document.getElementById("attestation_" + j);
+                        element.innerHTML = myfloat;
+                        if (myfloat == 0) element.style.color = "red"; else
+                        if (myfloat @Html.Raw("<") 4) element.style.color = "darkred"; else
+                        if (myfloat @Html.Raw("<") 6) element.style.color = "orange"; else
+                        if (myfloat @Html.Raw("<") 8) element.style.color = "yellow"; else
+                        if (myfloat @Html.Raw("<") 10) element.style.color = "green"; else element.style.color = "blue";
+                    }
+                    $("#datatable").DataTable().rows().invalidate();
+
+                var modalConfirm2 = function (callback) {
+                    $("#modal-btn-yes2").on("click", function () {
+                        $("#mi-modal2").modal('hide');
+                        callback(true);
+                    });
+                    $("#modal-btn-no2").on("click", function () {
+                        $("#mi-modal2").modal('hide');
+                        callback(false);
+                    });
+                };
+                modalConfirm2(function (confirm) {
+                    if (confirm) {
+                        document.getElementById('Confirm2').value = "1";
+                        document.getElementById('DeleteTableForm').submit();
+                    } else {
+                        document.getElementById('Confirm1').value = "0";
+                        document.getElementById('Confirm2').value = "0";
+                    }
+                });
+
+                var modalConfirm = function (callback) {
+                    $("#btn-confirm").on("click", function () {
+                        $("#mi-modal").modal('show');
+                    });
+                    $("#modal-btn-yes").on("click", function () {
+                        $("#mi-modal").modal('hide');
+                        callback(true);
+                    });
+                    $("#modal-btn-no").on("click", function () {
+                        $("#mi-modal").modal('hide');
+                        callback(false);
+                    });
+                };
+                modalConfirm(function (confirm) {
+                    if (confirm) {
+                        document.getElementById('Confirm1').value = "1";
+                        $("#mi-modal2").modal('show');
+                    } else {
+                        document.getElementById('Confirm1').value = "0";
+                    }
+                });
+            });
+            let dataLabs = [@for (int i = 0; i < Labs.Length - 1; i++) { <text>@Html.Raw("\"")@Labs[i]@Html.Raw("\", ")</text> } @{<text>@Html.Raw("\"")@Labs[Labs.Length - 1]@Html.Raw("\"")</text>}];
+            let dataReports = [@for (int i = 0; i < Reports.Length - 1; i++) { <text>@Html.Raw("\"")@Reports[i]@Html.Raw("\", ")</text> } @{<text>@Html.Raw("\"")@Reports[Reports.Length - 1]@Html.Raw("\"")</text>}];
+            let dataDefences = [@for (int i = 0; i < Defences.Length - 1; i++) { <text>@Html.Raw("\"")@Defences[i]@Html.Raw("\", ")</text> } @{<text>@Html.Raw("\"")@Defences[Defences.Length - 1]@Html.Raw("\"")</text>}];
+            function CheckBoxClicked(id) {
+                const words = id.split('-');
+                var kol = 0;
+
+                if (document.getElementById("Lab-" + words[1]).checked) kol++;
+                if (document.getElementById("Report-" + words[1]).checked) kol++;
+                if (document.getElementById("Defence-" + words[1]).checked) kol++;
+
+                var index1 = parseInt(words[1].split('_')[0]);
+                var index2 = parseInt(words[1].split('_')[1]);
+
+                dataLabs[index1] = dataLabs[index1].split('');
+                dataLabs[index1][index2] = document.getElementById("Lab-" + words[1]).checked ? '1' : '0';
+                dataLabs[index1] = dataLabs[index1].join('');
+
+                dataReports[index1] = dataReports[index1].split('');
+                dataReports[index1][index2] = document.getElementById("Report-" + words[1]).checked ? '1' : '0';
+                dataReports[index1] = dataReports[index1].join('');
+
+                dataDefences[index1] = dataDefences[index1].split('');
+                dataDefences[index1][index2] = document.getElementById("Defence-" + words[1]).checked ? '1' : '0';
+                dataDefences[index1] = dataDefences[index1].join('');
+
+                var att = 0;
+                for (let i = 0; i @Html.Raw("<") @Model.DbTable.ToArray()[0].NumberOfLabs; i++)
+                    if (document.getElementById("Lab-" + index1 + "_" + i).checked && document.getElementById("Report-" + index1 + "_" + i).checked && document.getElementById("Defence-" + index1 + "_" + i).checked) att++;
+
+                var myfloat = (att * 10 / @Model.DbTable.ToArray()[0].NumberOfLabs).toFixed(3);
+                var element = document.getElementById("attestation_" + index1);
+                element.innerHTML = myfloat;
+                if (myfloat == 0) element.style.color = "red"; else
+                if (myfloat @Html.Raw("<") 4) element.style.color = "darkred"; else
+                if (myfloat @Html.Raw("<") 6) element.style.color = "darkorange"; else
+                if (myfloat @Html.Raw("<") 8) element.style.color = "darkgoldenrod"; else
+                if (myfloat @Html.Raw("<") 10) element.style.color = "green"; else element.style.color = "blue";
+
+                document.getElementById("Sum-" + words[1]).innerHTML = kol;
+                $("#datatable").DataTable().rows().invalidate();
+            }
+
+            function OnSubmitFunction() {
+                var stringLabs = "", stringReports = "", stringDefences = "";
+                for (let i = 0; i @Html.Raw("<") @Model.DbTable.ToArray()[0].Students.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray().Length; i++) {
+                    stringLabs += dataLabs[i];
+                    stringReports += dataReports[i];
+                    stringDefences += dataDefences[i];
+                    stringLabs += " "; stringReports += " "; stringDefences += " ";
+                }
+                document.getElementById("dataLabs").value = stringLabs.substring(0, stringLabs.length - 1);
+                document.getElementById("dataReports").value = stringReports.substring(0, stringReports.length - 1);
+                document.getElementById("dataDefences").value = stringDefences.substring(0, stringDefences.length - 1);
+                return true;
+            }
+            </text>
+        }
     </script>
 </body>
 </html>

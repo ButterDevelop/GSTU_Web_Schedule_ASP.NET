@@ -100,7 +100,7 @@ namespace GSTUWebSchedule_MVC.Controllers
                         iterationCount: 100000,
                         numBytesRequested: 256 / 8));
 
-                    // добавляем пользователя в бд
+                    //Adding user to DB
                     dbUsers.DbUsers.Add(new DbUsersModel
                     {
                         Username = model.Username,
@@ -110,6 +110,7 @@ namespace GSTUWebSchedule_MVC.Controllers
                         Name = model.Name,
                         Surname = model.Surname,
                         Middlename = model.Middlename,
+                        RegisterTime = DateTime.Now,
                         Approved = "false",
                         Role = "Creep"
                     });

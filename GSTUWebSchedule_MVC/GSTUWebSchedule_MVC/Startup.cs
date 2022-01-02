@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace GSTUWebSchedule_MVC
 {
@@ -33,6 +34,7 @@ namespace GSTUWebSchedule_MVC
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                     options.LogoutPath = new Microsoft.AspNetCore.Http.PathString("/Account/Logout");
+                    options.ExpireTimeSpan = TimeSpan.FromHours(12);
                 });
         }
 

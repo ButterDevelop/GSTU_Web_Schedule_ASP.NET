@@ -43,6 +43,8 @@ namespace GSTUWebSchedule_MVC.Models
         [MaxLength(15)]
         public string Middlename { get; set; }
 
+        public DateTime RegisterTime { get; set; }
+
         public string Approved { get; set; }
 
         public string Role { get; set; }
