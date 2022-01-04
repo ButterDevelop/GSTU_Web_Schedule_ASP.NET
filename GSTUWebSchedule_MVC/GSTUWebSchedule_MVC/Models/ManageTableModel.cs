@@ -11,7 +11,11 @@ namespace GSTUWebSchedule_MVC.Models
         [Key]
         public int id { get; set; }
 
+        [Range(1, 2)]
+        public int Case { get; set; }
+
         public string Error { get; set; }
+        public string Error2 { get; set; }
 
         [Range(0, Subjects.size - 1)]
         public int Subject { get; set; }

@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Manage";
     Layout = null;
+    //Domine dimitte mihi for this code... But it works, and pretty logic & compactly!
 }
 
 <!DOCTYPE html>
@@ -43,20 +44,20 @@
                 }
                 e.stopPropagation();
             });
-            $(document).on("click", "i[id*='deleteuser2_']", function (e) {
+            $(document).on("click", "i[id*='deletestudent2_']", function (e) {
                 e.preventDefault();
                 var a = $(this).attr('id');
                 if (document.getElementById("student2_" + a.split('_')[1]).disabled) {
                     document.getElementById("div_student2_" + a.split('_')[1]).style.textDecoration = document.getElementById("student2_" + a.split('_')[1]).style.textDecoration = "none";
-                    document.getElementById("deleteuser2_" + a.split('_')[1]).style.color = "#cc0000";
+                    document.getElementById("deletestudent2_" + a.split('_')[1]).style.color = "#cc0000";
                     document.getElementById("student2_" + a.split('_')[1]).disabled = false;
-                    document.getElementById("deleteuser2_" + a.split('_')[1]).className = "deleteuser fa fa-minus-square";
+                    document.getElementById("deletestudent2_" + a.split('_')[1]).className = "deleteuser fa fa-minus-square";
                     document.getElementById("searchclear2_" + a.split('_')[1]).style.color = "#1e947b";
                 } else {
                     document.getElementById("div_student2_" + a.split('_')[1]).style.textDecoration = document.getElementById("student2_" + a.split('_')[1]).style.textDecoration = "line-through";
-                    document.getElementById("deleteuser2_" + a.split('_')[1]).style.color = "#1e947b";
+                    document.getElementById("deletestudent2_" + a.split('_')[1]).style.color = "#1e947b";
                     document.getElementById("student2_" + a.split('_')[1]).disabled = true;
-                    document.getElementById("deleteuser2_" + a.split('_')[1]).className = "deleteuser fa fa-plus-square";
+                    document.getElementById("deletestudent2_" + a.split('_')[1]).className = "deleteuser fa fa-plus-square";
                     document.getElementById("searchclear2_" + a.split('_')[1]).style.color = "#ccc";
                 }
                 e.stopPropagation();
@@ -64,7 +65,7 @@
             $(document).on("focus", "input[id*='student2_']", function (e) {
                 var a = $(this).attr('id');
                 document.getElementById("searchclear2_" + a.split('_')[1]).style.color = "#ccc";
-                document.getElementById("deleteuser2_" + a.split('_')[1]).style.color = "#ccc";
+                if (document.getElementById("deletestudent2_" + a.split('_')[1]) != null) document.getElementById("deletestudent2_" + a.split('_')[1]).style.color = "#ccc";
                 e.stopPropagation();
             });
         });
@@ -142,11 +143,11 @@
                         var divtest = document.createElement("div");
                         divtest.id = "div_student" + variant + "_" + (i + 1);
                         divtest.className = "form-group input-group";
-                        divtest.innerHTML = '<div class="input-group-addon">#' + (i + 1) + '</div><input id="student' + variant + '_' + (i + 1) + '" type="text" onblur="InputOnBlur(this.id, ' + variantnumber + ')" class="form-control" placeholder="Student\'s full name #' + (i + 1) + '" value="' + splited[i] + '" ' + ((variantnumber == 2) ? 'required=""' : "") + '><div class="input-group-addon"><i id="searchclear' + variant + '_' + (i + 1) + '" class="clearsearch fas fa-times"></i></div>' + ((variantnumber == 2) ? '<div class="input-group-addon"><i title="Delete this student from table" id="deleteuser2_' + (i + 1) + '" class="deleteuser fa fa-minus-square"></i></div>' : "");
+                        divtest.innerHTML = '<div class="input-group-addon">#' + (i + 1) + '</div><input id="student' + variant + '_' + (i + 1) + '" type="text" onblur="InputOnBlur(this.id, ' + variantnumber + ')" class="form-control" placeholder="Student\'s full name #' + (i + 1) + '" value="' + splited[i] + '" ' + ((variantnumber == 2) ? 'required=""' : "") + '><div class="input-group-addon"><i id="searchclear' + variant + '_' + (i + 1) + '" class="clearsearch fas fa-times"></i></div>' + ((variantnumber == 2) ? '<div class="input-group-addon"><i title="Delete this student from table" id="deletestudent2_' + (i + 1) + '" class="deleteuser fa fa-minus-square"></i></div>' : "");
                         objTo.appendChild(divtest);
                     }
                     kol[variantnumber] = splited.length;
-                    document.getElementById("CountOfStudents" + variant).innerHTML = '<span id="CountOfStudents' + variant + '">You have entered ' + kol[variantnumber] + ' students:</span>';
+                    document.getElementById("CountOfStudents" + variant).innerHTML = '<span id="CountOfStudents' + variant + '">You have entered ' + kol[variantnumber] + ' student' + ((kol[variantnumber] == 1) ? "" : "s") + ':</span>';
                 }
             }
             </text>
@@ -160,9 +161,9 @@
                 document.getElementById("searchclear" + variant + "_" + inputID.split('_')[1]).style.color = "#1e947b";
                 if (variantnumber == 2 && document.getElementById("deletestudent2_" + inputID.split('_')[1]) != null) {
                     if (document.getElementById("student2_" + inputID.split('_')[1]).disabled) {
-                        document.getElementById("deleteuser2_" + inputID.split('_')[1]).style.color = "#1e947b";
+                        document.getElementById("deletestudent2_" + inputID.split('_')[1]).style.color = "#1e947b";
                     } else {
-                        document.getElementById("deleteuser2_" + inputID.split('_')[1]).style.color = "#cc0000";
+                        document.getElementById("deletestudent2_" + inputID.split('_')[1]).style.color = "#cc0000";
                     }
                 }
             }
@@ -172,32 +173,29 @@
             var myflag = 0;
             for (let i = 1; i <= kol[variantnumber]; i++) {
                 var a = document.getElementById("student" + variant + "_" + i);
-                arr.push([a.value, (variantnumber == 2) ? ((document.getElementById("deletestudent2_" + i) == null) ? 1 : 0) : -1]);
+                arr.push([a.value, (variantnumber == 2) ? ((document.getElementById("deletestudent2_" + i) == null) ? 0 : 1) : -1, (variantnumber == 2) ? ((document.getElementById("deletestudent2_" + i) == null) ? 0 : (document.getElementById("student2_" + i).disabled ? 1 : 0)) : -1]);
                 if (regexp.test(a.value)) {
                     myflag = 1;
                 }
                 document.getElementById("div_student" + variant + "_" + i).remove();
             }
 
-            console.log(arr);
-
             if (myflag == 1) {
                 let collator = new Intl.Collator("ru", { caseFirst: "upper" });
-                /*arr.sort(function compare(kr1, kr2) {
+                arr.sort(function compare(kr1, kr2) {
                     return collator.compare(kr1[0], kr2[0]);
-                });*/
-                arr.sort(collator.compare);
-            } else arr.sort(); //arr.sort(function compare(kr1, kr2) { return kr1[0] - kr2[0] });
-
-            console.log(arr);
+                });
+                //arr.sort(collator.compare);
+            } else arr.sort(function compare(kr1, kr2) { return kr1[0] - kr2[0] }); //arr.sort();
 
             var objTo = document.getElementById('fullname' + variant);
             for (let i = 0; i < arr.length; i++) {
                 var divtest = document.createElement("div");
                 divtest.id = "div_student" + variant + "_" + (i + 1);
                 divtest.className = "form-group input-group";
-                divtest.innerHTML = '<div class="input-group-addon">#' + (i + 1) + '</div><input id="student' + variant + '_' + (i + 1) + '" type="text" onblur="InputOnBlur(this.id, ' + variantnumber + ')" class="form-control" placeholder="Student\'s full name #' + (i + 1) + '" value="' + arr[i][0] + '" ' + ((variantnumber == 2) ? 'required=""' : "") + '><div class="input-group-addon"><i id="searchclear' + variant + '_' + (i + 1) + '" class="clearsearch fas fa-times"></i></div>' + ((variantnumber == 2 && arr[i][0] == 1) ? '<div class="input-group-addon"><i title="Delete this student from table" id="deleteuser2_' + (i + 1) + '" class="deleteuser fa fa-minus-square"></i></div>' : "");
+                divtest.innerHTML = '<div class="input-group-addon">#' + (i + 1) + '</div><input id="student' + variant + '_' + (i + 1) + '" type="text" onblur="InputOnBlur(this.id, ' + variantnumber + ')" class="form-control" placeholder="Student\'s full name #' + (i + 1) + '" value="' + arr[i][0] + '" ' + ((variantnumber == 2) ? 'required=""' : "") + '><div class="input-group-addon"><i id="searchclear' + variant + '_' + (i + 1) + '" class="clearsearch fas fa-times"></i></div>' + ((variantnumber == 2 && arr[i][1] == 1) ? '<div class="input-group-addon"><i title="Delete this student from table" id="deletestudent2_' + (i + 1) + '" class="deleteuser fa fa-minus-square"></i></div>' : "");
                 objTo.appendChild(divtest);
+                if (arr[i][2] == 1) document.getElementById('deletestudent2_' + (i + 1)).click();
             }
         }
 
@@ -208,25 +206,25 @@
             arr = [];
             for (let i = 1; i <= kol[variantnumber]; i++) {
                 var a = document.getElementById("student" + variant + "_" + i);
-                if (variantnumber == 2 && document.getElementById("deletestudent2_" + i) != null) continue;
-                if (a.value.length > 0) {
-                    arr.push(a.value);
+                if (a.value.length > 0 || (document.getElementById("deletestudent" + variant + "_" + i) != null)) {
+                    arr.push([a.value, (variantnumber == 2) ? ((document.getElementById("deletestudent" + variant + "_" + i) == null) ? 0 : 1) : -1, (variantnumber == 2) ? ((document.getElementById("deletestudent" + variant + "_" + i) == null) ? -2 : (document.getElementById("student2_" + i).disabled ? 1 : 0)) : -1]);
                 }
                 document.getElementById("div_student" + variant + "_" + i).remove();
             }
 
-            if (arr.length == 0) arr.push("");
+            if (arr.length == 0) arr.push(["", 0, 0]);
 
             var objTo = document.getElementById('fullname' + variant);
             for (let i = 0; i < arr.length; i++) {
                 var divtest = document.createElement("div");
                 divtest.id = "div_student" + variant + "_" + (i+1);
                 divtest.className = "form-group input-group";
-                divtest.innerHTML = '<div class="input-group-addon">#' + (i + 1) + '</div><input id="student' + variant + '_' + (i + 1) + '" type="text" onblur="InputOnBlur(this.id, ' + variantnumber + ')" class="form-control" placeholder="Student\'s full name #' + (i + 1) + '" value="' + arr[i] + '" ' + ((variantnumber == 2) ? 'required=""' : "") + '><div class="input-group-addon"><i id="searchclear' + variant + '_' + (i + 1) + '" class="clearsearch fas fa-times"></i></div>';
+                divtest.innerHTML = '<div class="input-group-addon">#' + (i + 1) + '</div><input id="student' + variant + '_' + (i + 1) + '" type="text" onblur="InputOnBlur(this.id, ' + variantnumber + ')" class="form-control" placeholder="Student\'s full name #' + (i + 1) + '" value="' + arr[i][0] + '" ' + ((variantnumber == 2) ? 'required=""' : "") + '><div class="input-group-addon"><i id="searchclear' + variant + '_' + (i + 1) + '" class="clearsearch fas fa-times"></i></div>' + ((variantnumber == 2 && arr[i][1] == 1) ? '<div class="input-group-addon"><i title="Delete this student from table" id="deletestudent2_' + (i + 1) + '" class="deleteuser fa fa-minus-square"></i></div>' : "");
                 objTo.appendChild(divtest);
+                if (arr[i][2] == 1) document.getElementById('deletestudent2_' + (i + 1)).click();
             }
             kol[variantnumber] = arr.length;
-            document.getElementById("CountOfStudents" + variant).innerHTML = '<span id="CountOfStudents' + variant + '">You have entered ' + arr.length + ' students:</span>';
+            document.getElementById("CountOfStudents" + variant).innerHTML = '<span id="CountOfStudents' + variant + '">You have entered ' + arr.length + ' student' + ((kol[variantnumber] == 1) ? "" : "s") + ':</span>';
         }
 
         function OnSubmitFunction(variantnumber = 0) {
@@ -236,12 +234,21 @@
             DeleteEmptyInputFields(variantnumber);
             InputOnBlur(-1, variantnumber);
 
+            if (variantnumber == 2) {
+                var key = document.getElementById('importSubject' + variant).value + " " + window.btoa(unescape(encodeURIComponent(document.getElementById('importGroup' + variant).value)));
+                var importedStudents = map.get(key);
+                if (importedStudents != null) {
+                    var splited = importedStudents.split(' ');
+                    if (kol[variantnumber] < splited.length) return false;
+                }
+            }
+
             var request = "";
             for (let i = 1; i <= kol[variantnumber]; i++) {
                 var a = document.getElementById("student" + variant + "_" + i);
                 if (variantnumber == 2) {
-                    if (a.disabled) request += window.btoa(unescape(encodeURIComponent("-1"))) + " "; else 
-                        if (a.value.length > 0) request += window.btoa(unescape(encodeURIComponent(a.value))) + " ";
+                    if (a.disabled) request += "0_-1 "; else
+                        if (document.getElementById("deletestudent2_" + i) == null) request += "1_" + window.btoa(unescape(encodeURIComponent(a.value))) + " "; else request += "0_" + window.btoa(unescape(encodeURIComponent(a.value))) + " ";
                 } else
                     if (a.value.length > 0) request += window.btoa(unescape(encodeURIComponent(a.value))) + " ";
             }
@@ -264,9 +271,11 @@
             divtest.className = "form-group input-group";
             divtest.innerHTML = '<div class="input-group-addon">#' + kol[variantnumber] + '</div><input id="student' + variant + '_' + kol[variantnumber] + '" type="text" onblur="InputOnBlur(this.id, ' + variantnumber + ')" class="form-control" placeholder="Student\'s full name #' + kol[variantnumber] + '" ' + ((variantnumber == 2) ? 'required=""' : "") + '><div class="input-group-addon"><i id="searchclear' + variant + '_' + kol[variantnumber] + '" class="clearsearch fas fa-times"></i></div>';
 
-            document.getElementById("CountOfStudents" + variant).innerHTML = '<span id="CountOfStudents' + variant + '">You have entered ' + kol[variantnumber] + ' students:</span>';
+            document.getElementById("CountOfStudents" + variant).innerHTML = '<span id="CountOfStudents' + variant + '">You have entered ' + kol[variantnumber] + ' student' + ((kol[variantnumber] == 1) ? "" : "s") + ':</span>';
 
             objTo.appendChild(divtest);
+
+            InputOnBlur(-1, variantnumber);
         }
     </script>
 
@@ -452,6 +461,7 @@
                                                 </div>
                                             </div>
 
+                                            <input asp-for="Case" type="hidden" value="1" />
                                             <input asp-for="Students" type="hidden" class="form-control" id="students" required="" value="" />
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -479,18 +489,23 @@
                         <div class="col-sm-12 col-md-6 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Edit table</h2>
+                                    <h2>Edit table and students</h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
                                     <section class="login_content" style="margin: -40px 0 0 0;">
-                                        <form class="form-horizontal form-label-left input_mask" onsubmit="return OnSubmitFunction(2);" asp-action="Edit" asp-controller="Home" asp-anti-forgery="true">
+                                        <form class="form-horizontal form-label-left input_mask" onsubmit="return OnSubmitFunction(2);" asp-action="Manage" asp-controller="Home" asp-anti-forgery="true">
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                                                 @if (Model != null)
                                                 {
-                                                    if (Model.Error == "ok")
+                                                    if (Model.Error2 == "ok")
                                                     {
                                                         <div class="alert alert-dark" style="color: #1b1e21; background-color: #d6d8d9; border-color: #c6c8ca; text-align: center;" role="alert">Your data had been added!</div>
+                                                    }
+                                                    else
+                                                    if (Model.Error2 == "error")
+                                                    {
+                                                        <div class="alert alert-danger" style="color: #721c24; border-color: #f5c6cb; background-color: #f8d7da; text-align: center;">Something went wrong! Maybe server error?</div>
                                                     }
                                                 }
 
@@ -500,7 +515,7 @@
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-3 col-sm-3 col-xs-3">
-                                                            <select id="importSubject2" onchange="ChooseSelection2(this.value)" class="form-control myborderradius">
+                                                            <select asp-for="Subject" id="importSubject2" onchange="ChooseSelection2(this.value)" class="form-control myborderradius">
                                                                 @for (int i = 0; i < Subjects.size; i++) if (Model.DbTable.Count(m => m.Subject == i) != 0)
                                                                     {
                                                                         <option value="@i">@Subjects.constArray[i]</option>
@@ -508,11 +523,11 @@
                                                             </select>
                                                         </div>
                                                         <div class="col-md-7 col-sm-7 col-xs-7">
-                                                            <select id="importGroup2" class="form-control myborderradius">
+                                                            <select asp-for="Group" id="importGroup2" class="form-control myborderradius">
                                                                 @for (int i = 0; i < Subjects.size; i++)
                                                                     foreach (var a in Model.DbTable.Where(m => m.Subject == i))
                                                                     {
-                                                                        <option data-option="@i">@a.Group</option>
+                                                                        <option data-option="@i" value="@a.Group">@a.Group</option>
                                                                     }
                                                             </select>
                                                         </div>
@@ -533,6 +548,7 @@
                                                     </div>
                                                 </div>
 
+                                                <input asp-for="Case" type="hidden" value="2" />
                                                 <input asp-for="Students" type="hidden" class="form-control" id="students2" required="" value="" />
                                                 <div class="row">
                                                     <div class="col-md-12 col-sm-12 col-xs-12">

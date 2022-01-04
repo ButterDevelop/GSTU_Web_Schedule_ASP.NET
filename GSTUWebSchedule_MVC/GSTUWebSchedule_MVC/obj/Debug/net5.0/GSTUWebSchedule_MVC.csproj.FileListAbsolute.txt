@@ -455,3 +455,4 @@ C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule
 C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\maximaa.GSTU-DOMAIN\source\repos\GSTU Web Panel ASP.NET\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Home\Manage.cshtml.g.cs
 D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\web.config
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Home\Manage_OLD.cshtml.g.cs
