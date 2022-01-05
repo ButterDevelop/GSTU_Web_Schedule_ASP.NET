@@ -27,6 +27,7 @@ namespace GSTUWebSchedule_MVC
             //Adding MobileContext like a service in app
             services.AddDbContext<DbTableContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<DbUsersContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UsersDbConnection")));
+            services.AddDbContext<LastVisitsContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LastVisitsConnection")));
 
             // установка конфигурации подключения
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

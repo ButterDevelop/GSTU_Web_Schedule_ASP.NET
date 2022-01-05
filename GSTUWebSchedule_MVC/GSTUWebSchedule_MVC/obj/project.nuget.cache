@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MbtD5F88sBiXNiOY18dq4XJPpCghF8xR3PDU7FQF60vO0ORZIXGAJS5DNS5jZ3R0SaGTm3Shk/2kBjtWulhR3w==",
+  "dgSpecHash": "Zml2bHFZvFMaznEjOifPIrtY6+YVKfV6VYUlLj9oNR/6jnFZn6/b9K2BQGdrX/6pZPz+9Q5h+rTw5Uc5nD7VeQ==",
   "success": true,
   "projectFilePath": "D:\\MaXiMAA\\MaXiMAAOld\\C#Готово\\GSTUWebSchedule_MVC\\GSTUWebSchedule_MVC\\GSTUWebSchedule_MVC.csproj",
   "expectedPackageFiles": [
@@ -164,7 +164,8 @@
     "C:\\Users\\Администратор\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Администратор\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Администратор\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Администратор\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\Администратор\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\uaparser\\3.1.47\\uaparser.3.1.47.nupkg.sha512"
   ],
   "logs": []
 }
