@@ -27,6 +27,7 @@ namespace GSTUWebSchedule_MVC.Models
         public string NewPasswordConfirm { get; set; }
 
         public string Error { get; set; }
+        public string ErrorLogs { get; set; }
 
         public IEnumerable<GSTUWebSchedule_MVC.Models.LastVisitsModel> LastVisitsTable;
     }

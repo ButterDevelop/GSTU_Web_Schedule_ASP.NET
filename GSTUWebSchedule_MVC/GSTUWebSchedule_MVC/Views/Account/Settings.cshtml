@@ -26,7 +26,7 @@
     <script>
         $(document).ready(function () {
             $('.datepick').datetimepicker({
-                format: 'L',
+                format: "DD.MM.YYYY",
                 ignoreReadonly: true
             });
             $("#ConfirmPassword").keyup(validate);
@@ -52,10 +52,12 @@
             width: 30px;
             height: 30px;
         }
-
         td, th {
             vertical-align: middle !important;
             text-align: center !important;
+        }
+        input[name^='Date'] {
+            margin: 0 !important;
         }
     </style>
 
@@ -188,29 +190,27 @@
                                         <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                                             @if (Model != null)
                                             {
-                                                if (Model.Error == "error")
+                                                if (Model.ErrorLogs == "error")
                                                 {
-                                                    <div class="alert alert-danger" style="color: #721c24; border-color: #f5c6cb; background-color: #f8d7da; text-align: center;">Something went wrong! Maybe your "Old Password" is wrong?</div>
-                                                }
-                                                else
-                                                if (Model.Error == "ok")
-                                                {
-                                                    <div class="alert alert-dark" style="color: #1b1e21; background-color: #d6d8d9; border-color: #c6c8ca; text-align: center;" role="alert">Your password has been changed!</div>
+                                                    <div class="alert alert-danger" style="color: #721c24; border-color: #f5c6cb; background-color: #f8d7da; text-align: center;">No logs found on your date!</div>
                                                 }
                                             }
-                                            <div class="row">
-                                                <div class="form-group required">
-                                                    <div class="input-group datepick col-md-6 col-sm-6 col-xs-6">
-                                                        <input type="text" class="form-control" name="Date" id="frmSaveOffice_startdt" required="" readonly>
-                                                        <div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
 
                                             <div class="row">
-                                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <button class="btn btn-success" type="submit">Download logs</button>
+                                                <div class="col-md-3 col-sm-3 col-xs-3"></div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group input-group required datepick">
+                                                        <input type="text" class="form-control" name="Date" required="" readonly>
+                                                        <div class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>
+                                                    </div>
                                                 </div>
+                                                <div class="col-md-3 col-sm-3 col-xs-3"></div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <button class="btn btn-success" type="submit">Download logs</button>
                                             </div>
                                         </div>
                                         <div class="clearfix"></div>

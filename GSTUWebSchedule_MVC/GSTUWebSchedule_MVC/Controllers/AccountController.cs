@@ -3,17 +3,18 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Web;
 using UAParser;
 
 namespace GSTUWebSchedule_MVC.Controllers
@@ -22,10 +23,28 @@ namespace GSTUWebSchedule_MVC.Controllers
     {
         private DbUsersContext dbUsers;
         private LastVisitsContext lastVisits;
-        public AccountController(DbUsersContext context, LastVisitsContext context2)
+        private IWebHostEnvironment webHostEnvironment;
+
+        public AccountController(DbUsersContext context, LastVisitsContext context2, IWebHostEnvironment _webHostEnvironment)
         {
             dbUsers = context;
             lastVisits = context2;
+            webHostEnvironment = _webHostEnvironment;
+        }
+
+        public void Log(string x, string UserName = null)
+        {
+            var logPath = Path.Combine(webHostEnvironment.ContentRootPath, "Logs");
+            if (!Directory.Exists(logPath)) Directory.CreateDirectory(logPath);
+            if (UserName == null) UserName = User.Identity.Name;
+            var thisUserDirectory = Path.Combine(logPath, UserName);
+            if (!Directory.Exists(thisUserDirectory)) Directory.CreateDirectory(thisUserDirectory);
+
+            try
+            {
+                System.IO.File.AppendAllText(Path.Combine(thisUserDirectory, DateTime.Now.ToString("dd.MM.yyyy") + ".log"),
+                    "[" + DateTime.Now + "] " + x + Environment.NewLine);
+            } catch { }
         }
 
         public static Regex MobileCheck = new Regex(@"(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino", RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.Compiled);
@@ -85,7 +104,7 @@ namespace GSTUWebSchedule_MVC.Controllers
                     if (visits.Count(m => m.Username == model.Username) >= 10)
                     {
                         var min = visits.Min(m => m.Date);
-                        lastVisits.DbTable.Remove(visits.Where(m => m.Date == min).ToArray()[0]);
+                        for (int i = 0; i < visits.Count(m => m.Username == model.Username) - 9; i++) lastVisits.DbTable.Remove(visits.Where(m => m.Date == min).ToArray()[i]);
                     }
 
                     var userAgent = HttpContext.Request.Headers["User-Agent"];
@@ -96,12 +115,39 @@ namespace GSTUWebSchedule_MVC.Controllers
 
                     await lastVisits.SaveChangesAsync();
 
+                    Log("Login was initiated! " + $"Username: {currentvisit.Username}, Date: {currentvisit.Date}, FullUserAgent: {currentvisit.FullUserAgent}, OS: {currentvisit.OS}, Browser: {currentvisit.Browser}, IP: {currentvisit.IP}, isMobile: {currentvisit.isMobile}", currentvisit.Username);
+
+                    CheckLogs(currentvisit.Username);
+
                     return RedirectToAction("Index", "Home");
                 }
 
                 ModelState.AddModelError("", "Некорректные логин или пароль!");
             }
             return View(model);
+        }
+
+        public void CheckLogs(string UserName)
+        {
+            var logPath = Path.Combine(webHostEnvironment.ContentRootPath, "Logs");
+            if (!Directory.Exists(logPath))
+            {
+                Directory.CreateDirectory(logPath);
+                return;
+            }
+            var thisUserDirectory = Path.Combine(logPath, UserName);
+            if (!Directory.Exists(thisUserDirectory))
+            {
+                Directory.CreateDirectory(thisUserDirectory);
+                return;
+            }
+
+            var files = Directory.GetFiles(thisUserDirectory);
+            if (files.Length > 14)
+            {
+                files = files.OrderBy(m => System.IO.File.GetCreationTime(m)).ToArray();
+                for (int i = 0; i < files.Length - 14; i++) System.IO.File.Delete(files[i]);
+            }
         }
 
         [HttpGet]
@@ -133,7 +179,7 @@ namespace GSTUWebSchedule_MVC.Controllers
                         numBytesRequested: 256 / 8));
 
                     //Adding user to DB
-                    dbUsers.DbUsers.Add(new DbUsersModel
+                    var registeruser = new DbUsersModel
                     {
                         Username = model.Username,
                         Password = hashed,
@@ -145,8 +191,23 @@ namespace GSTUWebSchedule_MVC.Controllers
                         RegisterTime = DateTime.Now,
                         Approved = "false",
                         Role = "Creep"
-                    });
+                    };
+                    dbUsers.DbUsers.Add(registeruser);
                     await dbUsers.SaveChangesAsync();
+                    
+                    Log("Your account has been registered! " + $"Username: {registeruser.Username}, RegisterTime: {registeruser.RegisterTime}", registeruser.Username);
+
+                    var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                    var result = await UserManager.CreateAsync(user, model.Password);
+                    if (result.Succeeded)
+                    {
+                        // если создание прошло успешно, то добавляем роль пользователя
+                        await UserManager.AddToRoleAsync(user.Id, "user");
+                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                        return RedirectToAction("Index", "Home");
+                    }
+                    AddErrors(result);
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -171,6 +232,7 @@ namespace GSTUWebSchedule_MVC.Controllers
 
         public async Task<IActionResult> Logout()
         {
+            Log("Logout was initiated! " + $"CurrentTime: {DateTime.Now}");
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return Redirect("/Account/Login/?logout=1");
         }
@@ -180,6 +242,7 @@ namespace GSTUWebSchedule_MVC.Controllers
         public IActionResult Settings()
         {
             SettingsModel model = new SettingsModel();
+            if (TempData["ErrorLogs"] != null) { model.ErrorLogs = TempData["ErrorLogs"].ToString(); TempData["ErrorLogs"] = null; }
             model.LastVisitsTable = lastVisits.DbTable.Where(m => m.Username == User.Identity.Name);
             return View(model);
         }
@@ -238,11 +301,41 @@ namespace GSTUWebSchedule_MVC.Controllers
                 dbUsers.Update(user);
                 await dbUsers.SaveChangesAsync();
 
+                Log("Your password has been changed! " + $"CurrentTime: {DateTime.Now}");
+
                 model.Error = "ok";
                 return View(model);
             }
             model.Error = "error";
             return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult GetLog(DateTime Date)
+        {
+            var logPath = Path.Combine(webHostEnvironment.ContentRootPath, "Logs");
+            if (!Directory.Exists(logPath))
+            {
+                Directory.CreateDirectory(logPath);
+                TempData["ErrorLogs"] = "error";
+                return RedirectToAction("Settings", "Account");
+            }
+            var thisUserDirectory = Path.Combine(logPath, User.Identity.Name);
+            if (!Directory.Exists(thisUserDirectory))
+            {
+                Directory.CreateDirectory(thisUserDirectory);
+                TempData["ErrorLogs"] = "error";
+                return RedirectToAction("Settings", "Account");
+            }
+            if (!System.IO.File.Exists(Path.Combine(thisUserDirectory, Date.ToString("dd.MM.yyyy") + ".log")))
+            {
+                TempData["ErrorLogs"] = "error";
+                return RedirectToAction("Settings", "Account");
+            }
+
+            Log("Get Log was initiated! " + $"CurrentTime: {DateTime.Now}");
+            return PhysicalFile(Path.Combine(thisUserDirectory, Date.ToString("dd.MM.yyyy") + ".log"), "text/plain", User.Identity.Name + "_" + Date.ToString("dd.MM.yyyy") + ".log");
         }
     }
 }

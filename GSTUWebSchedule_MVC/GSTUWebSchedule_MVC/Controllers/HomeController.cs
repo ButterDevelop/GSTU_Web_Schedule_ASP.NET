@@ -1,11 +1,13 @@
 ﻿using GSTUWebSchedule_MVC.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +17,27 @@ namespace GSTUWebSchedule_MVC.Controllers
     public class HomeController : Controller
     {
         private DbTableContext dbTable;
-        private readonly ILogger<HomeController> _logger;
+        private IWebHostEnvironment webHostEnvironment;
 
-        public HomeController(DbTableContext context)
+        public HomeController(DbTableContext context, IWebHostEnvironment _webHostEnvironment)
         {
             dbTable = context;
+            webHostEnvironment = _webHostEnvironment;
+        }
+
+        public void Log(string x)
+        {
+            var logPath = Path.Combine(webHostEnvironment.ContentRootPath, "Logs");
+            if (!Directory.Exists(logPath)) Directory.CreateDirectory(logPath);
+            var thisUserDirectory = Path.Combine(logPath, User.Identity.Name);
+            if (!Directory.Exists(thisUserDirectory)) Directory.CreateDirectory(thisUserDirectory);
+
+            try
+            {
+                System.IO.File.AppendAllText(Path.Combine(thisUserDirectory, DateTime.Now.ToString("dd.MM.yyyy") + ".log"),
+                    "[" + DateTime.Now + "] " + x + Environment.NewLine);
+            }
+            catch { }
         }
 
         [Authorize]
@@ -48,11 +66,59 @@ namespace GSTUWebSchedule_MVC.Controllers
             DbTableModel outDbModel = null;
             if (CheckIfValid(model, out outDbModel))
             {
+                string oldLabs = outDbModel.Labs, oldReports = outDbModel.Reports, oldDefences = outDbModel.Defences;
+
                 outDbModel.Labs = model.dataLabs;
                 outDbModel.Reports = model.dataReports;
                 outDbModel.Defences = model.dataDefences;
                 dbTable.DbTable.Update(outDbModel);
                 await dbTable.SaveChangesAsync();
+
+                var studentsSplited = outDbModel.Students.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < studentsSplited.Length; i++) studentsSplited[i] = Encoding.UTF8.GetString(Convert.FromBase64String(studentsSplited[i]));
+                var changes = new Tuple<bool, bool, bool>[studentsSplited.Length];
+                for (int i = 0; i < changes.Length; i++) changes[i] = new Tuple<bool, bool, bool>(false, false, false);
+
+                var oldSplitedLabs = oldLabs.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                var newSplitedLabs = model.dataLabs.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < oldSplitedLabs.Length; i++) if (oldSplitedLabs[i] != newSplitedLabs[i]) changes[i] = new Tuple<bool, bool, bool>(true, changes[i].Item2, changes[i].Item3);
+
+                var oldSplitedReports = oldReports.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                var newSplitedReports = model.dataReports.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < oldSplitedReports.Length; i++) if (oldSplitedReports[i] != newSplitedReports[i]) changes[i] = new Tuple<bool, bool, bool>(changes[i].Item1, true, changes[i].Item3);
+
+                var oldSplitedDefences = oldDefences.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                var newSplitedDefences = model.dataDefences.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < oldSplitedDefences.Length; i++) if (oldSplitedDefences[i] != newSplitedDefences[i]) changes[i] = new Tuple<bool, bool, bool>(changes[i].Item1, changes[i].Item2, true);
+
+                string editInfo = "\n";
+                for (int i = 0; i < changes.Length; i++)
+                {
+                    if (!changes[i].Item1 && !changes[i].Item2 && !changes[i].Item3) continue;
+                    editInfo += "\t" + studentsSplited[i] + ":\n";
+
+                    if (changes[i].Item1)
+                    {
+                        string temp = "";
+                        for (int j = 0; j < oldSplitedLabs[i].Length; j++) if (oldSplitedLabs[i][j] != newSplitedLabs[i][j]) { if (oldSplitedLabs[i][j] == '1') temp += "1"; else temp += "0"; } else temp += "-";
+                        editInfo += "\t\t" + "Labs: " + temp + "\n";
+                    }
+                    if (changes[i].Item2)
+                    {
+                        string temp = "";
+                        for (int j = 0; j < oldSplitedReports[i].Length; j++) if (oldSplitedReports[i][j] != newSplitedReports[i][j]) { if (oldSplitedReports[i][j] == '1') temp += "1"; else temp += "0"; } else temp += "-";
+                        editInfo += "\t\t" + "Reports: " + temp + "\n";
+                    }
+                    if (changes[i].Item3)
+                    {
+                        string temp = "";
+                        for (int j = 0; j < oldSplitedDefences[i].Length; j++) if (oldSplitedDefences[i][j] != newSplitedDefences[i][j]) { if (oldSplitedDefences[i][j] == '1') temp += "1"; else temp += "0"; } else temp += "-";
+                        editInfo += "\t\t" + "Defences: " + temp + "\n";
+                    }
+                }
+
+                if (editInfo.Length == 1) editInfo = "(nothing changed)";
+                Log("Table was saved! " + $"Subject: {Subjects.constArray[model.dataSubject]}, Group: {model.dataGroup}, CurrentTime: {DateTime.Now}, EditInfo: {editInfo}");
 
                 return LocalRedirect($"/Home/Index/?subject={model.dataSubject}&group={model.dataGroup}");
             }
@@ -106,6 +172,9 @@ namespace GSTUWebSchedule_MVC.Controllers
                 {
                     var outDbModel = dbTable.DbTable.Where(m => m.Username == User.Identity.Name && m.Subject == model.Subject && m.Group == model.Group).ToArray()[0];
                     dbTable.DbTable.Remove(outDbModel);
+
+                    Log("Table was deleted! " + $"Subject: {Subjects.constArray[model.Subject]}, Group: {model.Group}, CurrentTime: {DateTime.Now}");
+
                     await dbTable.SaveChangesAsync();
                 }
             }
@@ -168,10 +237,13 @@ namespace GSTUWebSchedule_MVC.Controllers
                         });
                         await dbTable.SaveChangesAsync();
 
+                        Log("New table was added! " + $"Subject: {Subjects.constArray[model.Subject]}, Group: {group}, CurrentTime: {DateTime.Now}");
+
                         model.Error = "ok";
                     }
                     else
                     {
+                        Log("New table was NOT added! That group is already exist! " + $"Subject: {Subjects.constArray[model.Subject]}, Group: {group}, CurrentTime: {DateTime.Now}");
                         model.Error = "error";
                         ModelState.AddModelError("", "Такая таблица уже есть!");
                     }
@@ -189,6 +261,7 @@ namespace GSTUWebSchedule_MVC.Controllers
 
                     if (model.DbTable.Count(m => m.Subject == subject && m.Group == group) == 0)
                     {
+                        Log("Editing table failed! There are no specified groups! " + $"Subject: {Subjects.constArray[subject]}, Group: {group}, CurrentTime: {DateTime.Now}");
                         model.Error2 = "error";
                         ModelState.AddModelError("", "Такой группы нет!");
                         return View(model);
@@ -208,19 +281,32 @@ namespace GSTUWebSchedule_MVC.Controllers
 
                     if (counter > thismodel.Students.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length || Old.Length - 1 > thismodel.Students.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length)
                     {
+                        Log("Editing table failed! Wrong number of student! " + $"Subject: {Subjects.constArray[subject]}, Group: {group}, CurrentTime: {DateTime.Now}");
                         model.Error2 = "error";
                         ModelState.AddModelError("", "Такая таблица уже есть!");
                         return View(model);
                     }
 
+                    string manageInfo = "\n";
                     List<KeyValuePair<string, int> > sorted = new List<KeyValuePair<string, int> >();
                     var splitedLabs = thismodel.Labs.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                     var splitedReports = thismodel.Reports.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                     var splitedDefences = thismodel.Defences.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
                     for (int i = 0; i < counter; i++)
-                        if (Old[i] != "-1") sorted.Add(new KeyValuePair<string, int>(Encoding.UTF8.GetString(Convert.FromBase64String(Old[i])), i));
+                        if (Old[i] != "-1")
+                        {
+                            if (Encoding.UTF8.GetString(Convert.FromBase64String(Old[i])) != Encoding.UTF8.GetString(Convert.FromBase64String(thismodel.Students.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray()[i]))) manageInfo += "\tChanged: '" + Encoding.UTF8.GetString(Convert.FromBase64String(thismodel.Students.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray()[i])) + "' to '" + Encoding.UTF8.GetString(Convert.FromBase64String(Old[i])) + "'\n";
+                            sorted.Add(new KeyValuePair<string, int>(Encoding.UTF8.GetString(Convert.FromBase64String(Old[i])), i));
+                        }
+                        else manageInfo += "\tDelete: '" + Encoding.UTF8.GetString(Convert.FromBase64String(thismodel.Students.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray()[i])) + "'\n";
+
                     foreach (var n in New)
-                        if (n != "-1") sorted.Add(new KeyValuePair<string, int>(Encoding.UTF8.GetString(Convert.FromBase64String(n)), int.MaxValue));
+                        if (n != "-1")
+                        {
+                            sorted.Add(new KeyValuePair<string, int>(Encoding.UTF8.GetString(Convert.FromBase64String(n)), int.MaxValue));
+                            manageInfo += "\tNew: '" + Encoding.UTF8.GetString(Convert.FromBase64String(n)) + "'\n";
+                        }
                     sorted = sorted.OrderBy(obj => obj.Key).ToList();
 
                     string zeroString = "";
@@ -254,6 +340,8 @@ namespace GSTUWebSchedule_MVC.Controllers
 
                     dbTable.DbTable.Update(thismodel);
                     await dbTable.SaveChangesAsync();
+
+                    Log("Editing table was successful! " + $"Subject: {Subjects.constArray[subject]}, Group: {group}, CurrentTime: {DateTime.Now}, ManageInfo: {manageInfo}");
                     model.Error2 = "ok";
                 }
                 else model.Error2 = "error";

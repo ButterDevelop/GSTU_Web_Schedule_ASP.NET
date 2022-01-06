@@ -11,9 +11,10 @@ namespace GSTUWebSchedule_MVC.Models
         [Key]
         public int id { get; set; }
 
-        [Required(ErrorMessage = "Не указано имя пользователя")]
+        [Required(ErrorMessage = "Не указано имя пользователя или использованы недопустимые символы")]
         [MinLength(4)]
         [MaxLength(15)]
+        [RegularExpression("^[a-zA-Z0-9._\\-@#]{4,15}$")]
         public string Username { get; set; }
 
         [Required(ErrorMessage = "Не указан пароль")]
