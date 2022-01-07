@@ -1,0 +1,16 @@
+﻿Settings
+Login
+Username may contain a-Z, 0-9, and .@-_#
+Your account is not activated yet!
+Login or password is incorrect!
+You have successfully loged out!
+Log in
+Register
+Username
+Password
+Something went wrong! Try to pay attention to login, password or email.
+Your data had been added!
+Confirm Password
+Name
+Surname
+Middlename

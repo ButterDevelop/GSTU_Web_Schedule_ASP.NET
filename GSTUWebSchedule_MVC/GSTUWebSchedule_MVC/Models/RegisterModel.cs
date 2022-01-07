@@ -43,5 +43,7 @@ namespace GSTUWebSchedule_MVC.Models
         [MinLength(2)]
         [MaxLength(15)]
         public string Middlename { get; set; }
+
+        public string Error { get; set; }
     }
 }

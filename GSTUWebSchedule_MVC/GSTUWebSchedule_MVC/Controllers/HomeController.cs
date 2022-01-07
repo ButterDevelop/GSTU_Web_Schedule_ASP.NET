@@ -189,9 +189,9 @@ namespace GSTUWebSchedule_MVC.Controllers
             ManageTableModel model = new ManageTableModel() { DbTable = thisUserTable };
             return View(model);
         }
-        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Creep")]
         public async Task<IActionResult> Manage(ManageTableModel model)
         {
             if (model.Case == 1)

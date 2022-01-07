@@ -1,7 +1,9 @@
+using GSTUWebSchedule_MVC.Controllers;
 using GSTUWebSchedule_MVC.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +17,7 @@ namespace GSTUWebSchedule_MVC
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            Translate.Init();
         }
 
         public IConfiguration Configuration { get; }

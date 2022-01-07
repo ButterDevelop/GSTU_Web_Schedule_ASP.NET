@@ -1,6 +1,9 @@
 ﻿@model GSTUWebSchedule_MVC.Models.RegisterModel
 @{
-    ViewData["Title"] = "Register";
+    string lang = "ru";
+    if (Context.Request.Cookies.ContainsKey("lang")) lang = Context.Request.Cookies["lang"];
+
+    ViewData["Title"] = Translate.Tr("Register", lang);
     Layout = null;
 }
 
@@ -24,7 +27,7 @@
             $("#ConfirmPassword").keyup(validate);
             $("#Password").keyup(validate);
             $("#username").focus(function () {
-                document.getElementById('usernamemaycontain').innerHTML = "Username may contain a-Z, 0-9, and .@(Html.Raw('@'))-_#";
+                document.getElementById('usernamemaycontain').innerHTML = "@Html.Raw(Translate.Tr("Username may contain a-Z, 0-9, and .@-_#", lang))";
             });
             $("#username").blur(function () {
                 document.getElementById('usernamemaycontain').innerHTML = "&nbsp;";
@@ -67,9 +70,13 @@
             <div class="animate form login_form">
                 @if (Model != null)
                 {
-                    if (Model.Username.Length != 0)
+                    if (Model.Error == "error")
                     {
-                        <div class="alert alert-danger" style="color: #721c24; border-color: #f5c6cb; background-color: #f8d7da; text-align: center;">Something went wrong! Try to pay attention to login, password or email.</div> <!-- Login or Email is already in use! -->
+                        <div class="alert alert-danger" style="color: #721c24; border-color: #f5c6cb; background-color: #f8d7da; text-align: center;">@Translate.Tr("Something went wrong! Try to pay attention to login, password or email.", lang)</div>
+                    } else
+                    if (Model.Error == "ok")
+                    {
+                        <div class="alert alert-dark" style="color: #1b1e21; background-color: #d6d8d9; border-color: #c6c8ca; text-align: center;" role="alert">@Translate.Tr("Your data had been added!", lang)</div>
                     }
                 }
                 <section class="login_content">
@@ -77,34 +84,34 @@
                         <h1>Register</h1>
                         <div>
                             <div style="font-weight: bold;" id="usernamemaycontain">&nbsp;</div>
-                            <input id="username" asp-for="Username" type="text" class="form-control" placeholder="Username" minlength="4" maxlength="15" pattern="^[a-zA-Z0-9][a-zA-Z0-9._\-@(Html.Raw('@'))#]{3,14}$" required="" />
+                            <input id="username" asp-for="Username" type="text" class="form-control" placeholder="@Translate.Tr("Username", lang)" minlength="4" maxlength="15" pattern="^[a-zA-Z0-9][a-zA-Z0-9._\-@(Html.Raw('@'))#]{3,14}$" required="" />
                         </div>
                         <div>
-                            <input id="Password" asp-for="Password" type="password" class="form-control" placeholder="Password" minlength="6" maxlength="20" required="" />
-                            <div id="EqualPasswords" style="font-size: 12px; color: red; text-align: center; display: none;">The "password" and "password confirmation" forms do not match!</div>
+                            <input id="Password" asp-for="Password" type="password" class="form-control" placeholder="@Translate.Tr("Password", lang)" minlength="6" maxlength="20" required="" />
+                            <div id="EqualPasswords" style="font-size: 12px; color: red; text-align: center; display: none;">@Translate.Tr("The \"password\" and \"password confirmation\" forms do not match!", lang)</div>
                         </div>
                         <div>
-                            <input id="ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password" minlength="6" maxlength="20" required="" />
+                            <input id="ConfirmPassword" type="password" class="form-control" placeholder="@Translate.Tr("Confirm Password", lang)" minlength="6" maxlength="20" required="" />
                         </div>
                         <div>
                             <input asp-for="Email" type="email" class="form-control" placeholder="Email" minlength="2" maxlength="40" required="" />
                         </div>
                         <div>
-                            <input asp-for="Name" type="text" class="form-control" placeholder="Name" minlength="2" maxlength="15" required="" />
+                            <input asp-for="Name" type="text" class="form-control" placeholder="@Translate.Tr("Name", lang)" minlength="2" maxlength="15" required="" />
                         </div>
                         <div>
-                            <input asp-for="Surname" type="text" class="form-control" placeholder="Surname" minlength="2" maxlength="15" required="" />
+                            <input asp-for="Surname" type="text" class="form-control" placeholder="@Translate.Tr("Surname", lang)" minlength="2" maxlength="15" required="" />
                         </div>
                         <div>
-                            <input asp-for="Middlename" type="text" class="form-control" placeholder="Middlename" minlength="2" maxlength="15" required="" />
+                            <input asp-for="Middlename" type="text" class="form-control" placeholder="@Translate.Tr("Middlename", lang)" minlength="2" maxlength="15" required="" />
                         </div>
                         <div>
-                            <button class="btn btn-default submit">Register</button>
+                            <button class="btn btn-default submit">@Translate.Tr("Register", lang)</button>
                         </div>
                         <div class="clearfix"></div>
                     </form>
                     <hr style="color: black; border: 1px solid lightgrey;" />
-                    <button class="btn btn-primary" onClick="window.location.href='/Account/Login';">Log in</button>
+                    <button class="btn btn-primary" onClick="window.location.href='/Account/Login';">@Translate.Tr("Log in", lang)</button>
                 </section>
             </div>
         </div>

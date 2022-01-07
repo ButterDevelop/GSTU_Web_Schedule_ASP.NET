@@ -1,5 +1,8 @@
 ﻿@model GSTUWebSchedule_MVC.Models.ManageTableModel
 @{
+    string TempDataRole = TempData[User.Identity.Name + "_Role"].ToString();
+    TempData[User.Identity.Name + "_Role"] = TempDataRole;
+
     ViewData["Title"] = "Manage";
     Layout = null;
     //Domine dimitte mihi for this code... But it works, and pretty logic & compactly!
@@ -339,6 +342,12 @@
                                 <li>
                                     <a href="/Account/Settings/"><i class="fa fa-cog"></i>Settings</a>
                                 </li>
+                                @if (TempDataRole == "Ranged-Creep")
+                                {
+                                    <li>
+                                        <a href="/Account/AdminPanel/"><i class="fas fa-user-shield"></i>Admin Area</a>
+                                    </li>
+                                }
                                 <li>
                                     <a href="/Account/Logout"><i class="fa fa-step-backward"></i>Log Out</a>
                                 </li>
@@ -355,6 +364,8 @@
                                 <div class="col-md-12 displ_flex flex_center">
                                     <h3>
                                         Manage Page.
+                                        <font color="1e947b">Username: </font>
+                                        <font color="808080">@User.Identity.Name</font>,
                                         <font color="3399FF">Current time: </font>
                                         <font color="808080">@DateTime.Now</font>.
                                     </h3> <hr>

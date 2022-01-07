@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,8 +14,10 @@ using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web;
 using UAParser;
 
 namespace GSTUWebSchedule_MVC.Controllers
@@ -24,7 +27,6 @@ namespace GSTUWebSchedule_MVC.Controllers
         private DbUsersContext dbUsers;
         private LastVisitsContext lastVisits;
         private IWebHostEnvironment webHostEnvironment;
-
         public AccountController(DbUsersContext context, LastVisitsContext context2, IWebHostEnvironment _webHostEnvironment)
         {
             dbUsers = context;
@@ -119,6 +121,9 @@ namespace GSTUWebSchedule_MVC.Controllers
 
                     CheckLogs(currentvisit.Username);
 
+                    TempData[currentvisit.Username + "_Role"] = user.Role;
+                    //TempData.Keep();
+
                     return RedirectToAction("Index", "Home");
                 }
 
@@ -194,25 +199,21 @@ namespace GSTUWebSchedule_MVC.Controllers
                     };
                     dbUsers.DbUsers.Add(registeruser);
                     await dbUsers.SaveChangesAsync();
-                    
+
+                    model.Error = "ok";
+
                     Log("Your account has been registered! " + $"Username: {registeruser.Username}, RegisterTime: {registeruser.RegisterTime}", registeruser.Username);
-
-                    var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                    var result = await UserManager.CreateAsync(user, model.Password);
-                    if (result.Succeeded)
-                    {
-                        // если создание прошло успешно, то добавляем роль пользователя
-                        await UserManager.AddToRoleAsync(user.Id, "user");
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                        return RedirectToAction("Index", "Home");
-                    }
-                    AddErrors(result);
-
-                    return RedirectToAction("Index", "Home");
                 }
                 else
-                    ModelState.AddModelError("", "Введённые данные уже заняты");
+                {
+                    ModelState.AddModelError("", "Введённые данные уже заняты!");
+                    model.Error = "error";
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "С вашими данными что-то не так!");
+                model.Error = "error";
             }
             return View(model);
         }
@@ -242,7 +243,7 @@ namespace GSTUWebSchedule_MVC.Controllers
         public IActionResult Settings()
         {
             SettingsModel model = new SettingsModel();
-            if (TempData["ErrorLogs"] != null) { model.ErrorLogs = TempData["ErrorLogs"].ToString(); TempData["ErrorLogs"] = null; }
+            if (TempData[User.Identity.Name + "_ErrorLogs"] != null) { model.ErrorLogs = TempData[User.Identity.Name + "_ErrorLogs"].ToString(); }
             model.LastVisitsTable = lastVisits.DbTable.Where(m => m.Username == User.Identity.Name);
             return View(model);
         }
@@ -318,24 +319,82 @@ namespace GSTUWebSchedule_MVC.Controllers
             if (!Directory.Exists(logPath))
             {
                 Directory.CreateDirectory(logPath);
-                TempData["ErrorLogs"] = "error";
+                TempData[User.Identity.Name + "_ErrorLogs"] = "error";
                 return RedirectToAction("Settings", "Account");
             }
             var thisUserDirectory = Path.Combine(logPath, User.Identity.Name);
             if (!Directory.Exists(thisUserDirectory))
             {
                 Directory.CreateDirectory(thisUserDirectory);
-                TempData["ErrorLogs"] = "error";
+                TempData[User.Identity.Name + "_ErrorLogs"] = "error";
                 return RedirectToAction("Settings", "Account");
             }
             if (!System.IO.File.Exists(Path.Combine(thisUserDirectory, Date.ToString("dd.MM.yyyy") + ".log")))
             {
-                TempData["ErrorLogs"] = "error";
+                TempData[User.Identity.Name + "_ErrorLogs"] = "error";
                 return RedirectToAction("Settings", "Account");
             }
 
             Log("Get Log was initiated! " + $"CurrentTime: {DateTime.Now}");
             return PhysicalFile(Path.Combine(thisUserDirectory, Date.ToString("dd.MM.yyyy") + ".log"), "text/plain", User.Identity.Name + "_" + Date.ToString("dd.MM.yyyy") + ".log");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ChangeLanguage(string lang)
+        {
+            List<string> cultures = new List<string>() { "ru", "en" };
+            if (!cultures.Contains(lang)) lang = "ru";
+
+            CookieOptions option = new CookieOptions();
+            option.Expires = DateTime.Now.AddHours(12);
+            Response.Cookies.Append("lang", lang, option);
+
+            return RedirectToAction("Settings", "Account");
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult AdminPanel()
+        {
+            var user = dbUsers.DbUsers.FirstOrDefault(m => m.Username == User.Identity.Name);
+            if (user != null && user.Role == "Ranged-Creep")
+            {
+                TempData[User.Identity.Name + "_Role"] = user.Role;
+                IEnumerable<DbUsersModel> model = dbUsers.DbUsers.Where(m => true);
+                return View(model);
+            }
+            else return RedirectToAction("Index", "Home");
+        }
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AdminPanel(string dataSend)
+        {
+            if (dataSend.Length <= 5) return RedirectToAction("Index", "Home");
+
+            var user = dbUsers.DbUsers.FirstOrDefault(m => m.Username == User.Identity.Name);
+            if (user != null && user.Role == "Ranged-Creep")
+            {
+                var splited = dataSend.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                foreach (var a in splited)
+                {
+                    var miniSplited = a.Split('_', StringSplitOptions.RemoveEmptyEntries);
+                    var thisuser = dbUsers.DbUsers.FirstOrDefault(m => m.Username == Encoding.UTF8.GetString(Convert.FromBase64String(miniSplited[0])));
+                    if (thisuser.Role == "Ranged-Creep" || (thisuser.Approved == (miniSplited[1] == "1" ? "true" : "false") && thisuser.Role == (miniSplited[2] == "1" ? "Ranged-Creep" : "Creep"))) continue;
+                    thisuser.Approved = miniSplited[1] == "1" ? "true" : "false";
+                    thisuser.Role = miniSplited[2] == "1" ? "Ranged-Creep" : "Creep";
+                    dbUsers.Update(thisuser);
+                    TempData.Remove(thisuser.Username + "_Role");
+                    TempData[thisuser.Username + "_Role"] = thisuser.Role;
+                }
+
+                await dbUsers.SaveChangesAsync();
+
+                IEnumerable<DbUsersModel> model = dbUsers.DbUsers.Where(m => true);
+                return View(model);
+            }
+            else return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿@model GSTUWebSchedule_MVC.Models.LoginModel
 @{
-    ViewData["Title"] = "Login";
+    string lang = "ru";
+    if (Context.Request.Cookies.ContainsKey("lang")) lang = Context.Request.Cookies["lang"];
+
+    ViewData["Title"] = Translate.Tr("Login", lang);
     Layout = null;
 }
 
@@ -22,7 +25,7 @@
     <script>
         $(document).ready(function () {
             $("#username").focus(function () {
-                document.getElementById('usernamemaycontain').innerHTML = "Username may contain a-Z, 0-9, and .@(Html.Raw('@'))-_#";
+                document.getElementById('usernamemaycontain').innerHTML = "@Html.Raw(Translate.Tr("Username may contain a-Z, 0-9, and .@-_#", lang))";
             });
             $("#username").blur(function () {
                 document.getElementById('usernamemaycontain').innerHTML = "&nbsp;";
@@ -38,35 +41,35 @@
                 {
                     if (!Model.Approved)
                     {
-                        <div class="alert alert-dark" style="color: #1b1e21; background-color: #d6d8d9; border-color: #c6c8ca; text-align: center;" role="alert">Your account is not activated yet!</div>
+                        <div class="alert alert-dark" style="color: #1b1e21; background-color: #d6d8d9; border-color: #c6c8ca; text-align: center;" role="alert">@Translate.Tr("Your account is not activated yet!", lang)</div>
                     }
                     else
                     if (Model.Username.Length != 0)
                     {
-                        <div class="alert alert-danger" style="color: #721c24; border-color: #f5c6cb; background-color: #f8d7da; text-align: center;" role="alert">Login or password is incorrect!</div>
+                        <div class="alert alert-danger" style="color: #721c24; border-color: #f5c6cb; background-color: #f8d7da; text-align: center;" role="alert">@Translate.Tr("Login or password is incorrect!", lang)</div>
                     }
                 }
                 @if (Context.Request.HttpContext.Request.Query["logout"].ToString() == "1")
                 {
-                    <div class="alert alert-warning" style="color: #856404; background-color: #fff3cd; border-color: #ffeeba; text-align: center;" role="alert">You have successfully loged out!</div>
+                    <div class="alert alert-warning" style="color: #856404; background-color: #fff3cd; border-color: #ffeeba; text-align: center;" role="alert">@Translate.Tr("You have successfully loged out!", lang)</div>
                 }
                 <section class="login_content">
                     <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
-                        <h1>Login</h1>
+                        <h1>@Translate.Tr("Login", lang)</h1>
                         <div>
                             <div style="font-weight: bold;" id="usernamemaycontain">&nbsp;</div>
-                            <input id="username" asp-for="Username" type="text" class="form-control" placeholder="Username" minlength="4" maxlength="15" pattern="^[a-zA-Z0-9][a-zA-Z0-9._\-@(Html.Raw('@'))#]{3,14}$" required="" />
+                            <input id="username" asp-for="Username" type="text" class="form-control" placeholder="@Translate.Tr("Username", lang)" minlength="4" maxlength="15" pattern="^[a-zA-Z0-9][a-zA-Z0-9._\-@(Html.Raw('@'))#]{3,14}$" required="" />
                         </div>
                         <div>
-                            <input asp-for="Password" type="password" class="form-control" placeholder="Password" minlength="6" maxlength="20" required="" />
+                            <input asp-for="Password" type="password" class="form-control" placeholder="@Translate.Tr("Password", lang)" minlength="6" maxlength="20" required="" />
                         </div>
                         <div>
-                            <button class="btn btn-default submit">Log in</button>
+                            <button class="btn btn-default submit">@Translate.Tr("Log in", lang)</button>
                         </div>
                         <div class="clearfix"></div>
                     </form>
                     <hr style="color: black; border: 1px solid lightgrey;" />
-                    <button class="btn btn-primary" onClick="window.location.href='/Account/Register';">Register</button>
+                    <button class="btn btn-primary" onClick="window.location.href='/Account/Register';">@Translate.Tr("Register", lang)</button>
                 </section>
             </div>
         </div>
