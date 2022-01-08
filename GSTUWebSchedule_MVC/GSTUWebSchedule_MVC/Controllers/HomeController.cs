@@ -349,6 +349,15 @@ namespace GSTUWebSchedule_MVC.Controllers
             }
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult EntertainmentHeading()
+        {
+            int rand = new Random(Guid.NewGuid().GetHashCode()).Next();
+            var randomlinks = Properties.Resources.randomlinks.Split(new char[2] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            return Redirect(randomlinks[rand % randomlinks.Length]);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

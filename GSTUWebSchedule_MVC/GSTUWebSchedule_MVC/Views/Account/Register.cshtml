@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="favicon.ico" rel="icon" type="image/ico">
+    <link href="~/favicon.ico" rel="icon" type="image/ico">
     <title>@ViewData["Title"]</title>
     <!-- Bootstrap -->
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
@@ -81,7 +81,7 @@
                 }
                 <section class="login_content">
                     <form asp-action="Register" asp-controller="Account" asp-anti-forgery="true">
-                        <h1>Register</h1>
+                        <h1>@Translate.Tr("Register", lang)</h1>
                         <div>
                             <div style="font-weight: bold;" id="usernamemaycontain">&nbsp;</div>
                             <input id="username" asp-for="Username" type="text" class="form-control" placeholder="@Translate.Tr("Username", lang)" minlength="4" maxlength="15" pattern="^[a-zA-Z0-9][a-zA-Z0-9._\-@(Html.Raw('@'))#]{3,14}$" required="" />

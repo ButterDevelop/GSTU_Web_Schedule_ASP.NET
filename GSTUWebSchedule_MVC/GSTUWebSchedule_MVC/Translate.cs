@@ -17,7 +17,7 @@ namespace GSTUWebSchedule_MVC
 
         public static string Tr(string x, string local)
         {
-            if (en.FindIndex(s => s == x) < 0) return "TRANSLATE_ERROR";
+            if (en.FindIndex(s => s == x) < 0) return x;
             if (local == "ru") return ru[en.FindIndex(s => s == x)]; else return x;
         }
     }

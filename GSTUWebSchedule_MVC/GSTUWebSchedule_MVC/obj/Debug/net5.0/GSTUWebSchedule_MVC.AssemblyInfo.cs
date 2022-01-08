@@ -13,7 +13,8 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("GSTU ButterDevelop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyDescriptionAttribute("The GSTU Web Schedule that helps to automate daily routine for teachers.")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © ButterDevelop")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("The GSTU Web Schedule that helps to automate daily routine for teachers. 2022.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("GSTUWebSchedule_MVC")]

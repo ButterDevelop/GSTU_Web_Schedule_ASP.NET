@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="favicon.ico" rel="icon" type="image/ico">
+    <link href="~/favicon.ico" rel="icon" type="image/ico">
     <title>@ViewData["Title"]</title>
     <!-- Bootstrap -->
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
@@ -58,10 +58,10 @@
                         <h1>@Translate.Tr("Login", lang)</h1>
                         <div>
                             <div style="font-weight: bold;" id="usernamemaycontain">&nbsp;</div>
-                            <input id="username" asp-for="Username" type="text" class="form-control" placeholder="@Translate.Tr("Username", lang)" minlength="4" maxlength="15" pattern="^[a-zA-Z0-9][a-zA-Z0-9._\-@(Html.Raw('@'))#]{3,14}$" required="" />
+                            <input id="username" asp-for="Username" type="text" class="form-control" placeholder="@Translate.Tr("Username", lang)" minlength="4" maxlength="15" pattern="^[a-zA-Z0-9][a-zA-Z0-9._\-@(Html.Raw('@'))#]{3,14}$" />
                         </div>
                         <div>
-                            <input asp-for="Password" type="password" class="form-control" placeholder="@Translate.Tr("Password", lang)" minlength="6" maxlength="20" required="" />
+                            <input asp-for="Password" type="password" class="form-control" placeholder="@Translate.Tr("Password", lang)" minlength="6" maxlength="20" />
                         </div>
                         <div>
                             <button class="btn btn-default submit">@Translate.Tr("Log in", lang)</button>
@@ -70,6 +70,7 @@
                     </form>
                     <hr style="color: black; border: 1px solid lightgrey;" />
                     <button class="btn btn-primary" onClick="window.location.href='/Account/Register';">@Translate.Tr("Register", lang)</button>
+                    <button class="btn btn-primary" onClick="window.location.href='/Account/ResetPassword';">@Translate.Tr("Reset password", lang)</button>
                 </section>
             </div>
         </div>

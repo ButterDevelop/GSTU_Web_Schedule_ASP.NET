@@ -14,3 +14,99 @@ Confirm Password
 Name
 Surname
 Middlename
+Admin Panel
+Logs
+Tables control
+Admin Area
+Log Out
+Admin Area Page.
+Username: 
+Current time: 
+Save changes
+Email
+Register Time
+Approved
+Admin rights
+Something went wrong! Maybe your "Old Password" is wrong?
+Your password has been changed!
+Old Password
+New Password
+New Password Confirm
+Change
+Change Password
+Your account log
+No logs found on your date!
+Download logs
+Your language
+Change Language
+Last 10 visits on your account
+Icon
+Date
+Browser
+Full User-Agent
+Mobile SVG icon
+Desktop SVG icon
+Home Page
+Confirm
+Yes
+No
+Confirm. Again.
+Are you sure you want to delete this table?
+Are you SURE you want to delete this table?
+YEEES
+Delete this table
+Full name
+Attestation
+Lab.
+Lab
+Report
+Defence
+Manage
+You have entered 
+ student
+s
+Student's full name #
+General
+Add table
+Something went wrong! Maybe your group is already exist?
+Group
+Year (format: 20XX/20YY)
+1 semester
+2 semester
+1-2 semester
+Number of labs
+Import students from other group
+Import
+You have entered 1 student:
+Student's full name #1
+Add input field
+Delete empty input fields
+Send
+Edit table and students
+Something went wrong! Maybe server error?
+Update
+Tables Page.
+Subjects
+Manage Page.
+Settings Page.
+Entertainment heading: random link
+To make the letter not so boring, in this heading you can test the strength of a stable cryptographic generator, and see where it takes you.
+Button #
+GSTUWebSchedule System
+Your account has been activated
+Welcome
+Hello! Your account has just been activated, which means that you can safely start using the system to its fullest! Come in, look around, join - there is a button below!
+First login!
+Ouch
+Your password has been changed!
+Hello! Your account password has been changed. If you have done this, then no action is required. If not, follow the link to reset it.
+Reset now! It's an emergency!!1!
+Confirm!
+Confirm your Email
+Hello! Confirm your email address to make sure you entered it correctly again.
+Your email 
+ has been successfully confirmed, 
+Email confirmed
+Reset password
+Reset
+Something went wrong! Is the login or email exactly correct?

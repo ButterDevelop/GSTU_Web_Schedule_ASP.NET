@@ -13,6 +13,7 @@ namespace GSTUWebSchedule_MVC
     {
         public static void Main(string[] args)
         {
+            Translate.Init();
             CreateHostBuilder(args).Build().Run();
         }
 

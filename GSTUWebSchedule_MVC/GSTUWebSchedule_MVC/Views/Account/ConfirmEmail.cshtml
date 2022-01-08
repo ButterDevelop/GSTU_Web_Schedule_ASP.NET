@@ -1,0 +1,49 @@
+﻿@model Tuple<string, string>
+@{
+    string lang = "ru";
+    if (Context.Request.Cookies.ContainsKey("lang")) lang = Context.Request.Cookies["lang"];
+
+    ViewData["Title"] = Translate.Tr("Login", lang);
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/favicon.ico" rel="icon" type="image/ico">
+    <title>@ViewData["Title"]</title>
+    <!-- Bootstrap -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="~/css/custom.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="~/js/jquery.min.js"></script>
+</head>
+<body class="login">
+    <div>
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                @if (Model != null)
+                {
+                    if (Model.Item1.Length != 0 && Model.Item2.Length != 0)
+                    {
+                        <div class="alert alert-dark" style="color: #1b1e21; background-color: #d6d8d9; border-color: #c6c8ca; text-align: center;" role="alert">@Translate.Tr("Your email ", lang)<b>@Model.Item2</b>@Translate.Tr(" has been successfully confirmed, ", lang)<b>@Model.Item1</b>.</div>
+                    }
+                }
+                else
+                {
+                    <script>setTimeout('location="/";', 300);</script>
+                }
+            </div>
+        </div>
+    </div>
+    <!--      _
+          .__(.)< (MEOW)
+           \___)
+    ~~~~~~~~~~~~~~~~~~-->
+</body>
+</html>

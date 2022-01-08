@@ -3,7 +3,7 @@
     string lang = "ru";
     if (Context.Request.Cookies.ContainsKey("lang")) lang = Context.Request.Cookies["lang"];
     
-    ViewData["Title"] = @Translate.Tr("Admin Panel", lang);
+    ViewData["Title"] = Translate.Tr("Admin Panel", lang);
     Layout = null;
 
     int counter = 1;
@@ -16,7 +16,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="favicon.ico" rel="icon" type="image/ico">
+    <link href="~/favicon.ico" rel="icon" type="image/ico">
     <title>@ViewData["Title"]</title>
     <!-- Bootstrap -->
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
@@ -50,29 +50,29 @@
             <div class="col-md-3 left_col menu_fixed">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a class="site_title" href="/Home/Index"><i class="fa fa-paw"></i> <span>Admin Panel</span></a>
+                        <a class="site_title" href="/Home/Index"><i class="fa fa-paw"></i></a>
                     </div>
                     <div class="clearfix"></div><br>
                     <!-- sidebar menu -->
                     <div class="main_menu_side hidden-print main_menu" id="sidebar-menu">
                         <div class="menu_section">
-                            <h3>General</h3>
+                            <h3>@Translate.Tr("General", lang)</h3>
                             <ul class="nav side-menu">
 
                                 <li>
-                                    <a href="/Home/Index"><i class="fa fa-table"></i>Logs</a>
+                                    <a href="/Home/Index"><i class="fa fa-table"></i>@Translate.Tr("Logs", lang)</a>
                                 </li>
                                 <li>
-                                    <a href="/Home/Manage"><i class="fa fa-server"></i>Tables control</a>
+                                    <a href="/Home/Manage"><i class="fa fa-server"></i>@Translate.Tr("Tables control", lang)</a>
                                 </li>
                                 <li>
-                                    <a href="/Account/Settings/"><i class="fa fa-cog"></i>Settings</a>
+                                    <a href="/Account/Settings/"><i class="fa fa-cog"></i>@Translate.Tr("Settings", lang)</a>
                                 </li>
                                 <li class="current-page">
-                                    <a href="/Account/AdminPanel/"><i class="fas fa-user-shield"></i>Admin Area</a>
+                                    <a href="/Account/AdminPanel/"><i class="fas fa-user-shield"></i>@Translate.Tr("Admin Area", lang)</a>
                                 </li>
                                 <li>
-                                    <a href="/Account/Logout"><i class="fa fa-step-backward"></i>Log Out</a>
+                                    <a href="/Account/Logout"><i class="fa fa-step-backward"></i>@Translate.Tr("Log Out", lang)</a>
                                 </li>
                             </ul>
                         </div>
@@ -86,16 +86,16 @@
                             <div class="row x_title">
                                 <div class="col-md-12 displ_flex flex_center">
                                     <h3>
-                                        Admin Area Page.
-                                        <font color="1e947b">Username: </font>
+                                        @Translate.Tr("Admin Area Page.", lang)
+                                        <font color="1e947b">@Translate.Tr("Username: ", lang)</font>
                                         <font color="808080">@User.Identity.Name</font>,
-                                        <font color="3399FF">Current time: </font>
+                                        <font color="3399FF">@Translate.Tr("Current time: ", lang)</font>
                                         <font color="808080">@DateTime.Now</font>.
                                     </h3> <hr>
                                     <!-- "Save Changes" form -->
                                     <form class="form-horizontal form-label-left input_mask" onsubmit="return OnSubmitFunction();" asp-action="AdminPanel" asp-controller="Account" asp-anti-forgery="true" method="post">
                                         <input type="hidden" id="dataSend" name="dataSend" value="">
-                                        <button class="btn btn-success" type="submit">Save changes</button>
+                                        <button class="btn btn-success" type="submit">@Translate.Tr("Save changes", lang)</button>
                                     </form>
                                 </div>
                             </div>
@@ -112,14 +112,15 @@
                                     <thead>
                                         <tr>
                                             <th>№</th>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th>Name</th>
-                                            <th>Surname</th>
-                                            <th>Middle name</th>
-                                            <th>Register Time</th>
-                                            <th>Approved</th>
-                                            <th>Admin rights</th>
+                                            <th>@Translate.Tr("Username", lang)</th>
+                                            <th>@Translate.Tr("Email", lang)</th>
+                                            <th>@Translate.Tr("Email confirmed", lang)</th>
+                                            <th>@Translate.Tr("Name", lang)</th>
+                                            <th>@Translate.Tr("Surname", lang)</th>
+                                            <th>@Translate.Tr("Middlename", lang)</th>
+                                            <th>@Translate.Tr("Register Time", lang)</th>
+                                            <th>@Translate.Tr("Approved", lang)</th>
+                                            <th>@Translate.Tr("Admin rights", lang)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -131,6 +132,7 @@
                                                         <td><b>@(counter++).</b></td>
                                                         <td><b>@a.Username</b></td>
                                                         <td><a href="mailto:@a.Email">@a.Email</a></td>
+                                                        <td><b><span style="color: @(a.EmailConfirmed ? "#1e947b" : "darkred");">@(a.EmailConfirmed ? Translate.Tr("Yes", lang) : Translate.Tr("No", lang))</span></b></td>
                                                         <td><b>@a.Name</b></td>
                                                         <td><b>@a.Surname</b></td>
                                                         <td><b>@a.Middlename</b></td>

@@ -61,8 +61,64 @@ namespace GSTUWebSchedule_MVC.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///	&lt;head&gt;
+        ///		&lt;title&gt;GSTUWebSchedule&lt;/title&gt;
+        ///		&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+        ///		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        ///		&lt;style type=&quot;text/css&quot;&gt;
+        ///			* {
+        ///				-ms-text-size-adjust:100%;
+        ///				-webkit-text-size-adjust:none;
+        ///				-webkit-text-resize:100%;
+        ///				text-resize:100%;
+        ///			}
+        ///			a{
+        ///				outline:none;
+        ///				color:#40aceb;
+        ///				text-decoration:underline;
+        ///			}
+        ///			a:hover{text-decoration:none !important;}
+        ///		 [остаток строки не уместился]&quot;;.
+        /// </summary>
+        public static string email {
+            get {
+                return ResourceManager.GetString("email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Settings
-        ///.
+        ///Login
+        ///Username may contain a-Z, 0-9, and .@-_#
+        ///Your account is not activated yet!
+        ///Login or password is incorrect!
+        ///You have successfully loged out!
+        ///Log in
+        ///Register
+        ///Username
+        ///Password
+        ///Something went wrong! Try to pay attention to login, password or email.
+        ///Your data had been added!
+        ///Confirm Password
+        ///Name
+        ///Surname
+        ///Middlename
+        ///Admin Panel
+        ///Logs
+        ///Tables control
+        ///Admin Area
+        ///Log Out
+        ///Admin Area Page.
+        ///Username: 
+        ///Current time: 
+        ///Save changes
+        ///Email
+        ///Register Time
+        ///Approved
+        ///Admin rights
+        ///Somet [остаток строки не уместился]&quot;;.
         /// </summary>
         public static string en {
             get {
@@ -71,8 +127,73 @@ namespace GSTUWebSchedule_MVC.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        public static byte[] GSTUWebSchedule {
+            get {
+                object obj = ResourceManager.GetObject("GSTUWebSchedule", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на https://google.com
+        ///https://yandex.by
+        ///https://youtube.com
+        ///https://ok.ru
+        ///https://facebook.com
+        ///https://twitter.com
+        ///https://twitch.tv
+        ///https://edu.gstu.by
+        ///https://gmail.com
+        ///https://mail.ru
+        ///https://vk.com
+        ///https://metanit.com
+        ///http://mathprofi.ru
+        ///https://www.python.org/
+        ///https://ru.wikipedia.org/wiki/%D0%92%D0%B8%D0%BA%D0%B8
+        ///https://www.microsoft.com/
+        ///https://www.defense.gov/
+        ///https://habr.com/
+        ///https://store.steampowered.com/
+        ///https://discord.com/
+        ///https://www.skype.com/
+        ///https://worldofwarcraft.com [остаток строки не уместился]&quot;;.
+        /// </summary>
+        public static string randomlinks {
+            get {
+                return ResourceManager.GetString("randomlinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Настройки
-        ///.
+        ///Вход
+        ///Имя пользователя может содержать a-Z, 0-9, и .@-_#
+        ///Ваш аккаунт ещё не активирован!
+        ///Логин или пароль не подошли!
+        ///Вы успешно вышли из аккаунта!
+        ///Войти
+        ///Регистрация
+        ///Имя пользователя
+        ///Пароль
+        ///Что-то пошло не так! Обратите внимание на логин, пароль или email.
+        ///Ваши данные были приняты!
+        ///Подтверждение пароля
+        ///Имя
+        ///Фамилия
+        ///Отчество
+        ///Панель Админа
+        ///Логи
+        ///Контроль таблиц
+        ///Панель Админа
+        ///Выйти и забыть
+        ///Панель Администратора.
+        ///Имя пользователя: 
+        ///Текущее время: 
+        ///Сохранить изменения
+        ///Email
+        ///Врем [остаток строки не уместился]&quot;;.
         /// </summary>
         public static string ru {
             get {

@@ -17,7 +17,6 @@ namespace GSTUWebSchedule_MVC
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            Translate.Init();
         }
 
         public IConfiguration Configuration { get; }
@@ -31,6 +30,7 @@ namespace GSTUWebSchedule_MVC
             services.AddDbContext<DbTableContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<DbUsersContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UsersDbConnection")));
             services.AddDbContext<LastVisitsContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LastVisitsConnection")));
+            services.AddDbContext<DbEmailCodesContext>(options => options.UseSqlServer(Configuration.GetConnectionString("EmailCodesConnection")));
 
             // установка конфигурации подключения
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -55,6 +55,7 @@ namespace GSTUWebSchedule_MVC
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

@@ -3,7 +3,10 @@
     string TempDataRole = TempData[User.Identity.Name + "_Role"].ToString();
     TempData[User.Identity.Name + "_Role"] = TempDataRole;
 
-    ViewData["Title"] = "Home Page";
+    string lang = "ru";
+    if (Context.Request.Cookies.ContainsKey("lang")) lang = Context.Request.Cookies["lang"];
+    
+    ViewData["Title"] = Translate.Tr("Home Page", lang);
     Layout = null;
 
     int Size = 12;
@@ -17,7 +20,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="favicon.ico" rel="icon" type="image/ico">
+    <link href="~/favicon.ico" rel="icon" type="image/ico">
     <title>@ViewData["Title"]</title>
     <!-- Bootstrap -->
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
@@ -59,32 +62,32 @@
             <div class="col-md-3 left_col menu_fixed">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a class="site_title" href="/Home/Index"><i class="fa fa-paw"></i> <span>Admin Panel</span></a>
+                        <a class="site_title" href="/Home/Index"><i class="fa fa-paw"></i></a>
                     </div>
                     <div class="clearfix"></div><br>
                     <!-- sidebar menu -->
                     <div class="main_menu_side hidden-print main_menu" id="sidebar-menu">
                         <div class="menu_section">
-                            <h3>General</h3>
+                            <h3>@Translate.Tr("General", lang)</h3>
                             <ul class="nav side-menu">
 
                                 <li class="current-page">
-                                    <a href="/Home/Index"><i class="fa fa-table"></i>Logs</a>
+                                    <a href="/Home/Index"><i class="fa fa-table"></i>@Translate.Tr("Logs", lang)</a>
                                 </li>
                                 <li>
-                                    <a href="/Home/Manage"><i class="fa fa-server"></i>Tables control</a>
+                                    <a href="/Home/Manage"><i class="fa fa-server"></i>@Translate.Tr("Tables control", lang)</a>
                                 </li>
                                 <li>
-                                    <a href="/Account/Settings/"><i class="fa fa-cog"></i>Settings</a>
+                                    <a href="/Account/Settings/"><i class="fa fa-cog"></i>@Translate.Tr("Settings", lang)</a>
                                 </li>
                                 @if (TempDataRole == "Ranged-Creep")
                                 {
                                     <li>
-                                        <a href="/Account/AdminPanel/"><i class="fas fa-user-shield"></i>Admin Area</a>
+                                        <a href="/Account/AdminPanel/"><i class="fas fa-user-shield"></i>@Translate.Tr("Admin Area", lang)</a>
                                     </li>
                                 }
                                 <li>
-                                    <a href="/Account/Logout"><i class="fa fa-step-backward"></i>Log Out</a>
+                                    <a href="/Account/Logout"><i class="fa fa-step-backward"></i>@Translate.Tr("Log Out", lang)</a>
                                 </li>
                             </ul>
                         </div>
@@ -98,10 +101,10 @@
                             <div class="row x_title">
                                 <div class="col-md-12 displ_flex flex_center">
                                     <h3>
-                                        Tables Page.
-                                        <font color="1e947b">Username: </font>
+                                        @Translate.Tr("Tables Page.", lang)
+                                        <font color="1e947b">@Translate.Tr("Username: ", lang)</font>
                                         <font color="808080">@User.Identity.Name</font>,
-                                        <font color="3399FF">Current time: </font>
+                                        <font color="3399FF">@Translate.Tr("Current time: ", lang)</font>
                                         <font color="808080">@DateTime.Now</font>.
                                     </h3> <hr>
                                     @if (Model.Case)
@@ -112,14 +115,14 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <h3 class="modal-title text-center" id="myModalLabel">Confirm</h3>
+                                                        <h3 class="modal-title text-center" id="myModalLabel">@Translate.Tr("Confirm", lang)</h3>
                                                     </div>
                                                     <div class="modal-body text-center">
-                                                        <h4>Are you sure you want to delete this table?</h4>
+                                                        <h4>@Translate.Tr("Are you sure you want to delete this table?", lang)</h4>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" id="modal-btn-yes">Yes</button>
-                                                        <button type="button" class="btn btn-primary" id="modal-btn-no">No</button>
+                                                        <button type="button" class="btn btn-default" id="modal-btn-yes">@Translate.Tr("Yes", lang)</button>
+                                                        <button type="button" class="btn btn-primary" id="modal-btn-no">@Translate.Tr("No", lang)</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -130,19 +133,19 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <h3 class="modal-title text-center" id="myModalLabel2">Confirm. Again.</h3>
+                                                        <h3 class="modal-title text-center" id="myModalLabel2">@Translate.Tr("Confirm. Again.", lang)</h3>
                                                     </div>
                                                     <div class="modal-body text-center">
-                                                        <h4>Are you SURE you want to delete this table?</h4>
+                                                        <h4>@Translate.Tr("Are you SURE you want to delete this table?", lang)</h4>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" id="modal-btn-yes2">YEEES</button>
-                                                        <button type="button" class="btn btn-primary" id="modal-btn-no2">No</button>
+                                                        <button type="button" class="btn btn-default" id="modal-btn-yes2">@Translate.Tr("YEEES", lang)</button>
+                                                        <button type="button" class="btn btn-primary" id="modal-btn-no2">@Translate.Tr("No", lang)</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-danger" id="btn-confirm" type="submit">Delete this table</button>
+                                        <button class="btn btn-danger" id="btn-confirm" type="submit">@Translate.Tr("Delete this table", lang)</button>
                                         <!-- "Delete Table" form -->
                                         <form class="form-horizontal form-label-left input_mask" id="DeleteTableForm" asp-action="DeleteTable" asp-controller="Home" asp-anti-forgery="true">
                                             <input type="hidden" name="Subject" value="@Model.DbTable.ToArray()[0].Subject" required="" />
@@ -157,7 +160,7 @@
                                             <input type="hidden" id="dataDefences" name="dataDefences" value="">
                                             <input type="hidden" name="dataSubject" value="@Model.DbTable.ToArray()[0].Subject">
                                             <input type="hidden" name="dataGroup" value="@Model.DbTable.ToArray()[0].Group">
-                                            <button class="btn btn-success" type="submit">Save changes</button>
+                                            <button class="btn btn-success" type="submit">@Translate.Tr("Save changes", lang)</button>
                                         </form>
                                     }
                                 </div>
@@ -177,7 +180,7 @@
                                 {
                                     <div class="treeview-animated border mx-4 my-4" style="font-size: 14px; margin-right: 15px;">
                                         <ul class="treeview-animated-list mb-3">
-                                            <h3 class="pt-3 pl-3">Subjects</h3>
+                                            <h3 class="pt-3 pl-3">@Translate.Tr("Subjects", lang)</h3>
                                             <hr>
                                             @for (int i = 0; i < Subjects.size; i++)
                                             {
@@ -223,11 +226,11 @@
                                         <thead>
                                             <tr>
                                                 <th>№</th>
-                                                <th>Full name</th>
-                                                <th>Attestation</th>
+                                                <th>@Translate.Tr("Full name", lang)</th>
+                                                <th>@Translate.Tr("Attestation", lang)</th>
                                                 @for (int i = 1; i <= MyModel.NumberOfLabs; i++)
                                                 {
-                                                    <th>Lab. №@i</th>
+                                                    <th>@Translate.Tr("Lab.", lang) №@i</th>
                                                 }
                                             </tr>
                                         </thead>
@@ -252,15 +255,15 @@
                                                                     <span id="Sum-@(i)_@(j)">@kol</span>
                                                                     <div class="form-check form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" id="@id1" onchange="CheckBoxClicked(this.id)" @checked1 />
-                                                                        <label class="form-check-label" for="@id1">Lab</label>
+                                                                        <label class="form-check-label" for="@id1">@Translate.Tr("Lab", lang)</label>
                                                                     </div>
                                                                     <div class="form-check form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" id="@id2" onchange="CheckBoxClicked(this.id)" @checked2 />
-                                                                        <label class="form-check-label" for="@id2">Report</label>
+                                                                        <label class="form-check-label" for="@id2">@Translate.Tr("Report", lang)</label>
                                                                     </div>
                                                                     <div class="form-check form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" id="@id3" onchange="CheckBoxClicked(this.id)" @checked3 />
-                                                                        <label class="form-check-label" for="@id3">Defence</label>
+                                                                        <label class="form-check-label" for="@id3">@Translate.Tr("Defence", lang)</label>
                                                                     </div>
                                                                 </td>
                                                             }

@@ -28,6 +28,9 @@ namespace GSTUWebSchedule_MVC.Models
         [MaxLength(40)]
         public string Email { get; set; }
 
+        public bool EmailConfirmed { get; set; }
+
+
         [Required(ErrorMessage = "Не указано имя")]
         [MinLength(2)]
         [MaxLength(15)]
@@ -44,6 +47,8 @@ namespace GSTUWebSchedule_MVC.Models
         public string Middlename { get; set; }
 
         public DateTime RegisterTime { get; set; }
+
+        public string Language { get; set; }
 
         public string Approved { get; set; }
 

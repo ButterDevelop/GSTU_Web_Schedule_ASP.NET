@@ -19,7 +19,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="favicon.ico" rel="icon" type="image/ico">
+    <link href="~/favicon.ico" rel="icon" type="image/ico">
     <title>@ViewData["Title"]</title>
 
     <!-- jQuery -->
@@ -94,32 +94,32 @@
             <div class="col-md-3 left_col menu_fixed">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a class="site_title" href="/Home/Index"><i class="fa fa-paw"></i> <span>Admin Panel</span></a>
+                        <a class="site_title" href="/Home/Index"><i class="fa fa-paw"></i></a>
                     </div>
                     <div class="clearfix"></div><br>
                     <!-- sidebar menu -->
                     <div class="main_menu_side hidden-print main_menu" id="sidebar-menu">
                         <div class="menu_section">
-                            <h3>General</h3>
+                            <h3>@Translate.Tr("General", lang)</h3>
                             <ul class="nav side-menu">
 
                                 <li>
-                                    <a href="/Home/Index"><i class="fa fa-table"></i>Logs</a>
+                                    <a href="/Home/Index"><i class="fa fa-table"></i>@Translate.Tr("Logs", lang)</a>
                                 </li>
                                 <li>
-                                    <a href="/Home/Manage"><i class="fa fa-server"></i>Tables control</a>
+                                    <a href="/Home/Manage"><i class="fa fa-server"></i>@Translate.Tr("Tables control", lang)</a>
                                 </li>
                                 <li class="current-page">
-                                    <a href="/Account/Settings/"><i class="fa fa-cog"></i>Settings</a>
+                                    <a href="/Account/Settings/"><i class="fa fa-cog"></i>@Translate.Tr("Settings", lang)</a>
                                 </li>
                                 @if (TempDataRole == "Ranged-Creep")
                                 {
                                     <li>
-                                        <a href="/Account/AdminPanel/"><i class="fas fa-user-shield"></i>Admin Area</a>
+                                        <a href="/Account/AdminPanel/"><i class="fas fa-user-shield"></i>@Translate.Tr("Admin Area", lang)</a>
                                     </li>
                                 }
                                 <li>
-                                    <a href="/Account/Logout"><i class="fa fa-step-backward"></i>Log Out</a>
+                                    <a href="/Account/Logout"><i class="fa fa-step-backward"></i>@Translate.Tr("Log Out", lang)</a>
                                 </li>
                             </ul>
                         </div>
@@ -133,10 +133,10 @@
                             <div class="row x_title">
                                 <div class="col-md-12 displ_flex flex_center">
                                     <h3>
-                                        Settings Page.
-                                        <font color="1e947b">Username: </font>
+                                        @Translate.Tr("Settings Page.", lang)
+                                        <font color="1e947b">@Translate.Tr("Username: ", lang)</font>
                                         <font color="808080">@User.Identity.Name</font>,
-                                        <font color="3399FF">Current time: </font>
+                                        <font color="3399FF">@Translate.Tr("Current time: ", lang)</font>
                                         <font color="808080">@DateTime.Now</font>.
                                     </h3> <hr>
                                 </div>
@@ -151,7 +151,7 @@
                     <div class="col-sm-12 col-md-6 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Change Password</h2>
+                                <h2>@Translate.Tr("Change Password", lang)</h2>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
@@ -162,33 +162,33 @@
                                             {
                                                 if (Model.Error == "error")
                                                 {
-                                                    <div class="alert alert-danger" style="color: #721c24; border-color: #f5c6cb; background-color: #f8d7da; text-align: center;">Something went wrong! Maybe your "Old Password" is wrong?</div>
+                                                    <div class="alert alert-danger" style="color: #721c24; border-color: #f5c6cb; background-color: #f8d7da; text-align: center;">@Translate.Tr("Something went wrong! Maybe your \"Old Password\" is wrong?", lang)</div>
                                                 }
                                                 else
                                                 if (Model.Error == "ok")
                                                 {
-                                                    <div class="alert alert-dark" style="color: #1b1e21; background-color: #d6d8d9; border-color: #c6c8ca; text-align: center;" role="alert">Your password has been changed!</div>
+                                                    <div class="alert alert-dark" style="color: #1b1e21; background-color: #d6d8d9; border-color: #c6c8ca; text-align: center;" role="alert">@Translate.Tr("Your password has been changed!", lang)</div>
                                                 }
                                             }
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <input asp-for="OldPassword" type="password" class="form-control" placeholder="Old Password" minlength="6" maxlength="20" required="" />
+                                                    <input asp-for="OldPassword" type="password" class="form-control" placeholder="@Translate.Tr("Old Password", lang)" minlength="6" maxlength="20" required="" />
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <input asp-for="NewPassword" type="password" id="Password" class="form-control" placeholder="New Password" minlength="6" maxlength="20" required="" />
+                                                    <input asp-for="NewPassword" type="password" id="Password" class="form-control" placeholder="@Translate.Tr("New Password", lang)" minlength="6" maxlength="20" required="" />
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <input asp-for="NewPasswordConfirm" type="password" id="ConfirmPassword" class="form-control" placeholder="New Password Confirm" minlength="6" maxlength="20" required="" />
+                                                    <input asp-for="NewPasswordConfirm" type="password" id="ConfirmPassword" class="form-control" placeholder="@Translate.Tr("New Password Confirm", lang)" minlength="6" maxlength="20" required="" />
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <button id="ChangePasswordButton" class="btn btn-success" type="submit">Change</button>
+                                                    <button id="ChangePasswordButton" class="btn btn-success" type="submit">@Translate.Tr("Change", lang)</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -203,7 +203,7 @@
                         <div class="col-sm-12 col-md-3 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Your account log</h2>
+                                    <h2>@Translate.Tr("Your account log", lang)</h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
@@ -214,7 +214,7 @@
                                                 {
                                                     if (Model.ErrorLogs == "error")
                                                     {
-                                                        <div class="alert alert-danger" style="color: #721c24; border-color: #f5c6cb; background-color: #f8d7da; text-align: center;">No logs found on your date!</div>
+                                                        <div class="alert alert-danger" style="color: #721c24; border-color: #f5c6cb; background-color: #f8d7da; text-align: center;">@Translate.Tr("No logs found on your date!", lang)</div>
                                                     }
                                                 }
 
@@ -230,7 +230,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <button class="btn btn-success" type="submit">Download logs</button>
+                                                    <button class="btn btn-success" type="submit">@Translate.Tr("Download logs", lang)</button>
                                                 </div>
                                             </div>
                                             <div class="clearfix"></div>
@@ -243,7 +243,7 @@
                         <div class="col-sm-12 col-md-3 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Your language</h2>
+                                    <h2>@Translate.Tr("Your language", lang)</h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
@@ -261,7 +261,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <button class="btn btn-success" type="submit">Change Language</button>
+                                                    <button class="btn btn-success" type="submit">@Translate.Tr("Change Language", lang)</button>
                                                 </div>
                                             </div>
                                             <div class="clearfix"></div>
@@ -275,7 +275,7 @@
                     <div class="col-sm-12 col-md-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Last 10 visits on your account</h2>
+                                <h2>@Translate.Tr("Last 10 visits on your account", lang)</h2>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
@@ -283,12 +283,12 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Icon</th>
-                                            <th>Date</th>
+                                            <th>@Translate.Tr("Icon", lang)</th>
+                                            <th>@Translate.Tr("Date", lang)</th>
                                             <th>OS</th>
                                             <th>IP</th>
-                                            <th>Browser</th>
-                                            <th>Full User-Agent</th>
+                                            <th>@Translate.Tr("Browser", lang)</th>
+                                            <th>@Translate.Tr("Full User-Agent", lang)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -299,17 +299,17 @@
                                                 <td><b>@(number++)</b></td>
                                                 <td>
                                                     @if (m.isMobile)
-                                                    {<img src="~/mobileicon.svg" alt="Mobile SVG icon" class="svgicon" /> }
+                                                    {<img src="~/mobileicon.svg" alt="@Translate.Tr("Mobile SVG icon", lang)" class="svgicon" /> }
                                                     else
-                                                    { <img src="~/desktopicon.svg" alt="Desktop SVG icon" class="svgicon" />}
-                                            </td>
-                                            <td>@m.Date</td>
-                                            <td>@m.OS</td>
-                                            <td>@m.IP</td>
-                                            <td>@m.Browser</td>
-                                            <td>@m.FullUserAgent</td>
-                                        </tr>
-                                    }
+                                                    { <img src="~/desktopicon.svg" alt="@Translate.Tr("Desktop SVG icon", lang)" class="svgicon" />}
+                                                </td>
+                                                <td>@m.Date</td>
+                                                <td>@m.OS</td>
+                                                <td>@m.IP</td>
+                                                <td>@m.Browser</td>
+                                                <td>@m.FullUserAgent</td>
+                                            </tr>
+                                        }
                                     </tbody>
                                 </table>
                             </div>
@@ -322,11 +322,11 @@
     </div>
     <!-- jQuery -->
     <!--<script src="~/js/jquery.min.js"></script>-->
-                                                            <!-- Bootstrap -->
-                                                            <script src="~/js/bootstrap.min.js"></script>
-                                                            <!-- NProgress -->
-                                                            <script src="~/js/nprogress.js"></script>
-                                                            <!-- Datatables -->
-                                                            <script src="~/js/custom.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- NProgress -->
+    <script src="~/js/nprogress.js"></script>
+    <!-- Datatables -->
+    <script src="~/js/custom.js"></script>
 </body>
 </html>

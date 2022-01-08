@@ -26,6 +26,7 @@ namespace GSTUWebSchedule_MVC.Controllers
     {
         private DbUsersContext dbUsers;
         private LastVisitsContext lastVisits;
+        private DbEmailCodesContext dbCodes;
         private IWebHostEnvironment webHostEnvironment;
         public AccountController(DbUsersContext context, LastVisitsContext context2, IWebHostEnvironment _webHostEnvironment)
         {
@@ -124,6 +125,10 @@ namespace GSTUWebSchedule_MVC.Controllers
                     TempData[currentvisit.Username + "_Role"] = user.Role;
                     //TempData.Keep();
 
+                    CookieOptions option = new CookieOptions();
+                    option.Expires = DateTime.Now.AddHours(12);
+                    Response.Cookies.Append("lang", user.Language, option);
+
                     return RedirectToAction("Index", "Home");
                 }
 
@@ -190,13 +195,42 @@ namespace GSTUWebSchedule_MVC.Controllers
                         Password = hashed,
                         Salt = Convert.ToBase64String(salt),
                         Email = model.Email,
+                        EmailConfirmed = false,
                         Name = model.Name,
                         Surname = model.Surname,
                         Middlename = model.Middlename,
                         RegisterTime = DateTime.Now,
+                        Language = "ru",
                         Approved = "false",
                         Role = "Creep"
                     };
+
+                    var codeModel = dbCodes.DbCodes.FirstOrDefault(m => m.Username == registeruser.Username);
+                    DateTime oldDate = new DateTime(621355968000100000);
+                    if (codeModel != null)
+                    {
+                        oldDate = codeModel.ConfirmationDate;
+                        dbCodes.Remove(codeModel);
+                        await dbCodes.SaveChangesAsync();
+                    }
+                    if (!registeruser.EmailConfirmed && (DateTime.Now - oldDate).TotalHours > 3)
+                    {
+                        string code = GetHashString(Guid.NewGuid().ToString() + registeruser.Username);
+                        codeModel = new EmailCodeModel();
+                        codeModel.EmailConfirmationCode = code;
+                        codeModel.ConfirmationDate = DateTime.Now;
+                        dbCodes.Add(codeModel);
+                        await dbCodes.SaveChangesAsync();
+
+                        await EmailService.SendEmailAsync(registeruser.Language, registeruser.Email, "Confirm your Email", "Welcome",
+                        registeruser.Name + " " + registeruser.Middlename,
+                        registeruser.Username,
+                        "Hello! Confirm your email address to make sure you entered it correctly again.",
+                        ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + "/Account/ConfirmEmail?code=" + code,
+                        "Confirm!",
+                        ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + Url.Content("~/Home/EntertainmentHeading"));
+                    }
+
                     dbUsers.DbUsers.Add(registeruser);
                     await dbUsers.SaveChangesAsync();
 
@@ -304,6 +338,14 @@ namespace GSTUWebSchedule_MVC.Controllers
 
                 Log("Your password has been changed! " + $"CurrentTime: {DateTime.Now}");
 
+                await EmailService.SendEmailAsync(user.Language, user.Email, "Your password has been changed!", "Ouch",
+                        user.Name + " " + user.Middlename,
+                        user.Username,
+                        "Hello! Your account password has been changed. If you have done this, then no action is required. If not, follow the link to reset it.",
+                        ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + "/Account/ResetPassword",
+                        "Reset now! It's an emergency!!1!",
+                        ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + Url.Content("~/Home/EntertainmentHeading"));
+
                 model.Error = "ok";
                 return View(model);
             }
@@ -341,7 +383,7 @@ namespace GSTUWebSchedule_MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ChangeLanguage(string lang)
+        public async Task<IActionResult> ChangeLanguage(string lang)
         {
             List<string> cultures = new List<string>() { "ru", "en" };
             if (!cultures.Contains(lang)) lang = "ru";
@@ -349,6 +391,16 @@ namespace GSTUWebSchedule_MVC.Controllers
             CookieOptions option = new CookieOptions();
             option.Expires = DateTime.Now.AddHours(12);
             Response.Cookies.Append("lang", lang, option);
+
+            var user = dbUsers.DbUsers.FirstOrDefault(m => m.Username == User.Identity.Name);
+            if (user != null)
+            {
+                user.Language = lang;
+                dbUsers.Update(user);
+                await dbUsers.SaveChangesAsync();
+            }
+
+            Log("Language was changed! Current: " + lang + ", Username: " + User.Identity.Name + ", CurrentTime: " + DateTime.Now.ToString());
 
             return RedirectToAction("Settings", "Account");
         }
@@ -372,6 +424,8 @@ namespace GSTUWebSchedule_MVC.Controllers
         public async Task<IActionResult> AdminPanel(string dataSend)
         {
             if (dataSend.Length <= 5) return RedirectToAction("Index", "Home");
+            string lang = "ru";
+            if (Request.Cookies.ContainsKey("lang")) lang = Request.Cookies["lang"];
 
             var user = dbUsers.DbUsers.FirstOrDefault(m => m.Username == User.Identity.Name);
             if (user != null && user.Role == "Ranged-Creep")
@@ -384,9 +438,22 @@ namespace GSTUWebSchedule_MVC.Controllers
                     if (thisuser.Role == "Ranged-Creep" || (thisuser.Approved == (miniSplited[1] == "1" ? "true" : "false") && thisuser.Role == (miniSplited[2] == "1" ? "Ranged-Creep" : "Creep"))) continue;
                     thisuser.Approved = miniSplited[1] == "1" ? "true" : "false";
                     thisuser.Role = miniSplited[2] == "1" ? "Ranged-Creep" : "Creep";
-                    dbUsers.Update(thisuser);
                     TempData.Remove(thisuser.Username + "_Role");
                     TempData[thisuser.Username + "_Role"] = thisuser.Role;
+
+                    if (thisuser.Approved == "true")
+                    {
+                        //You account has been activated
+                        await EmailService.SendEmailAsync(thisuser.Language, thisuser.Email, "Your account has been activated", "Welcome",
+                        thisuser.Name + " " + thisuser.Middlename,
+                        thisuser.Username,
+                        "Hello! Your account has just been activated, which means that you can safely start using the system to its fullest! Come in, look around, join - there is a button below!",
+                        ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()),
+                        "First login!",
+                        ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + Url.Content("~/Home/EntertainmentHeading"));
+                    }
+
+                    dbUsers.Update(thisuser);
                 }
 
                 await dbUsers.SaveChangesAsync();
@@ -395,6 +462,103 @@ namespace GSTUWebSchedule_MVC.Controllers
                 return View(model);
             }
             else return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail(string code)
+        {
+            if (code == null || code.Length <= 4) return RedirectToAction("Index", "Home");
+
+            var codeModel = dbCodes.DbCodes.FirstOrDefault(m => m.EmailConfirmationCode == code && (m.ConfirmationDate - DateTime.Now).TotalHours > 3);
+            if (codeModel == null) return RedirectToAction("Index", "Home");
+
+            var user = dbUsers.DbUsers.FirstOrDefault(m => m.Username == codeModel.Username && !m.EmailConfirmed);
+            if (user != null)
+            {
+                dbCodes.Remove(codeModel);
+                await dbCodes.SaveChangesAsync();
+
+                user.EmailConfirmed = true;
+                dbUsers.Update(user);
+                await dbUsers.SaveChangesAsync();
+
+                return View(new Tuple<string, string>(user.Username, user.Email));
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ResetPassword(string code)
+        {
+            ResetPasswordModel model = new ResetPasswordModel();
+            model.Case = 2;
+            if (code == null) return View(model);
+
+            var codeModel = dbCodes.DbCodes.FirstOrDefault(m => m.EmailChangePasswordCode == code);
+            if (codeModel != null) model.Case = 1;
+            return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword(ResetPasswordModel model)
+        {
+            model.Case = 2;
+
+            if ((model.Username == null && model.Email == null) || model.Username.Length <= 4 || model.Email.Length <= 2)
+            {
+                model.Error = "error";
+                return View(model);
+            }
+
+            DbUsersModel user = dbUsers.DbUsers.FirstOrDefault(m => m.Username == model.Username);
+            if (user == null)
+            {
+                user = dbUsers.DbUsers.FirstOrDefault(m => m.Email == model.Username);
+                if (user == null)
+                {
+                    model.Error = "error";
+                    return View(model);
+                }
+            }
+
+            var codeModel = dbCodes.DbCodes.FirstOrDefault(m => m.Username == user.Username && (DateTime.Now - m.ChangePasswordDate).TotalHours > 3);
+            if (codeModel == null)
+            {
+                string code = GetHashString(Guid.NewGuid().ToString() + user.Username);
+                codeModel = new EmailCodeModel();
+                codeModel.EmailChangePasswordCode = code;
+                codeModel.ChangePasswordDate = DateTime.Now;
+
+                dbUsers.Update(user);
+                await dbUsers.SaveChangesAsync();
+            }
+            else return RedirectToAction("Index", "Home");
+            
+            await EmailService.SendEmailAsync(user.Language, user.Email, "Confirm your Email", "Welcome",
+            user.Name + " " + user.Middlename,
+            user.Username,
+            "Hello! Confirm your email address to make sure you entered it correctly again.",
+            ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + "/Account/ResetPassword?code=" + codeModel.EmailChangePasswordCode,
+            "Confirm!",
+            ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + Url.Content("~/Home/EntertainmentHeading"));
+
+            model.Error = "ok";
+            return View(model);
+        }
+
+        public string GetHashString(string s)
+        {
+            byte[] bytes = Encoding.Unicode.GetBytes(s);
+            MD5CryptoServiceProvider CSP = new MD5CryptoServiceProvider();
+            byte[] byteHash = CSP.ComputeHash(bytes);
+            string hash = string.Empty;
+
+            foreach (byte b in byteHash) hash += string.Format("{0:x2}", b);
+
+            return hash;
         }
     }
 }
