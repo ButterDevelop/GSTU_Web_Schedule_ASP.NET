@@ -44,6 +44,7 @@ namespace GSTUWebSchedule_MVC.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            //Adding "default" model
             IndexModel model = new IndexModel();
             model.DbTable = dbTable.DbTable.Where(m => m.Username == User.Identity.Name);
             int subject = -1;
@@ -185,6 +186,7 @@ namespace GSTUWebSchedule_MVC.Controllers
         [HttpGet]
         public IActionResult Manage()
         {
+            //Adding "default" model
             var thisUserTable = dbTable.DbTable.Where(m => m.Username == User.Identity.Name);
             ManageTableModel model = new ManageTableModel() { DbTable = thisUserTable };
             return View(model);

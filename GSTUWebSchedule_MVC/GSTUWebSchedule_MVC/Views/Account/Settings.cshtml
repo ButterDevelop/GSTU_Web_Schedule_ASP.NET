@@ -148,7 +148,7 @@
 
                 <div class="row">
 
-                    <div class="col-sm-12 col-md-6 col-xs-12">
+                    <div class="col-sm-12 col-md-3 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
                                 <h2>@Translate.Tr("Change Password", lang)</h2>
@@ -186,6 +186,64 @@
                                                 </div>
                                             </div>
 
+                                            <input asp-for="Case" type="hidden" class="form-control" required="" value="ChangePassword" />
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <button id="ChangePasswordButton" class="btn btn-success" type="submit">@Translate.Tr("Change", lang)</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-3 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>@Translate.Tr("Change Email", lang)</h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <section class="login_content" style="margin: -40px 0 0 0;">
+                                    <form class="form-horizontal form-label-left input_mask" asp-action="Settings" asp-controller="Account" asp-anti-forgery="true">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                            @if (Model != null)
+                                            {
+                                                if (Model.ErrorEmail == "error")
+                                                {
+                                                    <div class="alert alert-danger" style="color: #721c24; border-color: #f5c6cb; background-color: #f8d7da; text-align: center;">@Translate.Tr("Something went wrong! Maybe your \"Password\" is wrong?", lang)</div>
+                                                }
+                                                else
+                                                if (Model.ErrorEmail == "ok")
+                                                {
+                                                    <div class="alert alert-dark" style="color: #1b1e21; background-color: #d6d8d9; border-color: #c6c8ca; text-align: center;" role="alert">@Translate.Tr("Your Email has been changed!", lang)</div>
+                                                }
+                                                else
+                                                if (Model.ErrorEmail == "timeout")
+                                                {
+                                                    <div class="alert alert-danger" style="color: #721c24; border-color: #f5c6cb; background-color: #f8d7da; text-align: center;" role="alert">@Translate.Tr("Not so fast! Too many requests! Time-out! Please try again later.", lang)</div>
+                                                }
+                                            }
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <input asp-for="Password" type="password" class="form-control" placeholder="@Translate.Tr("Password", lang)" minlength="6" maxlength="20" required="" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <input asp-for="NewEmail" type="email" class="form-control" placeholder="@Translate.Tr("New Email", lang)" minlength="6" required="" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <input type="email" class="form-control" required="" value="@Model.Email" disabled />
+                                                </div>
+                                            </div>
+
+                                            <input asp-for="Case" type="hidden" class="form-control" required="" value="Email" />
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                                     <button id="ChangePasswordButton" class="btn btn-success" type="submit">@Translate.Tr("Change", lang)</button>
@@ -320,8 +378,6 @@
             </div><!-- /page content -->
         </div>
     </div>
-    <!-- jQuery -->
-    <!--<script src="~/js/jquery.min.js"></script>-->
     <!-- Bootstrap -->
     <script src="~/js/bootstrap.min.js"></script>
     <!-- NProgress -->

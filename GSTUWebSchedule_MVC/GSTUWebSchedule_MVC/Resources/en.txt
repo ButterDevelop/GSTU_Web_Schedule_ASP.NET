@@ -110,3 +110,21 @@ Email confirmed
 Reset password
 Reset
 Something went wrong! Is the login or email exactly correct?
+Registration is now closed! Please try again later.
+Registration Open
+Registration Closed
+Your request has been accepted! Email sent!
+Not so fast! Too many requests! Time-out! Please try again later.
+Your password has been changed by "Reset password"! 
+Something went wrong! Are you sure you entered the correct passwords?
+Password recovery email has been sent! 
+Password recovery requested! 
+Email confirmed! 
+Or
+Change Email
+New Email
+Your Email has been changed!
+Something went wrong! Maybe your "Password" is wrong?
+Hello! Confirm your new email address to make sure you entered it correctly again.
+Confirm your new Email
+Welcome. Again.

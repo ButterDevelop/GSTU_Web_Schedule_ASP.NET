@@ -21,10 +21,5 @@ namespace GSTUWebSchedule_MVC.Models
         public string Error { get; set; }
 
         public int Case { get; set; }
-
-        public string NewPassword { get; set; }
-        public string NewPasswordConfirm { get; set; }
-
-        public string Code { get; set; }
     }
 }

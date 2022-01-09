@@ -14,7 +14,7 @@ namespace GSTUWebSchedule_MVC
     {
         public static async Task SendEmailAsync(string lang, string email, string subject, string firsttitle, string name, string username, string firstinfo, string firsthref, string firstbutton, string secondhref)
         {
-            return;
+            //return;
             try
             {
                 var emailMessage = new MimeMessage();
@@ -33,7 +33,7 @@ namespace GSTUWebSchedule_MVC
                 message = message.Replace("%SecondTitle%", Translate.Tr("Entertainment heading: random link", lang));
                 message = message.Replace("%SecondInfo%", Translate.Tr("To make the letter not so boring, in this heading you can test the strength of a stable cryptographic generator, and see where it takes you.", lang));
                 message = message.Replace("%SecondHref%", secondhref);
-                int rand = new Random(Guid.NewGuid().GetHashCode()).Next() % 1000000000;
+                int rand = new Random(Guid.NewGuid().GetHashCode()).Next() % 100000000;
                 message = message.Replace("%SecondButton%", Translate.Tr("Button #", lang) + rand.ToString());
 
                 string contentId = Guid.NewGuid().GetHashCode().ToString();//MimeUtils.GenerateMessageId();

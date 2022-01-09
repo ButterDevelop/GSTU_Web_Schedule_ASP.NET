@@ -17,12 +17,6 @@ namespace GSTUWebSchedule_MVC.Models
         [RegularExpression("^[a-zA-Z0-9._\\-@#]{4,15}$")]
         public string Username { get; set; }
 
-        [Required(ErrorMessage = "Не указан Email")]
-        [DataType(DataType.EmailAddress)]
-        [MinLength(2)]
-        [MaxLength(40)]
-        public string Email { get; set; }
-
         public string EmailConfirmationCode { get; set; }
         public DateTime ConfirmationDate { get; set; }
 

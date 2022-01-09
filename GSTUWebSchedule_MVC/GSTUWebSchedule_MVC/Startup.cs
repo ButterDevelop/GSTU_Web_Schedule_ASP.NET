@@ -9,11 +9,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.IO;
 
 namespace GSTUWebSchedule_MVC
 {
     public class Startup
     {
+        public static bool RegistrationOpen = true;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -45,6 +48,14 @@ namespace GSTUWebSchedule_MVC
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var path = Path.Combine(env.ContentRootPath, "RegistrationOpen.txt");
+            if (!File.Exists(path))
+            {
+                File.AppendAllText(path, "1");
+            }
+            var content = File.ReadAllText(path);
+            if (content == "1") RegistrationOpen = true; else RegistrationOpen = false;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

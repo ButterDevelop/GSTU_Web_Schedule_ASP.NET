@@ -28,10 +28,11 @@ namespace GSTUWebSchedule_MVC.Controllers
         private LastVisitsContext lastVisits;
         private DbEmailCodesContext dbCodes;
         private IWebHostEnvironment webHostEnvironment;
-        public AccountController(DbUsersContext context, LastVisitsContext context2, IWebHostEnvironment _webHostEnvironment)
+        public AccountController(DbUsersContext context, LastVisitsContext context2, DbEmailCodesContext context3, IWebHostEnvironment _webHostEnvironment)
         {
             dbUsers = context;
             lastVisits = context2;
+            dbCodes = context3;
             webHostEnvironment = _webHostEnvironment;
         }
 
@@ -77,7 +78,7 @@ namespace GSTUWebSchedule_MVC.Controllers
                 string hashed = "";
                 if (user != null)
                 {
-                    // derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
+                    //Derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
                     hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
                         password: model.Password,
                         salt: Convert.FromBase64String(user.Salt),
@@ -101,7 +102,7 @@ namespace GSTUWebSchedule_MVC.Controllers
                 user = await dbUsers.DbUsers.FirstOrDefaultAsync(u => u.Username == model.Username && u.Password == hashed);
                 if (user != null)
                 {
-                    await Authenticate(model.Username); // аутентификация
+                    await Authenticate(model.Username); //Аутентификация
 
                     var visits = lastVisits.DbTable.Where(m => m.Username == model.Username);
                     if (visits.Count(m => m.Username == model.Username) >= 10)
@@ -123,7 +124,6 @@ namespace GSTUWebSchedule_MVC.Controllers
                     CheckLogs(currentvisit.Username);
 
                     TempData[currentvisit.Username + "_Role"] = user.Role;
-                    //TempData.Keep();
 
                     CookieOptions option = new CookieOptions();
                     option.Expires = DateTime.Now.AddHours(12);
@@ -169,6 +169,8 @@ namespace GSTUWebSchedule_MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)
         {
+            if (!Startup.RegistrationOpen) return RedirectToAction("Register", "Account");
+
             if (ModelState.IsValid)
             {
                 DbUsersModel user = await dbUsers.DbUsers.FirstOrDefaultAsync(u => u.Username == model.Username || u.Email == model.Email);
@@ -196,6 +198,7 @@ namespace GSTUWebSchedule_MVC.Controllers
                         Salt = Convert.ToBase64String(salt),
                         Email = model.Email,
                         EmailConfirmed = false,
+                        LastEmailConfirmDate = DateTime.Now,
                         Name = model.Name,
                         Surname = model.Surname,
                         Middlename = model.Middlename,
@@ -219,6 +222,7 @@ namespace GSTUWebSchedule_MVC.Controllers
                         codeModel = new EmailCodeModel();
                         codeModel.EmailConfirmationCode = code;
                         codeModel.ConfirmationDate = DateTime.Now;
+                        codeModel.Username = registeruser.Username;
                         dbCodes.Add(codeModel);
                         await dbCodes.SaveChangesAsync();
 
@@ -254,14 +258,11 @@ namespace GSTUWebSchedule_MVC.Controllers
 
         private async Task Authenticate(string userName)
         {
-            // создаем один claim
             var claims = new List<Claim>
             {
                 new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
             };
-            // создаем объект ClaimsIdentity
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
-            // установка аутентификационных куки
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
 
@@ -276,9 +277,11 @@ namespace GSTUWebSchedule_MVC.Controllers
         [HttpGet]
         public IActionResult Settings()
         {
+            //Adding "default" model
             SettingsModel model = new SettingsModel();
             if (TempData[User.Identity.Name + "_ErrorLogs"] != null) { model.ErrorLogs = TempData[User.Identity.Name + "_ErrorLogs"].ToString(); }
             model.LastVisitsTable = lastVisits.DbTable.Where(m => m.Username == User.Identity.Name);
+            model.Email = dbUsers.DbUsers.FirstOrDefault(m => m.Username == User.Identity.Name).Email;
             return View(model);
         }
 
@@ -286,71 +289,151 @@ namespace GSTUWebSchedule_MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Settings(SettingsModel model)
         {
+            //Adding "default" model
             model.LastVisitsTable = lastVisits.DbTable.Where(m => m.Username == User.Identity.Name);
-            if (ModelState.IsValid && model.NewPassword == model.NewPasswordConfirm)
+            model.Email = dbUsers.DbUsers.FirstOrDefault(m => m.Username == User.Identity.Name).Email;
+            if (model.Case != "ChangePassword" && model.Case != "Email")
             {
-                DbUsersModel user = await dbUsers.DbUsers.FirstOrDefaultAsync(u => u.Username == User.Identity.Name);
+                model.Error = "error";
+                return View();
+            }
 
-                string hashed = "";
-                if (user != null)
+            if (model.Case == "ChangePassword")
+            {
+                //CHANGE PASSWORD
+                if (ModelState.IsValid && model.NewPassword == model.NewPasswordConfirm)
                 {
-                    // derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
+                    DbUsersModel user = await dbUsers.DbUsers.FirstOrDefaultAsync(u => u.Username == User.Identity.Name);
+
+                    string hashed = "";
+                    if (user != null)
+                    {
+                        // derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
+                        hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                            password: model.OldPassword,
+                            salt: Convert.FromBase64String(user.Salt),
+                            prf: KeyDerivationPrf.HMACSHA256,
+                            iterationCount: 100000,
+                            numBytesRequested: 256 / 8));
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Не нашлось такого пользователя!");
+                        model.Error = "error";
+                        return View(model);
+                    }
+
+                    if (user.Password != hashed)
+                    {
+                        ModelState.AddModelError("", "Некорректный пароль!");
+                        model.Error = "error";
+                        return View(model);
+                    }
+
+                    //Generate a 128-bit salt using a cryptographically strong random sequence of nonzero values
+                    byte[] salt = new byte[128 / 8];
+                    using (var rngCsp = new RNGCryptoServiceProvider())
+                    {
+                        rngCsp.GetNonZeroBytes(salt);
+                    }
+                    //Derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
                     hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                        password: model.OldPassword,
-                        salt: Convert.FromBase64String(user.Salt),
+                        password: model.NewPassword,
+                        salt: salt,
                         prf: KeyDerivationPrf.HMACSHA256,
                         iterationCount: 100000,
                         numBytesRequested: 256 / 8));
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Не нашлось такого пользователя!");
-                    model.Error = "error";
+
+                    //Updating user back to DB
+                    user.Password = hashed;
+                    user.Salt = Convert.ToBase64String(salt);
+                    dbUsers.Update(user);
+                    await dbUsers.SaveChangesAsync();
+
+                    Log("Your password has been changed! " + $"CurrentTime: {DateTime.Now}");
+
+                    await EmailService.SendEmailAsync(user.Language, user.Email, "Your password has been changed!", "Ouch",
+                            user.Name + " " + user.Middlename,
+                            user.Username,
+                            "Hello! Your account password has been changed. If you have done this, then no action is required. If not, follow the link to reset it.",
+                            ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + "/Account/ResetPassword",
+                            "Reset now! It's an emergency!!1!",
+                            ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + Url.Content("~/Home/EntertainmentHeading"));
+
+                    model.Error = "ok";
                     return View(model);
                 }
-
-                if (user.Password != hashed)
+                model.Error = "error";
+                return View(model);
+            } else
+            {
+                //EMAIL CHANGE
+                if (model.Password != null && model.Password.Length >= 6 && model.NewEmail != null && model.NewEmail.Length >= 2)
                 {
-                    ModelState.AddModelError("", "Некорректный пароль!");
-                    model.Error = "error";
-                    return View(model);
-                }
+                    DbUsersModel user = await dbUsers.DbUsers.FirstOrDefaultAsync(u => u.Username == User.Identity.Name);
 
-                //Generate a 128-bit salt using a cryptographically strong random sequence of nonzero values
-                byte[] salt = new byte[128 / 8];
-                using (var rngCsp = new RNGCryptoServiceProvider())
-                {
-                    rngCsp.GetNonZeroBytes(salt);
-                }
-                //Derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
-                hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                    password: model.NewPassword,
-                    salt: salt,
-                    prf: KeyDerivationPrf.HMACSHA256,
-                    iterationCount: 100000,
-                    numBytesRequested: 256 / 8));
+                    string hashed = "";
+                    if (user != null)
+                    {
+                        // derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
+                        hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                            password: model.Password,
+                            salt: Convert.FromBase64String(user.Salt),
+                            prf: KeyDerivationPrf.HMACSHA256,
+                            iterationCount: 100000,
+                            numBytesRequested: 256 / 8));
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Не нашлось такого пользователя!");
+                        model.ErrorEmail = "error";
+                        return View(model);
+                    }
 
-                //Updating user back to DB
-                user.Password = hashed;
-                user.Salt = Convert.ToBase64String(salt);
-                dbUsers.Update(user);
-                await dbUsers.SaveChangesAsync();
+                    if (user.Password != hashed)
+                    {
+                        ModelState.AddModelError("", "Некорректный пароль!");
+                        model.ErrorEmail = "error";
+                        return View(model);
+                    }
 
-                Log("Your password has been changed! " + $"CurrentTime: {DateTime.Now}");
+                    if ((DateTime.Now - user.LastEmailConfirmDate).TotalHours <= 3)
+                    {
+                        model.ErrorEmail = "timeout";
+                        return View(model);
+                    }
 
-                await EmailService.SendEmailAsync(user.Language, user.Email, "Your password has been changed!", "Ouch",
+                    string code = GetHashString(Guid.NewGuid().ToString() + user.Username);
+                    var codeModel = new EmailCodeModel();
+                    codeModel.EmailConfirmationCode = code;
+                    codeModel.ConfirmationDate = DateTime.Now;
+                    codeModel.Username = user.Username;
+                    dbCodes.Add(codeModel);
+                    await dbCodes.SaveChangesAsync();
+
+                    await EmailService.SendEmailAsync(user.Language, user.Email, "Confirm your new Email", "Welcome. Again.",
                         user.Name + " " + user.Middlename,
                         user.Username,
-                        "Hello! Your account password has been changed. If you have done this, then no action is required. If not, follow the link to reset it.",
-                        ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + "/Account/ResetPassword",
-                        "Reset now! It's an emergency!!1!",
+                        "Hello! Confirm your new email address to make sure you entered it correctly again.",
+                        ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + "/Account/ConfirmEmail?code=" + code,
+                        "Confirm!",
                         ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + Url.Content("~/Home/EntertainmentHeading"));
 
-                model.Error = "ok";
+                    user.LastEmailConfirmDate = DateTime.Now;
+                    user.Email = model.NewEmail;
+                    user.EmailConfirmed = false;
+                    dbUsers.Update(user);
+                    await dbUsers.SaveChangesAsync();
+
+                    Log("Your Email has been changed!" + $" CurrentTime: {DateTime.Now}, User: {User.Identity.Name}, OldEmail: {model.Email}, NewEmail: {model.NewEmail}");
+
+                    model.Email = model.NewEmail;
+                    model.NewEmail = "";
+                    model.ErrorEmail = "ok";
+                }
+                else model.ErrorEmail = "error";
                 return View(model);
             }
-            model.Error = "error";
-            return View(model);
         }
 
         [HttpPost]
@@ -421,9 +504,21 @@ namespace GSTUWebSchedule_MVC.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AdminPanel(string dataSend)
+        public async Task<IActionResult> AdminPanel(string dataSend, string dataRegistration)
         {
-            if (dataSend.Length <= 5) return RedirectToAction("Index", "Home");
+            if (dataRegistration == null || (dataRegistration != "open" && dataRegistration != "closed")) return RedirectToAction("AdminPanel", "Account");
+            bool registration = (dataRegistration == "open") ? true : false;
+            if (registration != Startup.RegistrationOpen)
+            {
+                Startup.RegistrationOpen = registration;
+                var path = Path.Combine(webHostEnvironment.ContentRootPath, "RegistrationOpen.txt");
+                if (!System.IO.File.Exists(path)) System.IO.File.Create(path);
+                System.IO.File.WriteAllText(path, registration ? "1" : "0");
+
+                Log((registration ? "Registration Open" : "Registration Closed") + $", CurrentTime: {DateTime.Now}" + $"Username: {User.Identity.Name}");
+            }
+
+            if (dataSend == null || dataSend.Length <= 5) return RedirectToAction("AdminPanel", "Account");
             string lang = "ru";
             if (Request.Cookies.ContainsKey("lang")) lang = Request.Cookies["lang"];
 
@@ -453,6 +548,7 @@ namespace GSTUWebSchedule_MVC.Controllers
                         ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + Url.Content("~/Home/EntertainmentHeading"));
                     }
 
+                    Log("Approved/Role changed: " + $"CurrentTime: {DateTime.Now}" + $"Username: {User.Identity.Name}, " + $"Object's nickname: {thisuser.Username}, approved: {thisuser.Approved}, role: {thisuser.Role}");
                     dbUsers.Update(thisuser);
                 }
 
@@ -461,7 +557,7 @@ namespace GSTUWebSchedule_MVC.Controllers
                 IEnumerable<DbUsersModel> model = dbUsers.DbUsers.Where(m => true);
                 return View(model);
             }
-            else return RedirectToAction("Index", "Home");
+            else return RedirectToAction("AdminPanel", "Account");
         }
 
         [HttpGet]
@@ -483,6 +579,8 @@ namespace GSTUWebSchedule_MVC.Controllers
                 dbUsers.Update(user);
                 await dbUsers.SaveChangesAsync();
 
+                Log("Email confirmed! " + $"CurrentTime: {DateTime.Now}" + $"Username: {user.Username}, " + $"Code: {codeModel.EmailConfirmationCode}", user.Username);
+
                 return View(new Tuple<string, string>(user.Username, user.Email));
             }
             return RedirectToAction("Index", "Home");
@@ -492,6 +590,7 @@ namespace GSTUWebSchedule_MVC.Controllers
         [AllowAnonymous]
         public IActionResult ResetPassword(string code)
         {
+            //Adding "default" model
             ResetPasswordModel model = new ResetPasswordModel();
             model.Case = 2;
             if (code == null) return View(model);
@@ -507,16 +606,16 @@ namespace GSTUWebSchedule_MVC.Controllers
         {
             model.Case = 2;
 
-            if ((model.Username == null && model.Email == null) || model.Username.Length <= 4 || model.Email.Length <= 2)
+            if ((model.Username == null && model.Email == null) || (model.Username != null && model.Username.Length <= 4) || (model.Email != null && model.Email.Length <= 2))
             {
                 model.Error = "error";
                 return View(model);
             }
 
-            DbUsersModel user = dbUsers.DbUsers.FirstOrDefault(m => m.Username == model.Username);
+            DbUsersModel user = dbUsers.DbUsers.FirstOrDefault(m => (m.Username == model.Username || m.Email == model.Email) && m.Approved == "true" && m.EmailConfirmed);
             if (user == null)
             {
-                user = dbUsers.DbUsers.FirstOrDefault(m => m.Email == model.Username);
+                user = dbUsers.DbUsers.FirstOrDefault(m => m.Email == model.Username && m.Approved == "true" && m.EmailConfirmed);
                 if (user == null)
                 {
                     model.Error = "error";
@@ -524,28 +623,91 @@ namespace GSTUWebSchedule_MVC.Controllers
                 }
             }
 
-            var codeModel = dbCodes.DbCodes.FirstOrDefault(m => m.Username == user.Username && (DateTime.Now - m.ChangePasswordDate).TotalHours > 3);
+            bool NEW = false;
+            var codeModel = dbCodes.DbCodes.FirstOrDefault(m => m.Username == user.Username);
+            if (codeModel != null && (DateTime.Now - codeModel.ChangePasswordDate).TotalHours <= 3)
+            {
+                model.Error = "timeout";
+                return View(model);
+            }
             if (codeModel == null)
             {
                 string code = GetHashString(Guid.NewGuid().ToString() + user.Username);
                 codeModel = new EmailCodeModel();
                 codeModel.EmailChangePasswordCode = code;
                 codeModel.ChangePasswordDate = DateTime.Now;
+                codeModel.Username = user.Username;
+                NEW = true;
 
-                dbUsers.Update(user);
-                await dbUsers.SaveChangesAsync();
+                dbCodes.Add(codeModel);
+                await dbCodes.SaveChangesAsync();
             }
-            else return RedirectToAction("Index", "Home");
-            
-            await EmailService.SendEmailAsync(user.Language, user.Email, "Confirm your Email", "Welcome",
-            user.Name + " " + user.Middlename,
-            user.Username,
-            "Hello! Confirm your email address to make sure you entered it correctly again.",
-            ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + "/Account/ResetPassword?code=" + codeModel.EmailChangePasswordCode,
-            "Confirm!",
-            ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + Url.Content("~/Home/EntertainmentHeading"));
+
+            Log("Password recovery requested! " + $"CurrentTime: {DateTime.Now}" + $", Username: {user.Username}, " + $"Code: {codeModel.EmailChangePasswordCode}, " + $"NEW: {NEW}", user.Username);
+
+            if (NEW || (codeModel != null && (DateTime.Now - codeModel.ChangePasswordDate).TotalHours > 3))
+            {
+                await EmailService.SendEmailAsync(user.Language, user.Email, "Confirm your Email", "Welcome",
+                user.Name + " " + user.Middlename,
+                user.Username,
+                "Hello! Confirm your email address to make sure you entered it correctly again.",
+                ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + "/Account/ResetPassword?code=" + codeModel.EmailChangePasswordCode,
+                "Confirm!",
+                ((Request.Host.Host.StartsWith("http://") || Request.Host.Host.StartsWith("https://")) ? "" : "https://") + Request.Host.Host + (Request.Host.Port == 80 ? "" : ":" + Request.Host.Port.ToString()) + Url.Content("~/Home/EntertainmentHeading"));
+
+                Log("Password recovery email has been sent! " + $"CurrentTime: {DateTime.Now}" + $", Username: {user.Username}, " + $"Code: " + codeModel.EmailChangePasswordCode, user.Username);
+            }
 
             model.Error = "ok";
+            return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPasswordExact(ResetPasswordExactModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.NewPassword != model.NewPasswordConfirm)
+                {
+                    model.Error = "error";
+                    return View(model);
+                }
+
+                var codeModel = dbCodes.DbCodes.FirstOrDefault(m => m.EmailChangePasswordCode == model.Code);
+                var user = dbUsers.DbUsers.FirstOrDefault(m => m.Username == codeModel.Username);
+                if (codeModel == null)
+                {
+                    model.Error = "error";
+                    return View(model);
+                }
+                dbCodes.Remove(codeModel);
+                await dbCodes.SaveChangesAsync();
+
+                //Generate a 128-bit salt using a cryptographically strong random sequence of nonzero values
+                byte[] salt = new byte[128 / 8];
+                using (var rngCsp = new RNGCryptoServiceProvider())
+                {
+                    rngCsp.GetNonZeroBytes(salt);
+                }
+                //Derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
+                string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                    password: model.NewPassword,
+                    salt: salt,
+                    prf: KeyDerivationPrf.HMACSHA256,
+                    iterationCount: 100000,
+                    numBytesRequested: 256 / 8));
+
+                //Updating user back to DB
+                user.Password = hashed;
+                user.Salt = Convert.ToBase64String(salt);
+                dbUsers.Update(user);
+                await dbUsers.SaveChangesAsync();
+
+                Log("Your password has been changed by \"Reset password\"! " + $"CurrentTime: {DateTime.Now}" + $"Username: {user.Username}", user.Username);
+
+                model.Error = "ok";
+            }
             return View(model);
         }
 

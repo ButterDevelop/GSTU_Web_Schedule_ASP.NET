@@ -38,6 +38,9 @@
         body {
             padding-right: 0 !important;
         }
+        .myborderradius {
+            border-radius: 3px !important;
+        }
     </style>
 
     <!-- Font Awesome 2 -->
@@ -95,6 +98,7 @@
                                     <!-- "Save Changes" form -->
                                     <form class="form-horizontal form-label-left input_mask" onsubmit="return OnSubmitFunction();" asp-action="AdminPanel" asp-controller="Account" asp-anti-forgery="true" method="post">
                                         <input type="hidden" id="dataSend" name="dataSend" value="">
+                                        <input type="hidden" id="dataRegistration" name="dataRegistration" value="">
                                         <button class="btn btn-success" type="submit">@Translate.Tr("Save changes", lang)</button>
                                     </form>
                                 </div>
@@ -105,6 +109,25 @@
                 </div>
 
                 <div class="row">
+                    <div class="col-sm-2 col-md-2 col-xs-2">
+                        <div class="x_panel">
+                            <div class="col-sm-12 col-md-12 col-xs-12">
+                                <select id="select" class="form-control myborderradius">
+                                    @if (Startup.RegistrationOpen)
+                                    {
+                                        <option style="color: #1e947b;" value="open">@Translate.Tr("Registration Open", lang)</option>
+                                        <option style="color: darkred;" value="closed">@Translate.Tr("Registration Closed", lang)</option>
+                                    }
+                                    else
+                                    {
+                                        <option style="color: darkred;" value="closed">@Translate.Tr("Registration Closed", lang)</option>
+                                        <option style="color: #1e947b;" value="open">@Translate.Tr("Registration Open", lang)</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-sm-12 col-md-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_content">
@@ -137,7 +160,7 @@
                                                         <td><b>@a.Surname</b></td>
                                                         <td><b>@a.Middlename</b></td>
                                                         <td><b>@a.RegisterTime</b></td>
-                                                        @{ 
+                                                        @{
                                                             string checked1 = "", checked2 = "", disabled1 = "", disabled2 = "";
                                                             int kol1 = 0, kol2 = 0;
                                                             checked1 = a.Approved == "true" ? "checked" : "";
@@ -193,6 +216,21 @@
         let oldRole = [@for (int i = 0; i < Model.Count() - 1; i++) { <text>@Html.Raw("\"")@(Model.ToArray()[i].Role == "Ranged-Creep" ? "1" : "0")@Html.Raw("\", ")</text> } @{<text>@Html.Raw("\"")@(Model.ToArray()[Model.Count() - 1].Role == "Ranged-Creep" ? "1" : "0")@Html.Raw("\"")</text>}];
         $(document).ready(function () {
             $("#datatable").DataTable().rows().invalidate();
+
+            var current = $('#select').val();
+            if (current == 'open') {
+                $('#select').css('color', '#1e947b');
+            } else {
+                $('#select').css('color', 'darkred');
+            }
+            $('#select').change(function () {
+                var current = $('#select').val();
+                if (current == 'open') {
+                    $('#select').css('color', '#1e947b');
+                } else {
+                    $('#select').css('color', 'darkred');
+                }
+            }); 
         });
 
         function CheckBoxClicked(id) {
@@ -216,7 +254,8 @@
                     stringSend += window.btoa(unescape(encodeURIComponent(dataName[i]))) + "_" + dataApproved[i] + "_" + dataRole[i] + " ";
                 }
             }
-            if (stringSend.length == 0) return false;
+            document.getElementById("dataRegistration").value = document.getElementById("select").value;
+            //if (stringSend.length == 0) return false;
             document.getElementById("dataSend").value = stringSend.substring(0, stringSend.length - 1);
             return true;
         }

@@ -30,6 +30,7 @@ namespace GSTUWebSchedule_MVC.Models
 
         public bool EmailConfirmed { get; set; }
 
+        public DateTime LastEmailConfirmDate { get; set; }
 
         [Required(ErrorMessage = "Не указано имя")]
         [MinLength(2)]
