@@ -114,7 +114,7 @@ namespace GSTUWebSchedule_MVC.Controllers
                     var userAgent = HttpContext.Request.Headers["User-Agent"];
                     var uaParser = Parser.GetDefault();
                     ClientInfo c = uaParser.Parse(userAgent);
-                    var currentvisit = new LastVisitsModel() { Username = model.Username, Date = DateTime.Now, FullUserAgent = c.String, OS = c.OS.ToString(), Browser = c.UA.ToString(), IP = HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString(), isMobile = fBrowserIsMobile(c.String) };
+                    var currentvisit = new LastVisitsModel() { Username = model.Username, Date = DateTime.Now, FullUserAgent = c.String, OS = c.OS.ToString(), Browser = c.UA.ToString(), IP = Request.HttpContext.Connection.RemoteIpAddress.ToString(), isMobile = fBrowserIsMobile(c.String) };
                     lastVisits.Add(currentvisit);
 
                     await lastVisits.SaveChangesAsync();

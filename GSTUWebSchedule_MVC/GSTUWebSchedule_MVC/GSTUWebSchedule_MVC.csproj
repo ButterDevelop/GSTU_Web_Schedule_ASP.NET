@@ -9,6 +9,7 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <PackageProjectUrl>https://edu.gstu.by</PackageProjectUrl>
     <Copyright>Copyright © ButterDevelop</Copyright>
+    <UserSecretsId>517abe30-04d4-4bab-8a59-1dfc41cec94b</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

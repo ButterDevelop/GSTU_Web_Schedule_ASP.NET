@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\inetpub\wwwroot\GSTUWebSchedule_www</_PublishTargetUrl>
+    <History>True|2022-01-09T20:30:57.3889913Z;True|2022-01-09T23:26:30.9520899+03:00;True|2022-01-09T23:14:36.4272153+03:00;False|2022-01-09T22:18:03.5344628+03:00;False|2022-01-09T22:17:30.8782137+03:00;True|2022-01-09T21:27:14.7643716+03:00;True|2022-01-09T20:42:21.5657389+03:00;</History>
+  </PropertyGroup>
+</Project>

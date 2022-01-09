@@ -104,7 +104,7 @@
                             <ul class="nav side-menu">
 
                                 <li>
-                                    <a href="/Home/Index"><i class="fa fa-table"></i>@Translate.Tr("Logs", lang)</a>
+                                    <a href="/Home/Index"><i class="fa fa-table"></i>@Translate.Tr("Tables", lang)</a>
                                 </li>
                                 <li>
                                     <a href="/Home/Manage"><i class="fa fa-server"></i>@Translate.Tr("Tables control", lang)</a>
@@ -311,8 +311,15 @@
                                                 <div class="row">
                                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                                         <select name="lang" class="form-control myborderradius">
-                                                            <option value="en">English</option>
-                                                            <option value="ru">Русский</option>
+                                                            @if (lang == "en")
+                                                            {
+                                                                <option value="en">English</option>
+                                                                <option value="ru">Русский</option>
+                                                            } else
+                                                            {
+                                                                <option value="ru">Русский</option>
+                                                                <option value="en">English</option>
+                                                            }
                                                         </select>
                                                     </div>
                                                 </div>

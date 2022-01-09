@@ -166,3 +166,4 @@ D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin
 D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Account\ConfirmEmail.cshtml.g.cs
 D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Account\ResetPassword.cshtml.g.cs
 D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\obj\Debug\net5.0\Razor\Views\Account\ResetPasswordExact.cshtml.g.cs
+D:\MaXiMAA\MaXiMAAOld\C#Готово\GSTUWebSchedule_MVC\GSTUWebSchedule_MVC\bin\Debug\net5.0\Web.IISProfile.config
