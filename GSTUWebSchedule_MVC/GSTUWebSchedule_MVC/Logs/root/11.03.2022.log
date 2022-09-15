@@ -1,0 +1,37 @@
+[11.03.2022 13:42:41] Login was initiated! Username: root, Date: 11.03.2022 13:42:41, FullUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0, OS: Windows 10, Browser: Firefox 78.0, IP: 127.0.0.1, isMobile: False
+[11.03.2022 13:54:47] Login was initiated! Username: root, Date: 11.03.2022 13:54:47, FullUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36, OS: Windows 10, Browser: Chrome 98.0.4758, IP: ::1, isMobile: False
+[11.03.2022 14:00:32] New table was added! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem. 2 sub., CurrentTime: 11.03.2022 14:00:32
+[11.03.2022 14:00:41] Table was saved! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem. 2 sub., CurrentTime: 11.03.2022 14:00:41, EditInfo: 
+	2 2:
+		Labs: 0----------
+		Reports: 0------0---
+		Defences: 0----------
+
+[11.03.2022 14:09:59] Table was saved! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem. 2 sub., CurrentTime: 11.03.2022 14:09:59, EditInfo: 
+	2 2:
+		Labs: -0---------
+		Reports: -0---------
+		Defences: -0---------
+	2 2:
+		Labs: 0----------
+		Reports: 0----------
+		Defences: 0----------
+
+[11.03.2022 14:39:49] Editing table failed! Wrong number of student! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 11.03.2022 14:39:49
+[11.03.2022 14:44:02] Editing table failed! Wrong number of student! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 11.03.2022 14:44:02
+[11.03.2022 14:49:59] Editing table failed! Wrong number of student! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 11.03.2022 14:49:59
+[11.03.2022 14:51:32] New table was added! Subject: ОАиП, Group: ИП-11 (2021/2022) I-II sem. 1 sub., CurrentTime: 11.03.2022 14:51:32
+[11.03.2022 14:51:59] Table was saved! Subject: ОАиП, Group: ИП-11 (2021/2022) I-II sem. 1 sub., CurrentTime: 11.03.2022 14:51:59, EditInfo: 
+	Ёжиков Илья:
+		Labs: 00000000000
+		Reports: 00000000000
+		Defences: 00000000000
+
+[11.03.2022 14:52:54] Editing table was successful! Subject: ОАиП, Group: ИП-11 (2021/2022) I-II sem. 1 sub., CurrentTime: 11.03.2022 14:52:54, ManageInfo: 
+	New: 'Сидоренко Даниил'
+
+[11.03.2022 14:53:16] Editing table failed! Wrong number of student! Subject: ОАиП, Group: ИП-11 (2021/2022) I-II sem. 1 sub., CurrentTime: 11.03.2022 14:53:16
+[11.03.2022 14:53:32] Editing table failed! Wrong number of student! Subject: ОАиП, Group: ИП-11 (2021/2022) I-II sem. 1 sub., CurrentTime: 11.03.2022 14:53:32
+[11.03.2022 14:53:54] Editing table was successful! Subject: ОАиП, Group: ИП-11 (2021/2022) I-II sem. 1 sub., CurrentTime: 11.03.2022 14:53:54, ManageInfo: 
+	Delete: 'Сидоренко Даниил'
+

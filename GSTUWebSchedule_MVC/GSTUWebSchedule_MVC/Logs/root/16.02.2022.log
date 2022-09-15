@@ -1,0 +1,89 @@
+[16.02.2022 8:39:59] Your account has been registered! Username: root, RegisterTime: 16.02.2022 8:39:57
+[16.02.2022 8:40:59] Login was initiated! Username: root, Date: 16.02.2022 8:40:59, FullUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0, OS: Windows 10, Browser: Firefox 78.0, IP: ::1, isMobile: False
+[16.02.2022 8:59:52] Get Log was initiated! CurrentTime: 16.02.2022 8:59:52
+[16.02.2022 9:03:15] Language was changed! Current: en, Username: root, CurrentTime: 16.02.2022 9:03:15
+[16.02.2022 9:03:38] Logout was initiated! CurrentTime: 16.02.2022 9:03:38
+[16.02.2022 9:03:47] Login was initiated! Username: root, Date: 16.02.2022 9:03:47, FullUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36, OS: Windows 10, Browser: Chrome 98.0.4758, IP: ::1, isMobile: False
+[16.02.2022 9:03:57] Registration Closed, CurrentTime: 16.02.2022 9:03:57Username: root
+[16.02.2022 9:04:00] Registration Open, CurrentTime: 16.02.2022 9:04:00Username: root
+[16.02.2022 9:06:20] New table was added! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 16.02.2022 9:06:20
+[16.02.2022 9:06:27] Language was changed! Current: ru, Username: root, CurrentTime: 16.02.2022 9:06:27
+[16.02.2022 9:13:05] Table was saved! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 16.02.2022 9:13:05, EditInfo: 
+	1 1:
+		Labs: 00-----
+		Reports: 00-----
+		Defences: 0------
+
+[16.02.2022 9:13:48] Table was saved! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 16.02.2022 9:13:48, EditInfo: 
+	1 1:
+		Labs: --00000
+		Reports: --00000
+		Defences: -000000
+
+[16.02.2022 9:20:00] Language was changed! Current: en, Username: root, CurrentTime: 16.02.2022 9:20:00
+[16.02.2022 9:20:10] Language was changed! Current: ru, Username: root, CurrentTime: 16.02.2022 9:20:10
+[16.02.2022 9:21:02] New table was added! Subject: ОАиП, Group: ИП-11 (2021/2022) I sem., CurrentTime: 16.02.2022 9:21:02
+[16.02.2022 9:21:22] New table was NOT added! That group is already exist! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 16.02.2022 9:21:22
+[16.02.2022 9:21:41] Table was deleted! Subject: ОАиП, Group: ИП-11 (2021/2022) I sem., CurrentTime: 16.02.2022 9:21:41
+[16.02.2022 9:21:59] Table was saved! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 16.02.2022 9:21:59, EditInfo: 
+	10 10:
+		Labs: 0------
+		Reports: 00-----
+		Defences: 0------
+	2 2:
+		Labs: ---0---
+	3 3:
+		Labs: ----0--
+		Reports: ----0--
+		Defences: ----0--
+
+[16.02.2022 9:22:35] Table was saved! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 16.02.2022 9:22:35, EditInfo: 
+	10 10:
+		Labs: -000000
+		Reports: --00000
+		Defences: -000000
+	3 3:
+		Labs: 0------
+	4 4:
+		Labs: -0-----
+
+[16.02.2022 9:23:03] Table was saved! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 16.02.2022 9:23:03, EditInfo: 
+	6 6:
+		Labs: 0------
+
+[16.02.2022 9:23:38] Editing table was successful! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 16.02.2022 9:23:38, ManageInfo: 
+	Delete: '10 10'
+	Delete: '3 3'
+	Delete: '6 6'
+
+[16.02.2022 9:23:51] Editing table was successful! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 16.02.2022 9:23:51, ManageInfo: 
+	Delete: '2 2'
+	Delete: '4 4'
+	Delete: '5 5'
+	Delete: '7 7'
+	Delete: '8 8'
+	Delete: '9 9'
+
+[16.02.2022 9:28:04] Editing table was successful! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 16.02.2022 9:28:04, ManageInfo: 
+	New: '2 2'
+	New: '2 2'
+	New: '2 2'
+	New: '2 2'
+	New: '2 2'
+	New: '2 2'
+
+[16.02.2022 9:28:10] Editing table was successful! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 16.02.2022 9:28:10, ManageInfo: 
+	Delete: '2 2'
+	Delete: '2 2'
+	Delete: '2 2'
+
+[16.02.2022 9:28:33] Table was saved! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 16.02.2022 9:28:33, EditInfo: 
+	2 2:
+		Labs: 0------
+
+[16.02.2022 9:28:52] Table was saved! Subject: ОАиП, Group: ИП-11 (2021/2022) II sem., CurrentTime: 16.02.2022 9:28:52, EditInfo: 
+	2 2:
+		Labs: -000000
+		Reports: 0000000
+		Defences: 0000000
+

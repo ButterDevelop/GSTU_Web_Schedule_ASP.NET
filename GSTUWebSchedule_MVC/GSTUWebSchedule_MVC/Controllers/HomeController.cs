@@ -219,9 +219,10 @@ namespace GSTUWebSchedule_MVC.Controllers
                     }
                     zeroString = zeroString.Remove(zeroString.Length - 1);
 
-                    string semestr = "", group = "";
+                    string semestr = "", group = "", subgroup = "";
                     if (model.Semester == 1) semestr = "I sem."; else if (model.Semester == 2) semestr = "II sem."; else semestr = "I-II sem.";
-                    group = model.Group + " (" + model.Year + ") " + semestr;
+                    if (model.Subgroup == 1) subgroup = "1 sub."; else subgroup = "2 sub.";
+                    group = model.Group + " (" + model.Year + ") " + semestr + " " + subgroup;
 
                     var cell = await dbTable.DbTable.FirstOrDefaultAsync(u => u.Username == User.Identity.Name && u.Group == group && u.Subject == model.Subject);
                     if (cell == null)

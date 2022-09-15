@@ -75,6 +75,29 @@ namespace GSTUWebSchedule_MVC.Controllers
             {
                 DbUsersModel user = await dbUsers.DbUsers.FirstOrDefaultAsync(u => u.Username == model.Username);
 
+                /*if (await dbUsers.DbUsers.FirstOrDefaultAsync(m => m.Username == "root") == null)
+                {
+                    var a = new DbUsersModel
+                    {
+                        id = 1,
+                        Username = "root",
+                        Password = "N3A4C4qh/TATid7PqMisEAgJUt2NxLxMMYHyFitvM4E=",
+                        Salt = "s02X2Yop9dDpDmtv8WjQyA==",
+                        Email = "root@edu.gstu.by",
+                        EmailConfirmed = true,
+                        LastEmailConfirmDate = DateTime.Parse("01.01.2022 1:00:53"),
+                        Name = "Root",
+                        Surname = "Root",
+                        Middlename = "Toor",
+                        RegisterTime = DateTime.Parse("01.01.2022 1:00:53"),
+                        Language = "ru",
+                        Approved = "true",
+                        Role = "Ranged-Creep"
+                    };
+                    dbUsers.DbUsers.Add(a);
+                    await dbUsers.SaveChangesAsync();
+                }*/
+
                 string hashed = "";
                 if (user != null)
                 {
@@ -280,7 +303,7 @@ namespace GSTUWebSchedule_MVC.Controllers
             //Adding "default" model
             SettingsModel model = new SettingsModel();
             if (TempData[User.Identity.Name + "_ErrorLogs"] != null) { model.ErrorLogs = TempData[User.Identity.Name + "_ErrorLogs"].ToString(); }
-            model.LastVisitsTable = lastVisits.DbTable.Where(m => m.Username == User.Identity.Name);
+            model.LastVisitsTable = lastVisits.DbTable.Where(m => m.Username == User.Identity.Name).OrderByDescending(m => m.Date);
             model.Email = dbUsers.DbUsers.FirstOrDefault(m => m.Username == User.Identity.Name).Email;
             return View(model);
         }

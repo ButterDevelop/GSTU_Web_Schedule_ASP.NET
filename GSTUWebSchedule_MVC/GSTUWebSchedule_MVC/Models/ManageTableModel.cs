@@ -31,6 +31,9 @@ namespace GSTUWebSchedule_MVC.Models
         [Range(1, 3)]
         public int Semester { get; set; }
 
+        [Range(1, 2)]
+        public int Subgroup { get; set; }
+
         [Range(1, 540)]
         public int NumberOfLabs { get; set; }
 

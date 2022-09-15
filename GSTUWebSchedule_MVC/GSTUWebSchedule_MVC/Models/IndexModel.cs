@@ -8,8 +8,8 @@ namespace GSTUWebSchedule_MVC.Models
 {
     public class Subjects
     {
-        public const int size = 5;
-        public static string[] constArray = new string[size] { "ОАиП", "ОВП", "МА", "МЛ", "АГиЛА" };
+        public const int size = 7;
+        public static string[] constArray = new string[size] { "ОАиП", "ОВП", "МА", "МЛ", "АГиЛА", "Программирование", "Python" };
     }
     public class IndexModel
     {

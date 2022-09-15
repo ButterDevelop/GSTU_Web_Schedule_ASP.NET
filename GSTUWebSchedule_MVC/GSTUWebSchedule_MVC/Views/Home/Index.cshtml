@@ -171,7 +171,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-12 col-md-@Size col-xs-@Size">
+                    <div class="col-sm-12 col-md-@Size col-xs-12">
                         @if (Model.Case)
                         {<div class="x_panel"><h3><i class="far fa-folder-open ic-w mx-1"></i> @Subjects.constArray[Model.DbTable.ToArray()[0].Subject] &nbsp;<i class="fas fa-angle-right"></i>&nbsp; @Model.DbTable.ToArray()[0].Group </h3></div>}
                         <div class="x_panel">
@@ -322,10 +322,13 @@
                     //Init Attestation
                     for (let j = 0; j @Html.Raw("<") @Model.DbTable.ToArray()[0].Students.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray().Length; j++) {
                         var att = 0;
-                        for (let i = 0; i @Html.Raw("<") @Model.DbTable.ToArray()[0].NumberOfLabs; i++)
-                            if (document.getElementById("Lab-" + j + "_" + i).checked && document.getElementById("Report-" + j + "_" + i).checked && document.getElementById("Defence-" + j + "_" + i).checked) att++;
+                        for (let i = 0; i @Html.Raw("<") @Model.DbTable.ToArray()[0].NumberOfLabs; i++) {
+                            att += document.getElementById("Lab-" + j + "_" + i).checked ? 1 : 0;
+                            att += document.getElementById("Report-" + j + "_" + i).checked ? 1 : 0;
+                            att += document.getElementById("Defence-" + j + "_" + i).checked ? 1 : 0;
+                        }
 
-                        var myfloat = (att * 10 / @Model.DbTable.ToArray()[0].NumberOfLabs).toFixed(3);
+                        var myfloat = (att * 10 / (@Model.DbTable.ToArray()[0].NumberOfLabs * 3)).toFixed(3);
                         var element = document.getElementById("attestation_" + j);
                         element.innerHTML = myfloat;
                         if (myfloat == 0) element.style.color = "red"; else
@@ -408,10 +411,13 @@
                 dataDefences[index1] = dataDefences[index1].join('');
 
                 var att = 0;
-                for (let i = 0; i @Html.Raw("<") @Model.DbTable.ToArray()[0].NumberOfLabs; i++)
-                    if (document.getElementById("Lab-" + index1 + "_" + i).checked && document.getElementById("Report-" + index1 + "_" + i).checked && document.getElementById("Defence-" + index1 + "_" + i).checked) att++;
+                for (let i = 0; i @Html.Raw("<") @Model.DbTable.ToArray()[0].NumberOfLabs; i++) {
+                    att += document.getElementById("Lab-" + index1 + "_" + i).checked ? 1 : 0;
+                    att += document.getElementById("Report-" + index1 + "_" + i).checked ? 1 : 0;
+                    att += document.getElementById("Defence-" + index1 + "_" + i).checked ? 1 : 0;
+                }
 
-                var myfloat = (att * 10 / @Model.DbTable.ToArray()[0].NumberOfLabs).toFixed(3);
+                var myfloat = (att * 10 / (@Model.DbTable.ToArray()[0].NumberOfLabs * 3)).toFixed(3);
                 var element = document.getElementById("attestation_" + index1);
                 element.innerHTML = myfloat;
                 if (myfloat == 0) element.style.color = "red"; else

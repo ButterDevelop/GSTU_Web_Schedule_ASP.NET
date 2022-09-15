@@ -34,6 +34,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_WebToolingArtifacts Remove="Properties\PublishProfiles\site1.PublishSettings" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Views\_ViewImports.cshtml" />
   </ItemGroup>
 
