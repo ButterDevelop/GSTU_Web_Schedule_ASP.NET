@@ -1,6 +1,8 @@
 # GSTU Web Schedule ASP.NET 2021 (begin of 2022)
 *GSTU_Web_Schedule_ASP.NET*
 
+*.NET 5.0*
+
 ## Maxim Lyutikov
 Project for my university: [**Sukhoi State Technical University of Gomel (GSTU)**](https://en.gstu.by)
 
